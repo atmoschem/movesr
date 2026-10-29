@@ -172,19 +172,42 @@ maintenance programs) with emission rates by operating mode, and
 produces either inventories or rate tables. EPA guidance allows MOVES to
 be run in ``rates'' mode so that its output, in grams per mile, per
 start or per vehicle, can be multiplied by activity in an external model
-(U.S. Environmental Protection Agency, 2026b).
+(U.S. Environmental Protection Agency, 2026b). The structure and content
+of the MOVES input data are described by Koupal et al. (2014).
+
+Several groups have reduced the cost of using MOVES in large
+applications. Wu et al. (2014) and Liu (2015) built rate databases from
+MOVES runs for site-specific and regional analyses. MOVES-Matrix runs
+MOVES over grids of inputs on distributed computers and stores the
+resulting rates for lookup (Liu et al., 2019, 2017), and was later
+extended to engine starts, soak, evaporative and truck hotelling
+emissions (Xu et al., 2018). These approaches still need MOVES to
+produce every rate; a combination of inputs outside the stored grid
+requires new MOVES runs.
 
 VEIN is an R package for vehicular emission inventories
-(Ibarra-Espinosa, 2026a; Ibarra-Espinosa et al., 2018). It already reads
-MOVES rate tables, but producing those tables still requires MOVES
-itself. MOVES6 is a Java application that stores every intermediate
-table in MariaDB, delegates parts of the computation to programs written
-in Go, and needs the complete default database to be installed. A single
-run for three counties, two hours and all source types took close to an
-hour on our workstation with one worker (Section \ref{sec:time}). For an
-inventory with many counties, months and hours this is a practical
-limit, and the dependency stack makes it hard to run MOVES inside other
-modelling systems or to inspect intermediate results.
+(Ibarra-Espinosa, 2026a; Ibarra-Espinosa et al., 2018b), and eixport
+passes its emissions to atmospheric models (Ibarra-Espinosa et al.,
+2018a). VEIN has been used, for example, to model ozone and NOx in São
+Paulo street canyons (Gavidia-Calderón et al., 2021). Related work by
+the author covers tunnel measurements of emission factors in São Paulo
+(Nogueira et al., 2021), a century of vehicular emissions in Brazil and
+their effect on air quality (Ibarra-Espinosa et al., 2026), the effect
+of evaporative emission controls on ozone (Ibarra-Espinosa et al.,
+2022), high emitters in Ecuador's inspection and maintenance program
+(Ibarra-Espinosa et al., 2025), the spatial disaggregation of vehicular
+inventories (Meotti et al., 2025), and WRF-Chem simulations of Brazilian
+cities (Schuch et al., 2026).
+
+VEIN already reads MOVES rate tables, but producing those tables still
+requires MOVES itself. MOVES6 is a Java application that stores every
+intermediate table in MariaDB, delegates parts of the computation to
+programs written in Go, and needs the complete default database to be
+installed. A single run for three counties, two hours and all source
+types took close to an hour on our workstation with one worker (Section
+\ref{sec:time}). For an inventory with many counties, months and hours
+this is a practical limit, and the dependency stack makes it hard to run
+MOVES inside other modelling systems or to inspect intermediate results.
 
 This paper describes movesr (Ibarra-Espinosa, 2026b), an R package that
 reproduces the MOVES6.0.0 rate engine without Java, MariaDB or MOVES.
@@ -705,7 +728,11 @@ cold-soak venting stops when tanks start to cool. The DMV events run
 used hours 16 and 17; its venting rates are 2.3\% lower than those of
 the 24-hour run at 16 h for model year 2015, and they match the movesr
 single-hour computation within \(1.3 \times 10^{-5}\). For inventories,
-venting factors should come from full-day runs.
+venting factors should come from full-day runs. This matters because
+evaporative VOC emissions grow quickly with temperature and contribute
+to ozone formation (Ibarra-Espinosa et al., 2022; Lu et al., 2025; Wu et
+al., 2024), so a configuration choice that removes most morning venting
+on a hot day changes the emissions that matter most.
 
 \begin{figure}[htbp]
 
@@ -788,7 +815,12 @@ The largest gain was for the running set (9.2 times). We did not profile
 MOVES, so we cannot say where its time goes; its log shows that the
 running run was split into 672 bundles, each sent to the worker,
 computed with its own SQL scripts and tables, and returned to the
-master.
+master. MOVES-Matrix (Liu et al., 2019, 2017) addresses the same cost
+differently: it runs MOVES in advance on many computers and looks rates
+up afterwards, which is fast at the time of use but limited to the
+stored input grid. movesr computes any combination on demand; the two
+approaches are complementary, and movesr could also be used to fill such
+a matrix.
 
 The gains have costs. movesr keeps whole tables in memory and needed 3.1
 times more memory than the largest MOVES process for the running set.
@@ -910,7 +942,10 @@ movesr reproduces MOVES, and MOVES describes the U.S. fleet. Outside the
 United States, weather, fuel, barometric pressure and inspection
 programs can be replaced, but the technology of each model year, the
 fleet composition within source types and the trip patterns remain those
-of MOVES.
+of MOVES. Local inspection programs and their high emitters can differ
+strongly from U.S. assumptions (Ibarra-Espinosa et al., 2025), and local
+emission factors measured, for example, in tunnels (Nogueira et al.,
+2021) may be needed to check or adjust MOVES technology assumptions.
 
 \subsection{Use for the Washington DC
 inventory}\label{use-for-the-washington-dc-inventory}
@@ -1017,6 +1052,13 @@ of `data.frame` {[}WWW Document{]}. URL
 \url{https://CRAN.R-project.org/package=data.table} (accessed
 10.29.2026).
 
+\bibitem[\citeproctext]{ref-gavidia2021}
+Gavidia-Calderón, M.E., Ibarra-Espinosa, S., Kim, Y., Zhang, Y., Fatima
+Andrade, M. de, 2021. Simulation of {O3} and {NOx} in {S}{ã}o {P}aulo
+street urban canyons with {VEIN} (v0.2.2) and {MUNICH} (v1.0).
+Geoscientific Model Development 14, 3251--3268.
+\url{https://doi.org/10.5194/gmd-14-3251-2021}
+
 \bibitem[\citeproctext]{ref-movesr}
 Ibarra-Espinosa, S., 2026b. {movesr}: A standalone {R} port of the
 {MOVES} on-road emission-rate engine {[}WWW Document{]}. URL
@@ -1027,9 +1069,33 @@ Ibarra-Espinosa, S., 2026a. {vein}: Vehicular emissions inventories
 {[}WWW Document{]}. URL \url{https://github.com/atmoschem/vein}
 (accessed 10.29.2026).
 
+\bibitem[\citeproctext]{ref-ibarra2026est}
+Ibarra-Espinosa, S., Dias de Freitas, E., Gaubert, B., Lichtig, P.,
+Ropkins, K., da Silva, I., Martins Pereira, G., Schuch, D., others,
+2026. A century of vehicular emissions in {B}razil: Unveiling the
+impacts of unique fuel mix on air quality. Environmental Science \&
+Technology 60, 4914--4930. \url{https://doi.org/10.1021/acs.est.5c08400}
+
+\bibitem[\citeproctext]{ref-ibarra2022atmos}
+Ibarra-Espinosa, S., Freitas, E.D. de, Fátima Andrade, M. de, Landulfo,
+E., 2022. Effects of evaporative emissions control measurements on ozone
+concentrations in {B}razil. Atmosphere 13, 82.
+\url{https://doi.org/10.3390/atmos13010082}
+
+\bibitem[\citeproctext]{ref-ibarra2025atmos}
+Ibarra-Espinosa, S., Mera, Z., Ropkins, K., Mantovani Junior, J.A.,
+2025. Quantifying the impact of high emitters on vehicle emissions: An
+analysis of {E}cuador's inspection and maintenance program. Atmosphere
+17, 31. \url{https://doi.org/10.3390/atmos17010031}
+
+\bibitem[\citeproctext]{ref-eixport2018}
+Ibarra-Espinosa, S., Schuch, D., Dias de Freitas, E., 2018a. {eixport}:
+An {R} package to export emissions to atmospheric models. Journal of
+Open Source Software 3, 607. \url{https://doi.org/10.21105/joss.00607}
+
 \bibitem[\citeproctext]{ref-vein2018}
 Ibarra-Espinosa, S., Ynoue, R., O'Sullivan, S., Pebesma, E., Fátima
-Andrade, M. de, Osses, M., 2018. {VEIN} v0.2.2: An {R} package for
+Andrade, M. de, Osses, M., 2018b. {VEIN} v0.2.2: An {R} package for
 bottom-up vehicular emissions inventories. Geoscientific Model
 Development 11, 2209--2229.
 \url{https://doi.org/10.5194/gmd-11-2209-2018}
@@ -1042,6 +1108,53 @@ Development 11, 2209--2229.
 Jiménez-Palacios, J.L., 1999. Understanding and quantifying motor
 vehicle emissions with vehicle specific power and {TILDAS} remote
 sensing (PhD thesis). Massachusetts Institute of Technology.
+
+\bibitem[\citeproctext]{ref-koupal2014}
+Koupal, J., DeFries, T., Palacios, C., Fincher, S., Preusse, D., 2014.
+{Motor Vehicle Emissions Simulator} input data. Transportation Research
+Record: Journal of the Transportation Research Board 2427, 63--72.
+\url{https://doi.org/10.3141/2427-07}
+
+\bibitem[\citeproctext]{ref-liu2019matrix}
+Liu, H., Guensler, R., Lu, H., Xu, Y., Xu, X., Rodgers, M.O., 2019.
+{MOVES-Matrix} for high-performance on-road energy and running emission
+rate modeling applications. Journal of the Air \& Waste Management
+Association 69, 1415--1428.
+\url{https://doi.org/10.1080/10962247.2019.1640806}
+
+\bibitem[\citeproctext]{ref-liu2017matrix}
+Liu, H., Xu, X., Rodgers, M.O., Xu, Y.A., Guensler, R.L., 2017.
+{MOVES-Matrix} and distributed computing for microscale line source
+dispersion analysis. Journal of the Air \& Waste Management Association
+67, 763--775. \url{https://doi.org/10.1080/10962247.2017.1287788}
+
+\bibitem[\citeproctext]{ref-liu2015moves}
+Liu, X., 2015. A more accurate method using {MOVES} ({Motor Vehicle
+Emission Simulator}) to estimate emission burden for regional-level
+analysis. Journal of the Air \& Waste Management Association 65,
+837--843. \url{https://doi.org/10.1080/10962247.2015.1025150}
+
+\bibitem[\citeproctext]{ref-lu2025evap}
+Lu, J., Gao, Y., Huang, D., Jing, S., Wang, H., Li, Y., Ding, X., Hu,
+Q., others, 2025. Reactive organic gases from vehicle evaporative
+emissions: Rates, compositions, and temperature effects. Environmental
+Science \& Technology 59, 11132--11144.
+\url{https://doi.org/10.1021/acs.est.4c09415}
+
+\bibitem[\citeproctext]{ref-meotti2025}
+Meotti, B., Ibarra-Espinosa, S., Hoinaski, L., 2025. Improving spatial
+disaggregation of vehicular emission inventories. Environmental
+Technology 46, 3257--3270.
+\url{https://doi.org/10.1080/09593330.2025.2450556}
+
+\bibitem[\citeproctext]{ref-nogueira2021}
+Nogueira, T., Kamigauti, L.Y., Pereira, G.M., Gavidia-Calderón, M.E.,
+Ibarra-Espinosa, S., Oliveira, G.L. de, Miranda, R.M. de, Castro
+Vasconcellos, P. de, Freitas, E.D. de, Fatima Andrade, M. de, 2021.
+Evolution of vehicle emission factors in a megacity affected by
+extensive biofuel use: Results of tunnel measurements in {S}{ã}o
+{P}aulo, {B}razil. Environmental Science \& Technology 55, 6677--6687.
+\url{https://doi.org/10.1021/acs.est.1c01006}
 
 \bibitem[\citeproctext]{ref-opencode}
 OpenCode, 2026. {OpenCode}: An open source coding agent {[}WWW
@@ -1057,6 +1170,14 @@ Raasveldt, M., Mühleisen, H., 2019. {DuckDB}: An embeddable analytical
 database, in: Proceedings of the 2019 International Conference on
 Management of Data, SIGMOD '19. ACM, pp. 1981--1984.
 \url{https://doi.org/10.1145/3299869.3320212}
+
+\bibitem[\citeproctext]{ref-schuch2026}
+Schuch, D., Zhang, Y., Ibarra-Espinosa, S., de Fatima Andrade, M.,
+Gavidia Calderón, M.E., Bell, M.L., 2026. Multi-year evaluation and
+application of the {WRF-chem} model for two major urban areas in
+{B}razil, {P}art {I}: Initial application and model improvement.
+Atmospheric Environment 364, 121577.
+\url{https://doi.org/10.1016/j.atmosenv.2025.121577}
 
 \bibitem[\citeproctext]{ref-parquet}
 The Apache Software Foundation, 2026. {Apache Parquet} {[}WWW
@@ -1089,6 +1210,26 @@ criteria pollutants ({Green Book}) {[}WWW Document{]}. URL
 \bibitem[\citeproctext]{ref-ggplot2}
 Wickham, H., 2016. \href{https://ggplot2.tidyverse.org}{ggplot2: Elegant
 graphics for data analysis}. Springer-Verlag New York.
+
+\bibitem[\citeproctext]{ref-wu2024evap}
+Wu, W., Fu, T.-M., Arnold, S.R., Spracklen, D.V., Zhang, A., Tao, W.,
+Wang, X., Hou, Y., others, 2024. Temperature-dependent evaporative
+anthropogenic {VOC} emissions significantly exacerbate regional ozone
+pollution. Environmental Science \& Technology 58, 5430--5441.
+\url{https://doi.org/10.1021/acs.est.3c09122}
+
+\bibitem[\citeproctext]{ref-wu2014moves}
+Wu, Y., Song, G., Yu, L., 2014. Sensitive analysis of emission rates in
+{MOVES} for developing site-specific emission database. Transportation
+Research Part D: Transport and Environment 32, 193--206.
+\url{https://doi.org/10.1016/j.trd.2014.07.009}
+
+\bibitem[\citeproctext]{ref-xu2018matrix}
+Xu, X., Liu, H., Li, H.A., Rodgers, M.O., Guensler, R., 2018.
+Integrating engine start, soak, evaporative, and truck hoteling
+emissions into {MOVES-Matrix}. Transportation Research Record: Journal
+of the Transportation Research Board 2672, 111--122.
+\url{https://doi.org/10.1177/0361198118797208}
 
 \end{CSLReferences}
 
