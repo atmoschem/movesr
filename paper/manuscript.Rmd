@@ -381,14 +381,14 @@ movesr is available at <https://github.com/atmoschem/movesr> under the GPL (>= 2
 
 # CRediT authorship contribution statement
 
-**Sergio Ibarra-Espinosa:** Conceptualization, Methodology, Software, Validation, Writing - review and editing. [To be completed by the author.]
+**Sergio Ibarra-Espinosa:** Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Visualization, Writing - original draft, Writing - review and editing, Project administration. The use of a language model for software and drafting is described in Section \ref{sec:ai}.
 
 # Declaration of competing interest
 
-[To be completed by the author.]
+The author declares that he has no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 # Funding
 
-[To be completed by the author.]
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 # References {-}
