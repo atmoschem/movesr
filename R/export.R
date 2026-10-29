@@ -38,13 +38,13 @@ movesr_export_vein <- function(path, running = NULL, start = NULL, evap = NULL,
   }
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
   version <- paste0("movesr ", utils::packageVersion("movesr"),
-                    " (MOVES6 algorithm port)")
+    " (MOVES6 algorithm port)")
   files <- character()
   prep <- function(x, rate) {
     x <- data.table::as.data.table(data.table::copy(x))
     x[, ratePerDistanceKm := NULL]
     x[, `:=`(MOVESScenarioID = scenario_id, MOVESRunID = as.integer(run_id),
-             SCC = NA_character_)]
+      SCC = NA_character_)]
     first <- c("MOVESScenarioID", "MOVESRunID")
     data.table::setcolorder(x, c(first, setdiff(names(x), c(first, rate)), rate))
     x
@@ -58,22 +58,22 @@ movesr_export_vein <- function(path, running = NULL, start = NULL, evap = NULL,
     f <- file.path(path, "rateperstart.csv")
     x <- data.table::as.data.table(data.table::copy(start))
     x[, `:=`(MOVESScenarioID = scenario_id, MOVESRunID = as.integer(run_id),
-             SCC = NA_character_)]
+      SCC = NA_character_)]
     first <- c("MOVESScenarioID", "MOVESRunID")
     data.table::setcolorder(x, c(first, setdiff(names(x), c(first, "ratePerStart")),
-                                 "ratePerStart"))
+      "ratePerStart"))
     data.table::fwrite(x, f)
     files <- c(files, f)
   }
   if (!is.null(evap)) {
     x <- data.table::as.data.table(data.table::copy(evap))
     x[, `:=`(MOVESScenarioID = scenario_id, MOVESRunID = as.integer(run_id),
-             SCC = NA_character_)]
+      SCC = NA_character_)]
     if ("countyID" %in% names(x)) x[, zoneID := countyID * 10L]
     first <- c("MOVESScenarioID", "MOVESRunID")
     v <- x[processID %in% c(11L, 13L)]
     data.table::setcolorder(v, c(first, setdiff(names(v), c(first, "ratePerVehicle")),
-                                 "ratePerVehicle"))
+      "ratePerVehicle"))
     f <- file.path(path, "ratepervehicle.csv")
     data.table::fwrite(v, f)
     files <- c(files, f)
@@ -82,9 +82,9 @@ movesr_export_vein <- function(path, running = NULL, start = NULL, evap = NULL,
       pr[, temperatureProfileID := if ("zoneID" %in% names(pr))
         zoneID * 10000L + monthID * 100L else NA_integer_]
       data.table::setcolorder(pr, c(first, "temperatureProfileID",
-                                    setdiff(names(pr), c(first, "temperatureProfileID",
-                                                         "ratePerVehicle")),
-                                    "ratePerVehicle"))
+        setdiff(names(pr), c(first, "temperatureProfileID",
+          "ratePerVehicle")),
+        "ratePerVehicle"))
       f <- file.path(path, "rateperprofile.csv")
       data.table::fwrite(pr, f)
       files <- c(files, f)
@@ -110,12 +110,12 @@ movesr_export_vein <- function(path, running = NULL, start = NULL, evap = NULL,
     ft <- movesr_table(database, "fueltype")[, .(fuelTypeID, fuelTypeDesc)]
     st <- movesr_table(database, "sourceusetype")[, .(sourceTypeID, sourceTypeName)]
     veh <- merge(merge(veh, ft, by = "fuelTypeID", all.x = TRUE), st,
-                 by = "sourceTypeID", all.x = TRUE)
+      by = "sourceTypeID", all.x = TRUE)
   } else {
     veh[, `:=`(fuelTypeDesc = NA_character_, sourceTypeName = NA_character_)]
   }
   data.table::setcolorder(veh, c("fuelTypeID", "fuelTypeDesc", "sourceTypeID",
-                                 "sourceTypeName"))
+    "sourceTypeName"))
   f <- file.path(path, "vehicles.csv")
   data.table::fwrite(veh[order(sourceTypeID, fuelTypeID)], f)
   invisible(c(files, f))

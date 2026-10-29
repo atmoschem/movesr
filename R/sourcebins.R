@@ -1,7 +1,7 @@
 .sourcebin_id <- function(fuel, eng_tech, reg_class, short_group) {
   pad <- function(x) sprintf("%02d", as.integer(x))
   paste0("1", pad(fuel), pad(eng_tech), pad(reg_class), pad(short_group),
-         "0000000000")
+    "0000000000")
 }
 
 #' Generate MOVES source bins and source-bin distributions
@@ -37,19 +37,19 @@ movesr_sourcebins <- function(sample_vehicle, pollutant_process_model_year,
   groups <- data.table::as.data.table(data.table::copy(model_year_group))
 
   need_sample <- c("sourceTypeModelYearID", "sourceTypeID", "modelYearID",
-                   "fuelTypeID", "engTechID", "regClassID", "stmyFraction")
+    "fuelTypeID", "engTechID", "regClassID", "stmyFraction")
   need_ppmy <- c("polProcessID", "modelYearID", "modelYearGroupID")
   need_groups <- c("modelYearGroupID", "shortModYrGroupID")
   for (pair in list(list(sample, need_sample, "sample_vehicle"),
-                    list(ppmy, need_ppmy, "pollutant_process_model_year"),
-                    list(groups, need_groups, "model_year_group"))) {
+    list(ppmy, need_ppmy, "pollutant_process_model_year"),
+    list(groups, need_groups, "model_year_group"))) {
     missing <- setdiff(pair[[2]], names(pair[[1]]))
     if (length(missing)) {
       stop(pair[[3]], " is missing: ", paste(missing, collapse = ", "))
     }
   }
   if (missing(year) || !is.numeric(year) || length(year) != 1L ||
-      !is.finite(year)) stop("year must be one calendar year")
+    !is.finite(year)) stop("year must be one calendar year")
   sample <- sample[modelYearID <= year & modelYearID >= year - 40]
   ppmy <- ppmy[modelYearID <= year & modelYearID >= year - 40]
   if (!is.null(source_type_id)) {
@@ -75,18 +75,18 @@ movesr_sourcebins <- function(sample_vehicle, pollutant_process_model_year,
     x[, c("isRegClassReqd", "isMYGroupReqd") := NULL]
   }
   x[, sourceBinID := .sourcebin_id(fuelTypeID, engTechID, regClassID,
-                                    shortModYrGroupID)]
+    shortModYrGroupID)]
   x[, sourceBinActivityFraction :=
-      sum(stmyFraction, na.rm = TRUE), by = .(sourceTypeModelYearID,
-                                              polProcessID, sourceBinID)]
+    sum(stmyFraction, na.rm = TRUE), by = .(sourceTypeModelYearID,
+    polProcessID, sourceBinID)]
   distribution <- unique(x[, .(sourceTypeModelYearID, polProcessID,
-                               sourceBinID, sourceBinActivityFraction)])
+    sourceBinID, sourceBinActivityFraction)])
   source_bin <- unique(x[, .(sourceBinID, fuelTypeID, engTechID, regClassID,
-                             modelYearGroupID)])
+    modelYearGroupID)])
   source_bin[, `:=`(engSizeID = 0L, weightClassID = 0L)]
   data.table::setcolorder(source_bin, c("sourceBinID", "engSizeID", "fuelTypeID",
-                                        "engTechID", "regClassID",
-                                        "modelYearGroupID", "weightClassID"))
+    "engTechID", "regClassID",
+    "modelYearGroupID", "weightClassID"))
   data.table::setkey(source_bin, sourceBinID)
   data.table::setkey(distribution, sourceTypeModelYearID, polProcessID, sourceBinID)
   list(source_bin = source_bin, distribution = distribution)

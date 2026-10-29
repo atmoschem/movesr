@@ -29,13 +29,13 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   if (is.null(fuel_formulation)) {
     fuel_year <- tb("year")[yearID == year]$fuelYearID[1]
     region <- tb("regioncounty")[regionCodeID == 1L & countyID == county_id &
-                                   fuelYearID == fuel_year]$regionID[1]
+      fuelYearID == fuel_year]$regionID[1]
     mg <- tb("monthofanyyear")[monthID == month_id]$monthGroupID[1]
     fs <- tb("fuelsupply")[fuelRegionID == region & fuelYearID == fuel_year &
-                             monthGroupID == mg & marketShare > 0]
+      monthGroupID == mg & marketShare > 0]
     ff <- merge(fs[, .(fuelFormulationID, marketShare)],
-                tb("fuelformulation")[, .(fuelFormulationID, fuelSubtypeID, RVP, ETOHVolume)],
-                by = "fuelFormulationID")
+      tb("fuelformulation")[, .(fuelFormulationID, fuelSubtypeID, RVP, ETOHVolume)],
+      by = "fuelFormulationID")
     ff <- merge(ff, tb("fuelsubtype")[, .(fuelSubtypeID, fuelTypeID)], by = "fuelSubtypeID")
   } else {
     ff <- data.table::as.data.table(fuel_formulation)[marketShare > 0]
@@ -47,18 +47,19 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   ff[, `:=`(kG = kg(ETOHVolume), kE = ke(ETOHVolume))]
   ff[, gp := .f32((RVP - kE * ETOHVolume / 100.0 * 2.3) / (kG * (100.0 - ETOHVolume) / 100.0))]
   a <- ff[, .(lin = .f32(sum(RVP * marketShare) / sum(marketShare)),
-              E = .f32(sum(ETOHVolume * marketShare) / sum(marketShare)),
-              gp = .f32(sum(gp * marketShare) / sum(marketShare)),
-              gasohol = if (any(ETOHVolume >= 4 & ETOHVolume <= 20))
-                .f32(sum(marketShare[ETOHVolume >= 4 & ETOHVolume <= 20])) else NA_real_),
-          by = fuelTypeID]
+    E = .f32(sum(ETOHVolume * marketShare) / sum(marketShare)),
+    gp = .f32(sum(gp * marketShare) / sum(marketShare)),
+    gasohol = if (any(ETOHVolume >= 4 & ETOHVolume <= 20))
+      .f32(sum(marketShare[ETOHVolume >= 4 & ETOHVolume <= 20])) else NA_real_),
+  by = fuelTypeID]
   a[, `:=`(aKG = kg(E), aKE = ke(E))]
   a[, noW := .f32(aKG * (100.0 - E) / 100.0 * gp + aKE * E / 100.0 * 2.3)]
-  tmin <- .f32(min(temperature)); tmax <- .f32(max(temperature))
+  tmin <- .f32(min(temperature))
+  tmax <- .f32(max(temperature))
   te <- .f32(if (tmax < 40 || tmax - tmin <= 0) (tmin + tmax) / 2.0 else
     -1.7474 + 1.029 * tmin + 0.99202 * (tmax - tmin) - 0.0025173 * tmin * (tmax - tmin))
   a[, loss := .f32(pmax(0, (-2.4908 + 0.026196 * te + 0.00076898 * te * gp) /
-                         (-0.0860 + 0.070592 * gp)))]
+    (-0.0860 + 0.070592 * gp)))]
   a[, wgp := .f32(gp * (1.0 - loss * 0.049))]
   a[, wR := .f32(aKG * (100.0 - E) / 100.0 * wgp + aKE * E / 100.0 * 2.3)]
   brk <- c(1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1)
@@ -89,12 +90,12 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   data.table::setorder(g, sourceTypeID, hourID)
   g[, d0 := data.table::fifelse(total <= 0, 0, (total - cumsum(n)) / total), by = sourceTypeID]
   basis <- data.table::rbindlist(list(tb("samplevehiclesoakingdaybasis"),
-                                      tb("samplevehiclesoakingdaybasisused")),
-                                 use.names = TRUE, fill = TRUE)
+    tb("samplevehiclesoakingdaybasisused")),
+  use.names = TRUE, fill = TRUE)
   basis <- unique(basis[dayID == day_id, .(soakDayID, F)], by = "soakDayID")
   preset <- data.table::rbindlist(list(tb("samplevehiclesoakingday"),
-                                       tb("samplevehiclesoakingdayused")),
-                                  use.names = TRUE, fill = TRUE)
+    tb("samplevehiclesoakingdayused")),
+  use.names = TRUE, fill = TRUE)
   preset <- if (nrow(preset)) unique(preset[dayID == day_id], by = c("soakDayID", "sourceTypeID")) else NULL
   out <- list(g[, .(soakDayID = 0L, sourceTypeID, hourID, soakFraction = d0)])
   for (s in unique(g$sourceTypeID)) {
@@ -108,10 +109,15 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
         if (!length(b)) NA_real_ else if (b < Fv[n - 1]) Fv[n - 1] else b
       }
     }
-    G <- cumprod(Fv); G1 <- c(Fv[1], G[1:4])
-    D1 <- numeric(5); D24 <- numeric(5)
-    D24[1:4] <- G[1:4] * (1 - Fv[2:5]); D24[5] <- G[5]
-    D1[1] <- d0[1] - d0[24]; D1[2:4] <- D24[1:3]; D1[5] <- G1[5]
+    G <- cumprod(Fv)
+    G1 <- c(Fv[1], G[1:4])
+    D1 <- numeric(5)
+    D24 <- numeric(5)
+    D24[1:4] <- G[1:4] * (1 - Fv[2:5])
+    D24[5] <- G[5]
+    D1[1] <- d0[1] - d0[24]
+    D1[2:4] <- D24[1:3]
+    D1[5] <- G1[5]
     P24 <- ifelse(D1 <= 0, 0, D24 / D1)
     den <- d0[1] - d0[24]
     DF <- if (den <= 0) rep(0, 22) else (d0[2:23] - d0[24]) / den
@@ -130,9 +136,9 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   tb <- function(n) movesr_table(database, n)
   svp <- tb("samplevehiclepopulation")
   rf <- svp[sourceTypeID %in% source_type_id & modelYearID <= year &
-              modelYearID >= year - 40,
-            .(rf = sum(stmyFraction)),
-            by = .(sourceTypeID, modelYearID, fuelTypeID, regClassID)][rf > 0]
+    modelYearID >= year - 40,
+  .(rf = sum(stmyFraction)),
+  by = .(sourceTypeID, modelYearID, fuelTypeID, regClassID)][rf > 0]
   c0 <- tb("cumtvvcoeffs")[polProcessID %in% pp]
   ppmy <- tb("pollutantprocessmodelyear")[polProcessID %in% pp, .(polProcessID, modelYearID, modelYearGroupID)]
   ac <- tb("agecategory")[, .(ageID, ageGroupID)]
@@ -143,17 +149,17 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   x[is.na(tvvEquation) | !nzchar(tvvEquation), tvvEquation := "0"]
   x[is.na(leakEquation) | !nzchar(leakEquation), leakEquation := "0"]
   eq <- x[, .(backPurgeFactor = sum(backPurgeFactor * rf),
-              averageCanisterCapacity = sum(averageCanisterCapacity * rf),
-              rf = sum(rf), leakFraction = sum(leakFraction * rf),
-              leakFractionIM = sum(leakFractionIM * rf),
-              tankSize = sum(tankSize * rf), tankFillFraction = sum(tankFillFraction * rf)),
-          by = .(sourceTypeID, modelYearID, fuelTypeID, polProcessID, regClassID,
-                 tvvEquation, leakEquation)]
+    averageCanisterCapacity = sum(averageCanisterCapacity * rf),
+    rf = sum(rf), leakFraction = sum(leakFraction * rf),
+    leakFractionIM = sum(leakFractionIM * rf),
+    tankSize = sum(tankSize * rf), tankFillFraction = sum(tankFillFraction * rf)),
+  by = .(sourceTypeID, modelYearID, fuelTypeID, polProcessID, regClassID,
+    tvvEquation, leakEquation)]
   co <- eq[, .(backPurgeFactor = sum(backPurgeFactor),
-               averageCanisterCapacity = sum(averageCanisterCapacity),
-               leakFraction = sum(leakFraction), leakFractionIM = sum(leakFractionIM),
-               tankSize = sum(tankSize), tankFillFraction = sum(tankFillFraction)),
-           by = .(sourceTypeID, modelYearID, fuelTypeID, polProcessID)]
+    averageCanisterCapacity = sum(averageCanisterCapacity),
+    leakFraction = sum(leakFraction), leakFractionIM = sum(leakFractionIM),
+    tankSize = sum(tankSize), tankFillFraction = sum(tankFillFraction)),
+  by = .(sourceTypeID, modelYearID, fuelTypeID, polProcessID)]
   list(equations = eq, coeffs = co)
 }
 
@@ -163,8 +169,8 @@ movesr_average_tank_gasoline <- function(database, county_id, year, month_id,
   e <- gsub("\\bgreatest\\s*\\(", "pmax(", expr, perl = TRUE)
   e <- gsub("\\bleast\\s*\\(", "pmin(", e, perl = TRUE)
   v <- suppressWarnings(eval(parse(text = e),
-                             list(Xn = Xn, TVGdaily = TVGdaily, pmax = pmax, pmin = pmin,
-                                  sqrt = sqrt), baseenv()))
+    list(Xn = Xn, TVGdaily = TVGdaily, pmax = pmax, pmin = pmin,
+      sqrt = sqrt), baseenv()))
   v <- rep_len(as.numeric(v), length(Xn))
   v[is.nan(v)] <- NA_real_
   v
@@ -215,10 +221,10 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
   ihf <- data.table::copy(tank$cold_soak_initial_hour_fraction)[
     , `:=`(h = hourDayID %/% 10L, ini = initialHourDayID %/% 10L)]
   ihf <- ihf[h %in% hours & ini %in% hours & coldSoakInitialHourFraction > 0 &
-               (h != ini | (h == 1L & ini == 1L)) & h <= peak]
+    (h != ini | (h == 1L & ini == 1L)) & h <= peak]
   atg <- tank_gasoline
   x <- merge(ihf[, .(sourceTypeID, h, ini)], co$coeffs, by = "sourceTypeID",
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   x <- merge(x, atg[, .(fuelTypeID, ETOHVolume, RVP)], by = "fuelTypeID")
   if (!nrow(x)) return(NULL)
   x[, `:=`(t1 = cst[ini], t2 = cst[h])]
@@ -228,14 +234,16 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
     .f32(data.table::fifelse(x$t1 >= x$t2, 0,
       (x$tankSize * (1 - x$tankFillFraction)) *
         (k$tvgTermA * exp(k$tvgTermB * x$RVP) *
-           (exp(k$tvgTermC * x$t2) - exp(k$tvgTermC * x$t1)))))
+          (exp(k$tvgTermC * x$t2) - exp(k$tvgTermC * x$t1)))))
   }
   bp <- barometric_pressure
   interp <- function(eth) {
-    lo <- tvg(eth, "L"); hi <- tvg(eth, "H")
+    lo <- tvg(eth, "L")
+    hi <- tvg(eth, "H")
     .f32(pmax(((bp - 29.069) / (24.087 - 29.069)) * (hi - lo) + lo, 0))
   }
-  t0 <- interp(0L); t10 <- interp(10L)
+  t0 <- interp(0L)
+  t10 <- interp(10L)
   w <- pmin(10.0, x$ETOHVolume) / 10.0
   x[, ew := .f32(t10 * w + t0 * (1.0 - w))]
   # Hourly increment of the cumulative TVG (previous hour row if present).
@@ -257,10 +265,10 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
   # tvgSum1H at hour h = cumulative initial-hour-1 TVG up to the last hour <= h.
   x[, hq := h]
   x <- one[x, on = c(setdiff(key, "ini"), "h1<=hq"), mult = "last",
-           .(sourceTypeID, fuelTypeID, modelYearID, polProcessID, ini, h,
-             backPurgeFactor = i.backPurgeFactor,
-             averageCanisterCapacity = i.averageCanisterCapacity,
-             sIH = i.sIH, sI24 = i.sI24, sH24 = i.sH24, s1H = x.s1H)]
+    .(sourceTypeID, fuelTypeID, modelYearID, polProcessID, ini, h,
+      backPurgeFactor = i.backPurgeFactor,
+      averageCanisterCapacity = i.averageCanisterCapacity,
+      sIH = i.sIH, sI24 = i.sI24, sH24 = i.sH24, s1H = x.s1H)]
   x <- x[!is.na(s1H)]
   if (!nrow(x)) return(NULL)
   # TVG by soak day.
@@ -269,19 +277,19 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
   tv <- list()
   x[, `:=`(TVGdaily = .f32(sIH), Xn = sIH)]
   tv[[1]] <- x[, .(soakDayID = 1L, sourceTypeID, fuelTypeID, modelYearID, polProcessID,
-                   ini, h, TVGdaily, Xn)]
+    ini, h, TVGdaily, Xn)]
   x[, Xn := (1 - backPurgeFactor) * pmin(sI24, averageCanisterCapacity) + s1H]
   tv[[2]] <- x[, .(soakDayID = 2L, sourceTypeID, fuelTypeID, modelYearID, polProcessID,
-                   ini, h, TVGdaily, Xn)]
+    ini, h, TVGdaily, Xn)]
   for (n in days) {
     x[, Xn := (1 - backPurgeFactor) * pmin(Xn + sH24, averageCanisterCapacity) + s1H]
     tv[[length(tv) + 1L]] <- x[, .(soakDayID = n, sourceTypeID, fuelTypeID, modelYearID,
-                                   polProcessID, ini, h, TVGdaily, Xn)]
+      polProcessID, ini, h, TVGdaily, Xn)]
   }
   tv <- data.table::rbindlist(tv)
   # TVV-5: cumulative tank vapor vented by regulatory class.
   cv <- merge(co$equations, tv, by = c("sourceTypeID", "modelYearID", "fuelTypeID",
-                                       "polProcessID"), allow.cartesian = TRUE)
+    "polProcessID"), allow.cartesian = TRUE)
   cv[, `:=`(T = NA_real_, L = NA_real_)]
   for (e in unique(cv$tvvEquation)) {
     r <- which(cv$tvvEquation == e)
@@ -293,31 +301,31 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
   }
   lfim <- data.table::fifelse(is.na(cv$leakFractionIM), cv$leakFraction, cv$leakFractionIM)
   cv[, `:=`(tvv = .f32(rf * pmax(0, (1 - leakFraction) * T + leakFraction * L)),
-            tvvIM = .f32(rf * pmax(0, (1 - lfim) * T + lfim * L)))]
+    tvvIM = .f32(rf * pmax(0, (1 - lfim) * T + lfim * L)))]
   cv[, ageID := year - modelYearID]
   cv <- cv[, .(soakDayID, regClassID, ageID, modelYearID, polProcessID, h, ini,
-               sourceTypeID, fuelTypeID, tvv, tvvIM)]
+    sourceTypeID, fuelTypeID, tvv, tvvIM)]
   # TVV-6: hourly increments while the tank temperature rises.
   pv <- cv[, .(soakDayID, regClassID, ageID, polProcessID, ini, sourceTypeID, fuelTypeID,
-               h = data.table::fifelse(h == 24L, 1L, h + 1L), tvvP = tvv, tvvIMP = tvvIM)]
+    h = data.table::fifelse(h == 24L, 1L, h + 1L), tvvP = tvv, tvvIMP = tvvIM)]
   cv <- merge(cv, pv, by = c("soakDayID", "regClassID", "ageID", "polProcessID", "ini",
-                             "sourceTypeID", "fuelTypeID", "h"), all.x = TRUE)
+    "sourceTypeID", "fuelTypeID", "h"), all.x = TRUE)
   ph <- ((cv$h - 2L + 24L) %% 24L) + 1L
   rise <- cst[cv$h] > cst[ph]
   cv[, `:=`(u = .f32(data.table::fifelse(rise, pmax(0, tvv - data.table::fifelse(is.na(tvvP), 0, tvvP)), 0)),
-            uIM = .f32(data.table::fifelse(rise, pmax(0, tvvIM - data.table::fifelse(is.na(tvvIMP), 0, tvvIMP)), 0)))]
+    uIM = .f32(data.table::fifelse(rise, pmax(0, tvvIM - data.table::fifelse(is.na(tvvIMP), 0, tvvIMP)), 0)))]
   # TVV-7: weight by initial-hour (day 1) and multiday soaking fractions.
   f1 <- tank$cold_soak_initial_hour_fraction[, .(soakDayID = 1L, sourceTypeID,
-                                                 h = hourDayID %/% 10L,
-                                                 ini = initialHourDayID %/% 10L,
-                                                 frac = coldSoakInitialHourFraction)]
+    h = hourDayID %/% 10L,
+    ini = initialHourDayID %/% 10L,
+    frac = coldSoakInitialHourFraction)]
   fn <- soak[soakDayID > 1L & hourID %in% hours & 1L %in% hours,
-             .(soakDayID, sourceTypeID, h = hourID, ini = 1L, frac = soakFraction)]
+    .(soakDayID, sourceTypeID, h = hourID, ini = 1L, frac = soakFraction)]
   fr <- data.table::rbindlist(list(f1[h %in% hours & ini %in% hours], fn))
   cv <- merge(cv, fr, by = c("soakDayID", "sourceTypeID", "h", "ini"))
   ht <- cv[, .(hourlyTVV = .f32(sum(.f32(u * frac), na.rm = TRUE)),
-               hourlyTVVIM = .f32(sum(.f32(uIM * frac), na.rm = TRUE))),
-           by = .(regClassID, ageID, polProcessID, h, sourceTypeID, fuelTypeID)]
+    hourlyTVVIM = .f32(sum(.f32(uIM * frac), na.rm = TRUE))),
+  by = .(regClassID, ageID, polProcessID, h, sourceTypeID, fuelTypeID)]
   # Hours after the peak.
   pk <- ht[h == peak]
   post <- list()
@@ -325,12 +333,12 @@ movesr_tvv_hourly <- function(database, tank, tank_gasoline, year, day_id = 5L,
     if ((peak + k) %in% hours) {
       f <- c(0.0200, 0.0100, 0.0040, 0.0005)[k]
       post[[k]] <- pk[, .(regClassID, ageID, polProcessID, h = peak + k, sourceTypeID,
-                          fuelTypeID, hourlyTVV = .f32(hourlyTVV * f),
-                          hourlyTVVIM = .f32(hourlyTVVIM * f))]
+        fuelTypeID, hourlyTVV = .f32(hourlyTVV * f),
+        hourlyTVVIM = .f32(hourlyTVVIM * f))]
     }
   }
   ht <- data.table::rbindlist(c(list(ht), post), use.names = TRUE)
   ht[, hourDayID := hd(h)]
   ht[, .(regClassID, ageID, polProcessID, hourDayID, sourceTypeID, fuelTypeID,
-         hourlyTVV, hourlyTVVIM)]
+    hourlyTVV, hourlyTVVIM)]
 }

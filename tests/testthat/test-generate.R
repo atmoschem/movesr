@@ -34,13 +34,13 @@ test_that("factor tables are read and distance units are converted", {
 test_that("distance factors select bins and temperature", {
   f <- movesr_factors(fixture(), distance_units = "mile")
   s <- movesr_scenario(2025, 21, 1, 2020, 3, 1, 5,
-                       speed_bin_id = 10, temperature_c = 10, hour_id = 1)
+    speed_bin_id = 10, temperature_c = 10, hour_id = 1)
   out <- movesr_generate(s, f)
   expect_equal(out$rate, 1, tolerance = 1e-12)
   expect_equal(out$requested_speed_kmh, NULL)
   out <- movesr_generate(
     movesr_scenario(2025, 21, 1, 2020, 3, 1, 5,
-                    temperature_c = 10, hour_id = 1),
+      temperature_c = 10, hour_id = 1),
     f, speed_kmh = 72.42048
   )
   expect_equal(out$rate, 1, tolerance = 1e-12)
@@ -50,7 +50,7 @@ test_that("distance factors select bins and temperature", {
 test_that("start factors are event-based and do not require speed", {
   f <- movesr_factors(fixture())
   s <- movesr_scenario(2025, 21, 1, 2020, 3, 2, road_type_id = NULL,
-                       temperature_c = 20, hour_id = 1)
+    temperature_c = 20, hour_id = 1)
   out <- movesr_generate(s, f)
   expect_equal(out$rate, 0.5)
   expect_equal(out$units, "g/start")
@@ -60,10 +60,10 @@ test_that("start factors are event-based and do not require speed", {
 test_that("missing or ambiguous scenarios fail explicitly", {
   f <- movesr_factors(fixture())
   s <- movesr_scenario(2025, 21, 1, 2020, 3, 1, 5,
-                       temperature_c = 25, hour_id = 1)
+    temperature_c = 25, hour_id = 1)
   expect_error(movesr_generate(s, f, speed_kmh = 50), "No factors")
   s <- movesr_scenario(2025, 21, 1, 2020, 3, 1, 5,
-                       temperature_c = 10, hour_id = 1)
+    temperature_c = 10, hour_id = 1)
   expect_error(movesr_generate(s, f), "require speed")
   expect_error(movesr_generate(s, f, speed_kmh = 200), "75 mph")
 })

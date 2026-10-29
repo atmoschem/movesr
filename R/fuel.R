@@ -17,20 +17,20 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
   if (!length(fuel_year)) stop("No fuel year for calendar year ", year)
   rc <- movesr_table(database, "regioncounty")
   region <- rc[regionCodeID == 1L & countyID == county_id &
-                 fuelYearID == fuel_year[1]]$regionID
+    fuelYearID == fuel_year[1]]$regionID
   if (!length(region)) stop("No fuel region for county ", county_id)
   moy <- movesr_table(database, "monthofanyyear")
   month_group <- moy[monthID == month_id]$monthGroupID
   fs <- movesr_table(database, "fuelsupply")
   fs <- fs[fuelRegionID == region[1] & fuelYearID == fuel_year[1] &
-             monthGroupID == month_group[1]]
+    monthGroupID == month_group[1]]
   ff <- movesr_table(database, "fuelformulation")
   st <- movesr_table(database, "fuelsubtype")
   out <- merge(fs[, .(fuelFormulationID, marketShare)], ff,
-               by = "fuelFormulationID")
+    by = "fuelFormulationID")
   out <- merge(out, st[, .(fuelSubtypeID, fuelTypeID)], by = "fuelSubtypeID")
   out <- .movesr_high_ethanol(out, movesr_table(database, "e10fuelproperties"),
-                              region[1], fuel_year[1], month_group[1])
+    region[1], fuel_year[1], month_group[1])
   .movesr_fuel_nulls(out)
 }
 
@@ -43,7 +43,7 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
   hi <- which(x$fuelSubtypeID %in% c(51L, 52L))
   if (!length(hi)) return(x)
   e10 <- data.table::as.data.table(e10)[fuelYearID == fuel_year &
-                                          monthGroupID == month_group]
+    monthGroupID == month_group]
   e0 <- e10[fuelRegionID == 0L]
   if (!nrow(e0)) return(x)
   e1 <- e10[fuelRegionID == region]
@@ -55,9 +55,9 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
   v <- pick("RVP")
   if (!is.na(v)) data.table::set(x, hi, "altRVP", v)
   for (col in c("sulfurLevel", "ETOHVolume", "MTBEVolume", "ETBEVolume",
-                "TAMEVolume", "aromaticContent", "olefinContent",
-                "benzeneContent", "e200", "e300", "BioDieselEsterVolume",
-                "CetaneIndex", "PAHContent", "T50", "T90")) {
+    "TAMEVolume", "aromaticContent", "olefinContent",
+    "benzeneContent", "e200", "e300", "BioDieselEsterVolume",
+    "CetaneIndex", "PAHContent", "T50", "T90")) {
     v <- pick(col)
     if (!is.na(v) && col %in% names(x)) {
       data.table::set(x, hi, col, as.numeric(v))
@@ -65,10 +65,10 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
   }
   if (all(c("ETOHVolume", "MTBEVolume", "ETBEVolume", "TAMEVolume") %in% names(x))) {
     s <- rowSums(cbind(x$ETOHVolume, x$MTBEVolume, x$ETBEVolume, x$TAMEVolume),
-                 na.rm = TRUE)
+      na.rm = TRUE)
     num <- rowSums(cbind(x$ETOHVolume * 0.3653, x$MTBEVolume * 0.1792,
-                         x$ETBEVolume * 0.1537, x$TAMEVolume * 0.1651),
-                   na.rm = TRUE)
+      x$ETBEVolume * 0.1537, x$TAMEVolume * 0.1651),
+    na.rm = TRUE)
     x[hi, volToWtPercentOxy := ifelse(s[hi] > 0, num[hi] / s[hi], 0)]
   }
   x
@@ -79,9 +79,9 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
 .movesr_fuel_nulls <- function(x) {
   x <- data.table::as.data.table(data.table::copy(x))
   props <- c("RVP", "sulfurLevel", "ETOHVolume", "MTBEVolume", "ETBEVolume",
-             "TAMEVolume", "aromaticContent", "olefinContent",
-             "benzeneContent", "e200", "e300", "volToWtPercentOxy",
-             "BioDieselEsterVolume", "CetaneIndex", "PAHContent", "T50", "T90")
+    "TAMEVolume", "aromaticContent", "olefinContent",
+    "benzeneContent", "e200", "e300", "volToWtPercentOxy",
+    "BioDieselEsterVolume", "CetaneIndex", "PAHContent", "T50", "T90")
   for (p in intersect(props, names(x))) {
     v <- as.numeric(x[[p]])
     v[is.na(v)] <- 0
@@ -108,7 +108,7 @@ movesr_fuel_supply <- function(database, county_id, year, month_id = 1) {
   env <- as.list(data)
   names(env) <- tolower(names(env))
   value <- suppressWarnings(eval(parse(text = .movesr_translate_expression(expr)),
-                                 envir = env, enclos = baseenv()))
+    envir = env, enclos = baseenv()))
   value <- rep_len(as.numeric(value), nrow(data))
   value[!is.finite(value)] <- 1
   value
@@ -180,10 +180,10 @@ movesr_fuel_ratios <- function(expressions, formulations, pol_process_id = NULL)
 movesr_fuel_adjustment <- function(supply, ratios, keys, gpa_fract = 0,
                                    by_formulation = FALSE) {
   k <- unique(data.table::as.data.table(keys)[, .(fuelTypeID, polProcessID,
-                                                  sourceTypeID, modelYearID,
-                                                  ageID)])
+    sourceTypeID, modelYearID,
+    ageID)])
   s <- data.table::as.data.table(supply)[, .(fuelTypeID, fuelFormulationID,
-                                             marketShare)]
+    marketShare)]
   x <- merge(k, s, by = "fuelTypeID", allow.cartesian = TRUE)
   x[, `:=`(ratio = 1, ratioFound = FALSE)]
   r <- data.table::as.data.table(ratios)
@@ -193,20 +193,20 @@ movesr_fuel_adjustment <- function(supply, ratios, keys, gpa_fract = 0,
     r[, order := seq_len(.N)]
     x[, rowid := .I]
     m <- merge(x[, .(rowid, fuelFormulationID, polProcessID, sourceTypeID,
-                     modelYearID, ageID)],
-               r[, .(fuelFormulationID, polProcessID, sourceTypeID,
-                     minModelYearID, maxModelYearID, minAgeID, maxAgeID, r,
-                     order)],
-               by = c("fuelFormulationID", "polProcessID", "sourceTypeID"),
-               allow.cartesian = TRUE)
+      modelYearID, ageID)],
+    r[, .(fuelFormulationID, polProcessID, sourceTypeID,
+      minModelYearID, maxModelYearID, minAgeID, maxAgeID, r,
+      order)],
+    by = c("fuelFormulationID", "polProcessID", "sourceTypeID"),
+    allow.cartesian = TRUE)
     m <- m[modelYearID >= minModelYearID & modelYearID <= maxModelYearID &
-             ageID >= minAgeID & ageID <= maxAgeID]
+      ageID >= minAgeID & ageID <= maxAgeID]
     if (nrow(m)) {
       data.table::setorder(m, rowid, order)
       # CriteriaRatio keeps the first ratio (insert ignore); GeneralFuelRatio
       # multiplies every matching detail.
       m <- m[, .(r = if (polProcessID[1] %in% .movesr_criteria_polproc) r[1]
-                 else prod(r)), by = rowid]
+      else prod(r)), by = rowid]
       x[m$rowid, `:=`(ratio = m$r, ratioFound = TRUE)]
     }
     x[, rowid := NULL]

@@ -58,9 +58,9 @@ movesr_evap <- function(database, county_id, year = 2025, month_id = 7,
   }
   act <- movesr_activity(database, year, county_id, month_id, day_id)$parked
   movesr_evap_rates(database, tank, act, year = year, county_id = county_id,
-                    month_id = month_id, day_id = day_id,
-                    meteorology = met[hourID %in% hour_id],
-                    process_id = process_id, pollutant_id = pollutant_id, ...)
+    month_id = month_id, day_id = day_id,
+    meteorology = met[hourID %in% hour_id],
+    process_id = process_id, pollutant_id = pollutant_id, ...)
 }
 
 #' Evaporative rates per distance on running roads
@@ -106,14 +106,14 @@ movesr_evap_running_rates <- function(database, county_id, year = 2025,
     population > 0, .(sourceTypeID, ageID)]
   act <- pop[rep(seq_len(.N), each = length(hour_id))]
   act[, `:=`(hourDayID = rep(hour_id * 10L + day_id, times = nrow(pop)),
-             shpPerVehicle = 1)]
+    shpPerVehicle = 1)]
   x <- movesr_evap_rates(database, tank, act, year = year, county_id = county_id,
-                         month_id = month_id, day_id = day_id,
-                         meteorology = met[hourID %in% hour_id],
-                         process_id = process_id, pollutant_id = pollutant_id,
-                         fraction_of_operating = 1, tvv_hours = integer(), ...)
+    month_id = month_id, day_id = day_id,
+    meteorology = met[hourID %in% hour_id],
+    process_id = process_id, pollutant_id = pollutant_id,
+    fraction_of_operating = 1, tvv_hours = integer(), ...)
   bins <- movesr_table(database, "avgspeedbin")[avgSpeedBinID %in% avg_speed_bin,
-                                                .(avgSpeedBinID, avgBinSpeed)]
+    .(avgSpeedBinID, avgBinSpeed)]
   n <- nrow(x)
   x <- x[rep(seq_len(n), each = nrow(bins))]
   b <- bins[rep(seq_len(nrow(bins)), times = n)]

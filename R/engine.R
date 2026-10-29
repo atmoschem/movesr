@@ -21,33 +21,33 @@ movesr_ev_adjustment <- function(database, year) {
   rc <- movesr_table(database, "regulatoryclass")
   faa <- movesr_table(database, "fleetavgadjustment")
   x <- merge(sty[, .(sourceTypeID, yearID, sourceTypePopulation)],
-             stad[, .(sourceTypeID, yearID, ageFraction)],
-             by = c("sourceTypeID", "yearID"),
-        allow.cartesian = TRUE)
+    stad[, .(sourceTypeID, yearID, ageFraction)],
+    by = c("sourceTypeID", "yearID"),
+    allow.cartesian = TRUE)
   x <- merge(x, svp[, .(sourceTypeID, modelYearID, fuelTypeID, regClassID,
-                        stmyFraction)],
-             by.x = c("sourceTypeID", "yearID"),
-             by.y = c("sourceTypeID", "modelYearID"),
-        allow.cartesian = TRUE)
+    stmyFraction)],
+  by.x = c("sourceTypeID", "yearID"),
+  by.y = c("sourceTypeID", "modelYearID"),
+  allow.cartesian = TRUE)
   data.table::setnames(x, "yearID", "modelYearID")
   x <- x[modelYearID <= year & modelYearID >= year - 40]
   x <- merge(x, rc[, .(regClassID, fleetAvgGroupID)], by = "regClassID",
-        allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   x[, w := sourceTypePopulation * ageFraction * stmyFraction]
   ev <- x[, .(evFraction = sum(w[fuelTypeID == 9L]) / sum(w)),
-          by = .(modelYearID, fleetAvgGroupID)]
+    by = .(modelYearID, fleetAvgGroupID)]
   ev <- ev[is.finite(evFraction)]
   y <- merge(faa, ev, by = "fleetAvgGroupID", allow.cartesian = TRUE)
   y <- y[modelYearID >= beginModelYearID & modelYearID <= endModelYearID &
-           evFraction != 1]
+    evFraction != 1]
   y[, cap := data.table::fifelse(is.na(adjustmentCap), 1e99, adjustmentCap)]
   y[, evFactor := pmin(1 / (1 - (evFraction * evMultiplier) /
-                              ((1 - evFraction) + evFraction * evMultiplier)),
-                       cap)]
+    ((1 - evFraction) + evFraction * evMultiplier)),
+  cap)]
   y <- merge(y, rc[, .(regClassID, fleetAvgGroupID)], by = "fleetAvgGroupID",
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   unique(y[, .(polProcessID, modelYearID, regClassID, evFactor)],
-         by = c("polProcessID", "modelYearID", "regClassID"))
+    by = c("polProcessID", "modelYearID", "regClassID"))
 }
 
 #' I/M adjustment fractions
@@ -73,29 +73,29 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   imc <- if (is.null(im_coverage)) movesr_table(database, "imcoverage") else
     data.table::as.data.table(im_coverage)
   imc <- imc[countyID == county_id & yearID == year & useIMyn == "Y" &
-               polProcessID %in% pol_process_id]
+    polProcessID %in% pol_process_id]
   empty <- data.table::data.table(polProcessID = integer(),
-                                  modelYearID = integer(),
-                                  sourceTypeID = integer(),
-                                  fuelTypeID = integer(),
-                                  IMAdjustFract = numeric())
+    modelYearID = integer(),
+    sourceTypeID = integer(),
+    fuelTypeID = integer(),
+    IMAdjustFract = numeric())
   if (!nrow(imc)) return(empty)
   imf <- movesr_table(database, "imfactor")[polProcessID %in% pol_process_id]
   ppmy <- movesr_table(database, "pollutantprocessmodelyear")
   ac <- movesr_table(database, "agecategory")
   ppmy <- ppmy[polProcessID %in% pol_process_id &
-                 modelYearID <= year & modelYearID >= year - 40]
+    modelYearID <= year & modelYearID >= year - 40]
   ppmy[, ageID := year - modelYearID]
   ppmy <- merge(ppmy, ac[, .(ageID, ageGroupID)], by = "ageID",
-        allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   x <- merge(ppmy[, .(polProcessID, modelYearID, IMModelYearGroupID, ageGroupID)],
-             imf, by = c("polProcessID", "IMModelYearGroupID", "ageGroupID"),
-             allow.cartesian = TRUE)
+    imf, by = c("polProcessID", "IMModelYearGroupID", "ageGroupID"),
+    allow.cartesian = TRUE)
   x <- merge(x, imc[, .(polProcessID, inspectFreq, testStandardsID,
-                        sourceTypeID, fuelTypeID, begModelYearID,
-                        endModelYearID, complianceFactor)],
-             by = c("polProcessID", "inspectFreq", "testStandardsID",
-                    "sourceTypeID", "fuelTypeID"), allow.cartesian = TRUE)
+    sourceTypeID, fuelTypeID, begModelYearID,
+    endModelYearID, complianceFactor)],
+  by = c("polProcessID", "inspectFreq", "testStandardsID",
+    "sourceTypeID", "fuelTypeID"), allow.cartesian = TRUE)
   x <- x[begModelYearID <= modelYearID & endModelYearID >= modelYearID]
   if (!nrow(x)) return(empty)
   x[, .(IMAdjustFract = sum(IMFactor * complianceFactor * 0.01)),
@@ -121,8 +121,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   if (any(nox)) {
     diesel <- fuel_type_id[nox] == 2L
     t_adj <- ifelse(diesel,
-                    ifelse(temperature > 77, 0, (77 - temperature) * a[nox]),
-                    (temperature - 75) * (a[nox] + (temperature - 75) * b[nox]))
+      ifelse(temperature > 77, 0, (77 - temperature) * a[nox]),
+      (temperature - 75) * (a[nox] + (temperature - 75) * b[nox]))
     out[nox] <- (1 + t_adj) * k[nox]
   }
   out
@@ -141,8 +141,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   cc <- ifelse(ok, sta_c, 0)
   tl <- min(temperature, 75) - 75
   add <- ifelse(is_log & ok,
-                weight * (b * exp(a * tl) + cc),
-                weight * tl * (a + tl * (b + tl * cc)))
+    weight * (b * exp(a * tl) + cc),
+    weight * tl * (a + tl * (b + tl * cc)))
   pm <- pol_process_id %in% c(11202L, 11802L) & ok
   out <- rate + ifelse(ok, add, 0)
   out[pm] <- rate[pm] * b[pm] * exp(a[pm] * (72 - min(temperature, 72))) + cc[pm]
@@ -168,8 +168,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   if (is.null(gpa_fract)) gpa_fract <- county$GPAFract[1]
   if (is.na(gpa_fract)) gpa_fract <- 0
   met <- cbind(met[, .(hourID)],
-               movesr_meteorology(met$temperature, met$relHumidity,
-                                  barometric_pressure))
+    movesr_meteorology(met$temperature, met$relHumidity,
+      barometric_pressure))
   plan <- .movesr_pollutant_plan(pollutant_id)
   ppa <- tb("pollutantprocessassoc")
   pp <- ppa[processID == process_id & pollutantID %in% plan$base]$polProcessID
@@ -184,34 +184,34 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   ppmy <- tb("pollutantprocessmodelyear")[polProcessID %in% pp]
   myg <- tb("modelyeargroup")
   sb <- movesr_sourcebins(svp, ppmy, myg, year = year,
-                          source_type_id = source_type_id,
-                          process_id = process_id,
-                          source_type_pol_process = tb("sourcetypepolprocess"))
+    source_type_id = source_type_id,
+    process_id = process_id,
+    source_type_pol_process = tb("sourcetypepolprocess"))
   bins <- merge(data.table::copy(sb$source_bin),
-                myg[, .(modelYearGroupID, shortModYrGroupID)],
-                by = "modelYearGroupID")
+    myg[, .(modelYearGroupID, shortModYrGroupID)],
+    by = "modelYearGroupID")
   fuel_year <- tb("year")[yearID == year]$fuelYearID[1]
   fuf <- tb("fuelusagefraction")[countyID == county_id & fuelYearID == fuel_year]
   if (!nrow(fuf)) {
     fuf <- data.table::data.table(modelYearGroupID = 0L,
-                                  sourceBinFuelTypeID = unique(bins$fuelTypeID),
-                                  fuelSupplyFuelTypeID = unique(bins$fuelTypeID),
-                                  usageFraction = 1)
+      sourceBinFuelTypeID = unique(bins$fuelTypeID),
+      fuelSupplyFuelTypeID = unique(bins$fuelTypeID),
+      usageFraction = 1)
   }
   use <- merge(bins, fuf[, .(sourceBinFuelTypeID, fuelSupplyFuelTypeID,
-                             fmyg = modelYearGroupID, usageFraction)],
-               by.x = "fuelTypeID", by.y = "sourceBinFuelTypeID",
-               allow.cartesian = TRUE)
+    fmyg = modelYearGroupID, usageFraction)],
+  by.x = "fuelTypeID", by.y = "sourceBinFuelTypeID",
+  allow.cartesian = TRUE)
   use <- use[fmyg == 0L | fmyg == modelYearGroupID]
   use[, usedSourceBinID := .sourcebin_id(fuelSupplyFuelTypeID, engTechID,
-                                         regClassID, shortModYrGroupID)]
+    regClassID, shortModYrGroupID)]
   use <- use[usedSourceBinID %in% bins$sourceBinID,
-             .(sourceBinID, usedSourceBinID, usageFraction)]
+    .(sourceBinID, usedSourceBinID, usageFraction)]
   sbd <- merge(sb$distribution, use, by = "sourceBinID", allow.cartesian = TRUE)
   sbd <- sbd[, .(sourceBinActivityFraction =
-                   sum(usageFraction * sourceBinActivityFraction)),
-             by = .(sourceTypeModelYearID, polProcessID,
-                    sourceBinID = usedSourceBinID)]
+    sum(usageFraction * sourceBinActivityFraction)),
+  by = .(sourceTypeModelYearID, polProcessID,
+    sourceBinID = usedSourceBinID)]
 
   er_age <- tb("emissionratebyage")[polProcessID %in% pp]
   er_age[, sourceBinID := as.character(sourceBinID)]
@@ -234,7 +234,7 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   if (nrow(alt_supply) && any(pp %/% 100L == 1L)) {
     if ("altRVP" %in% names(alt_supply)) alt_supply[, RVP := altRVP]
     ax <- gfre[fuelTypeID == 5L & polProcessID %in% pp & polProcessID %/% 100L == 1L &
-                 polProcessID %% 100L %in% c(1L, 2L) & maxModelYearID >= 2001L]
+      polProcessID %% 100L %in% c(1L, 2L) & maxModelYearID >= 2001L]
     ax[, minModelYearID := pmax(2001L, minModelYearID)]
     alt_ratios <- movesr_fuel_ratios(ax, alt_supply)
   }
@@ -242,28 +242,28 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   # Model for model years without an expression (MOVES "insert ignore").
   ratios <- data.table::rbindlist(list(
     ratios, movesr_complex_ratios(database, supply, year, pp, source_type_id)),
-    use.names = TRUE)
+  use.names = TRUE)
   stmy <- tb("sourcetypemodelyear")
   list(database = database, tb = tb, process_id = process_id, year = year,
-       county_id = county_id, month_id = month_id, day_id = day_id,
-       month_group = month_group, met = met, pp = pp,
-       source_type_id = source_type_id, fuel_type_id = fuel_type_id,
-       road_type_id = road_type_id, gpa_fract = gpa_fract,
-       ppmy = ppmy, bins = bins, sbd = sbd, er_age = er_age,
-       er_flat = er_flat, stmy = stmy, ac = tb("agecategory"),
-       fac = if (process_id == 2L) tb("fullacadjustment")[0] else
-         tb("fullacadjustment")[polProcessID %in% pp],
-       ev = movesr_ev_adjustment(database, year)[polProcessID %in% pp],
-       era = tb("emissionrateadjustment")[polProcessID %in% pp],
-       eff = tb("evefficiency")[polProcessID %in% pp],
-       ta = tb("temperatureadjustment")[polProcessID %in% pp],
-       nha = tb("noxhumidityadjust"),
-       im = if (isFALSE(im_coverage)) NULL else
-         movesr_im_fraction(database, county_id, year, pp, im_coverage),
-       acf = movesr_ac_factor(met[, .(hourID, heatIndex)], tb("monthgrouphour"),
-                              stmy, tb("sourcetypeage"), year, month_group),
-       supply = supply, ratios = ratios, alt_supply = alt_supply,
-       alt_ratios = alt_ratios, plan = plan)
+    county_id = county_id, month_id = month_id, day_id = day_id,
+    month_group = month_group, met = met, pp = pp,
+    source_type_id = source_type_id, fuel_type_id = fuel_type_id,
+    road_type_id = road_type_id, gpa_fract = gpa_fract,
+    ppmy = ppmy, bins = bins, sbd = sbd, er_age = er_age,
+    er_flat = er_flat, stmy = stmy, ac = tb("agecategory"),
+    fac = if (process_id == 2L) tb("fullacadjustment")[0] else
+      tb("fullacadjustment")[polProcessID %in% pp],
+    ev = movesr_ev_adjustment(database, year)[polProcessID %in% pp],
+    era = tb("emissionrateadjustment")[polProcessID %in% pp],
+    eff = tb("evefficiency")[polProcessID %in% pp],
+    ta = tb("temperatureadjustment")[polProcessID %in% pp],
+    nha = tb("noxhumidityadjust"),
+    im = if (isFALSE(im_coverage)) NULL else
+      movesr_im_fraction(database, county_id, year, pp, im_coverage),
+    acf = movesr_ac_factor(met[, .(hourID, heatIndex)], tb("monthgrouphour"),
+      stmy, tb("sourcetypeage"), year, month_group),
+    supply = supply, ratios = ratios, alt_supply = alt_supply,
+    alt_ratios = alt_ratios, plan = plan)
 }
 
 # BaseRateGenerator SBWeightedEmissionRate(ByAge) for one source type.
@@ -273,47 +273,47 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   d <- ctx$sbd[sourceTypeModelYearID %in% st$sourceTypeModelYearID]
   if (!nrow(d)) return(NULL)
   d <- merge(d, st[, .(sourceTypeModelYearID, sourceTypeID, modelYearID)],
-             by = "sourceTypeModelYearID")
+    by = "sourceTypeModelYearID")
   d <- merge(d, ctx$bins[, .(sourceBinID, fuelTypeID, regClassID,
-                             modelYearGroupID)], by = "sourceBinID")
+    modelYearGroupID)], by = "sourceBinID")
   d <- merge(d, ctx$ppmy[, .(polProcessID, modelYearID, mg = modelYearGroupID)],
-             by = c("polProcessID", "modelYearID"))
+    by = c("polProcessID", "modelYearID"))
   d <- d[mg == modelYearGroupID]
   d[, ageID := year - modelYearID]
   d <- merge(d, ctx$ac[, .(ageID, ageGroupID)], by = "ageID")
   if (!is.null(ctx$fuel_type_id)) d <- d[fuelTypeID %in% ctx$fuel_type_id]
   if (!nrow(d)) return(NULL)
   smfr <- d[, .(sbdTotal = sum(sourceBinActivityFraction)),
-            by = .(polProcessID, modelYearID, fuelTypeID, regClassID)]
+    by = .(polProcessID, modelYearID, fuelTypeID, regClassID)]
   keys <- c("sourceTypeID", "polProcessID", "modelYearID", "fuelTypeID",
-            "opModeID", "ageGroupID", "regClassID")
+    "opModeID", "ageGroupID", "regClassID")
   a <- merge(d, ctx$er_age, by = c("sourceBinID", "polProcessID", "ageGroupID"),
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   f <- merge(d, ctx$er_flat, by = c("sourceBinID", "polProcessID"),
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   x <- data.table::rbindlist(list(a, f), use.names = TRUE, fill = TRUE)
   if (!nrow(x)) return(NULL)
   x <- merge(x, ctx$fac[sourceTypeID == s, .(polProcessID, opModeID,
-                                             fullACAdjustment)],
-             by = c("polProcessID", "opModeID"), all.x = TRUE,
-        allow.cartesian = TRUE)
+    fullACAdjustment)],
+  by = c("polProcessID", "opModeID"), all.x = TRUE,
+  allow.cartesian = TRUE)
   x[is.na(fullACAdjustment), fullACAdjustment := 1]
   x[is.na(meanBaseRateIM), meanBaseRateIM := meanBaseRate]
   w <- x[, .(S = sum(sourceBinActivityFraction),
-             MBR = sum(sourceBinActivityFraction * meanBaseRate),
-             MBRIM = sum(sourceBinActivityFraction * meanBaseRateIM),
-             AC = sum(sourceBinActivityFraction * meanBaseRate *
-                        (fullACAdjustment - 1)),
-             IMAC = sum(sourceBinActivityFraction * meanBaseRateIM *
-                          (fullACAdjustment - 1))),
-         by = keys][S > 0]
+    MBR = sum(sourceBinActivityFraction * meanBaseRate),
+    MBRIM = sum(sourceBinActivityFraction * meanBaseRateIM),
+    AC = sum(sourceBinActivityFraction * meanBaseRate *
+      (fullACAdjustment - 1)),
+    IMAC = sum(sourceBinActivityFraction * meanBaseRateIM *
+      (fullACAdjustment - 1))),
+  by = keys][S > 0]
   w[, `:=`(MBR = MBR / S, MBRIM = MBRIM / S, AC = AC / S, IMAC = IMAC / S)]
   w <- merge(w, ctx$ev, by = c("polProcessID", "modelYearID", "regClassID"),
-             all.x = TRUE,
-        allow.cartesian = TRUE)
+    all.x = TRUE,
+    allow.cartesian = TRUE)
   w[is.na(evFactor) | fuelTypeID == 9L, evFactor := 1]
   w[, `:=`(MBR = MBR * evFactor, MBRIM = MBRIM * evFactor,
-           AC = AC * evFactor, IMAC = IMAC * evFactor)]
+    AC = AC * evFactor, IMAC = IMAC * evFactor)]
   list(w = w, smfr = smfr)
 }
 
@@ -321,13 +321,13 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
 .movesr_static_factors <- function(ctx, y, s) {
   year <- ctx$year
   y[, `:=`(pollutantID = polProcessID %/% 100L,
-           processID = polProcessID %% 100L,
-           ageID = year - modelYearID)]
+    processID = polProcessID %% 100L,
+    ageID = year - modelYearID)]
   fk <- unique(y[, .(fuelTypeID, polProcessID, sourceTypeID, modelYearID, ageID)])
   fa <- movesr_fuel_adjustment(ctx$supply, ctx$ratios, fk, ctx$gpa_fract)
   y <- merge(y, fa, by = c("fuelTypeID", "polProcessID", "sourceTypeID",
-                           "modelYearID", "ageID"), all.x = TRUE,
-        allow.cartesian = TRUE)
+    "modelYearID", "ageID"), all.x = TRUE,
+  allow.cartesian = TRUE)
   # MOVES produces no rate for a fuel type absent from the fuel supply.
   y <- y[!is.na(fuelFactor) & marketShare > 0]
   if (!nrow(y)) return(y)
@@ -335,8 +335,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   era <- ctx$era[sourceTypeID == s]
   if (nrow(era)) {
     m <- merge(y[, .(i = .I, polProcessID, regClassID, fuelTypeID, modelYearID)],
-               era, by = c("polProcessID", "regClassID", "fuelTypeID"),
-               allow.cartesian = TRUE)
+      era, by = c("polProcessID", "regClassID", "fuelTypeID"),
+      allow.cartesian = TRUE)
     m <- m[modelYearID >= beginModelYearID & modelYearID <= endModelYearID]
     m <- m[!duplicated(i)]
     y[m$i, era := m$emissionRateAdjustment]
@@ -345,11 +345,11 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   eff <- ctx$eff[sourceTypeID == s]
   if (nrow(eff) && any(y$fuelTypeID == 9L)) {
     m <- merge(y[, .(i = .I, polProcessID, regClassID, modelYearID,
-                     ageGroupID, fuelTypeID)][fuelTypeID == 9L],
-               eff, by = c("polProcessID", "regClassID", "ageGroupID"),
-               allow.cartesian = TRUE)
+      ageGroupID, fuelTypeID)][fuelTypeID == 9L],
+    eff, by = c("polProcessID", "regClassID", "ageGroupID"),
+    allow.cartesian = TRUE)
     m <- m[modelYearID >= beginModelYearID & modelYearID <= endModelYearID &
-             batteryEfficiency * chargingEfficiency != 0]
+      batteryEfficiency * chargingEfficiency != 0]
     y[m$i, eff := m$batteryEfficiency * m$chargingEfficiency]
   }
   y[, `:=`(taA = NA_real_, taB = NA_real_)]
@@ -358,10 +358,10 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
     tt <- if (zero) ta[regClassID == 0L] else ta
     if (!nrow(tt)) next
     lhs <- y[, .(i = .I, polProcessID, fuelTypeID, regClassID, modelYearID,
-                 todo = is.na(taA))][todo == TRUE]
+      todo = is.na(taA))][todo == TRUE]
     if (zero) lhs[, regClassID := 0L]
     m <- merge(lhs, tt, by = c("polProcessID", "fuelTypeID", "regClassID"),
-        allow.cartesian = TRUE)
+      allow.cartesian = TRUE)
     m <- m[modelYearID >= minModelYearID & modelYearID <= maxModelYearID]
     m <- m[!duplicated(i)]
     y[m$i, `:=`(taA = m$tempAdjustTermA, taB = m$tempAdjustTermB)]
@@ -369,8 +369,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   im <- ctx$im
   if (!is.null(im) && nrow(im)) {
     y <- merge(y, im, by = c("polProcessID", "modelYearID", "sourceTypeID",
-                             "fuelTypeID"), all.x = TRUE,
-        allow.cartesian = TRUE)
+      "fuelTypeID"), all.x = TRUE,
+    allow.cartesian = TRUE)
   } else {
     y[, IMAdjustFract := NA_real_]
   }
@@ -393,8 +393,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
   z[pollutantID == 91L, rate := rate * scale]
   if (keep_regclass) {
     res <- z[, intersect(c(idcols, "regClassID", "rate", "sbdTotal",
-                           if (keep_components) c("fuelFactor", "base")),
-                         names(z)), with = FALSE]
+      if (keep_components) c("fuelFactor", "base")),
+    names(z)), with = FALSE]
   } else {
     res <- z[, .(rate = sum(rate * sbdTotal) / sum(sbdTotal)), by = idcols]
     res[, regClassID := 0L]
@@ -452,8 +452,8 @@ movesr_im_fraction <- function(database, county_id, year, pol_process_id,
 movesr_running_rates <- function(database, year = 2025, county_id = 26161,
                                  month_id = 1,
                                  meteorology = data.frame(hourID = 1L,
-                                                          temperature = 68,
-                                                          relHumidity = 50),
+                                   temperature = 68,
+                                   relHumidity = 50),
                                  source_type_id = NULL, fuel_type_id = NULL,
                                  pollutant_id = c(2, 3), road_type_id = 2:5,
                                  fuel_supply = NULL,
@@ -466,37 +466,37 @@ movesr_running_rates <- function(database, year = 2025, county_id = 26161,
     stop("process_id must be 1 (running), 9 (brakewear) or 10 (tirewear)")
   }
   ctx <- .movesr_context(database, process_id, year, county_id, month_id, 5L,
-                         meteorology, source_type_id, fuel_type_id,
-                         pollutant_id, road_type_id, fuel_supply,
-                         barometric_pressure, gpa_fract, im_coverage)
+    meteorology, source_type_id, fuel_type_id,
+    pollutant_id, road_type_id, fuel_supply,
+    barometric_pressure, gpa_fract, im_coverage)
   tb <- ctx$tb
   source_type_id <- ctx$source_type_id
   phys <- tb("sourceusetypephysics")[sourceTypeID %in% source_type_id &
-                                       endModelYearID >= year - 40 &
-                                       beginModelYearID <= year]
+    endModelYearID >= year - 40 &
+    beginModelYearID <= year]
   assoc <- tb("drivescheduleassoc")[sourceTypeID %in% source_type_id &
-                                      roadTypeID %in% road_type_id]
+    roadTypeID %in% road_type_id]
   ds <- tb("driveschedule")
   speed_bins <- tb("avgspeedbin")
   fractions <- movesr_schedule_fractions(ds, assoc, speed_bins,
-                                         source_type_id = source_type_id,
-                                         road_type_id = road_type_id)
+    source_type_id = source_type_id,
+    road_type_id = road_type_id)
   dss <- tb("driveschedulesecond")[driveScheduleID %in% fractions$driveScheduleID]
   omd <- movesr_opmodes(dss, ds, phys, tb("operatingmode"), NULL, assoc,
-                        schedule_fraction = fractions)
+    schedule_fraction = fractions)
   pkeys <- unique(omd[, .(sourceTypeID, regClassID, beginModelYearID,
-                          endModelYearID)])
+    endModelYearID)])
   pkeys[, physicsID := seq_len(.N)]
   omd <- merge(omd, pkeys, by = c("sourceTypeID", "regClassID",
-                                  "beginModelYearID", "endModelYearID"))
+    "beginModelYearID", "endModelYearID"))
   omd <- omd[, .(physicsID, roadTypeID, avgSpeedBinID, opModeID,
-                 opModeFraction)]
+    opModeFraction)]
   rb <- unique(omd[, .(physicsID, roadTypeID, avgSpeedBinID)])
   if (process_id == 10L) {
     # AverageSpeedOperatingModeDistributionGenerator: one tirewear mode per
     # speed bin (avgSpeedBin.opModeIDTirewear), fraction 1.
     omd <- merge(rb, speed_bins[, .(avgSpeedBinID, opModeID = opModeIDTirewear)],
-                 by = "avgSpeedBinID")[, opModeFraction := 1]
+      by = "avgSpeedBinID")[, opModeFraction := 1]
   } else {
     omd300 <- data.table::copy(rb)[, `:=`(opModeID = 300L, opModeFraction = 1)]
     omd <- data.table::rbindlist(list(omd, omd300), use.names = TRUE)
@@ -513,23 +513,23 @@ movesr_running_rates <- function(database, year = 2025, county_id = 26161,
     pk <- data.table::copy(pkeys[sourceTypeID == s])
     wk <- unique(w[, .(regClassID, modelYearID)])
     wk <- merge(wk[, k := 1L], pk[, k := 1L], by = "k", allow.cartesian = TRUE,
-                suffixes = c("", ".p"))
+      suffixes = c("", ".p"))
     wk <- wk[(regClassID.p == regClassID | regClassID.p == 0L |
-                regClassID == 0L) &
-               modelYearID >= beginModelYearID & modelYearID <= endModelYearID]
+      regClassID == 0L) &
+      modelYearID >= beginModelYearID & modelYearID <= endModelYearID]
     wk <- wk[, .(physicsID = physicsID[1]), by = .(regClassID, modelYearID)]
     w <- merge(w, wk, by = c("regClassID", "modelYearID"))
     y <- merge(w, omd, by = c("physicsID", "opModeID"), allow.cartesian = TRUE)
     y <- y[, .(MBR = sum(MBR * opModeFraction),
-               MBRIM = sum(MBRIM * opModeFraction),
-               AC = sum(AC * opModeFraction),
-               IMAC = sum(IMAC * opModeFraction)),
-           by = .(sourceTypeID, roadTypeID, avgSpeedBinID, polProcessID,
-                  modelYearID, fuelTypeID, ageGroupID, regClassID)]
+      MBRIM = sum(MBRIM * opModeFraction),
+      AC = sum(AC * opModeFraction),
+      IMAC = sum(IMAC * opModeFraction)),
+    by = .(sourceTypeID, roadTypeID, avgSpeedBinID, polProcessID,
+      modelYearID, fuelTypeID, ageGroupID, regClassID)]
     y <- merge(y, speed_bins, by = "avgSpeedBinID")
     y <- y[avgBinSpeed > 0]
     y[, `:=`(ER = MBR / avgBinSpeed, ERIM = MBRIM / avgBinSpeed,
-             ERAC = AC / avgBinSpeed, ERIMAC = IMAC / avgBinSpeed)]
+      ERAC = AC / avgBinSpeed, ERIMAC = IMAC / avgBinSpeed)]
     y <- .movesr_static_factors(ctx, y, s)
     if (!nrow(y)) next
     hours <- vector("list", nrow(met))
@@ -537,40 +537,40 @@ movesr_running_rates <- function(database, year = 2025, county_id = 26161,
       mh <- met[h]
       z <- data.table::copy(y)
       z[, `:=`(hourID = mh$hourID, temperature = mh$temperature,
-               relHumidity = mh$relHumidity)]
+        relHumidity = mh$relHumidity)]
       k <- movesr_nox_humidity(z$fuelTypeID, mh$specificHumidity,
-                               mh$molWaterFraction, ctx$nha)
+        mh$molWaterFraction, ctx$nha)
       z[, tempFactor := .movesr_temp_factor(processID, pollutantID, fuelTypeID,
-                                           sourceTypeID, k, mh$temperature,
-                                           mh$heatIndex, taA, taB)]
+        sourceTypeID, k, mh$temperature,
+        mh$heatIndex, taA, taB)]
       z <- merge(z, ctx$acf[hourID == mh$hourID & sourceTypeID == s,
-                            .(modelYearID, ACFactor)],
-                 by = "modelYearID", all.x = TRUE)
+        .(modelYearID, ACFactor)],
+      by = "modelYearID", all.x = TRUE)
       z[is.na(ACFactor) | ACFactor <= 0, ACFactor := 0]
       z[, base := tempFactor *
-          ((1 - IMAdjustFract) * (ER + ACFactor * ERAC) +
-             IMAdjustFract * (ERIM + ACFactor * ERIMAC)) * era / eff]
+        ((1 - IMAdjustFract) * (ER + ACFactor * ERAC) +
+          IMAdjustFract * (ERIM + ACFactor * ERIMAC)) * era / eff]
       z[, rate := fuelFactor * base]
       hours[[h]] <- z
     }
     z <- data.table::rbindlist(hours)
     out[[si]] <- merge(z, sw$smfr, by = c("polProcessID", "modelYearID",
-                                          "fuelTypeID", "regClassID"),
-        allow.cartesian = TRUE)
+      "fuelTypeID", "regClassID"),
+    allow.cartesian = TRUE)
   }
   z <- data.table::rbindlist(out)
   if (!nrow(z)) stop("No rates were generated for the selection")
   z <- .movesr_chain(ctx, z, ctx$plan$requested)
   res <- .movesr_finish(ctx, z, "ratePerDistance", keep_regclass,
-                        keep_components, energy_units = energy_units, idcols =
-                          c("yearID", "monthID", "dayID", "hourID",
-                          "sourceTypeID", "fuelTypeID", "modelYearID",
-                          "roadTypeID", "avgSpeedBinID", "pollutantID",
-                          "processID", "temperature", "relHumidity"))
+    keep_components, energy_units = energy_units, idcols =
+      c("yearID", "monthID", "dayID", "hourID",
+        "sourceTypeID", "fuelTypeID", "modelYearID",
+        "roadTypeID", "avgSpeedBinID", "pollutantID",
+        "processID", "temperature", "relHumidity"))
   res[, ratePerDistanceKm := ratePerDistance / 1.609344]
   data.table::setkeyv(res, c("hourID", "sourceTypeID", "fuelTypeID",
-                             "modelYearID", "pollutantID", "roadTypeID",
-                             "avgSpeedBinID"))
+    "modelYearID", "pollutantID", "roadTypeID",
+    "avgSpeedBinID"))
   res[]
 }
 
@@ -600,29 +600,29 @@ movesr_running_rates <- function(database, year = 2025, county_id = 26161,
 movesr_start_rates <- function(database, year = 2025, county_id = 26161,
                                month_id = 1, day_id = 5L,
                                meteorology = data.frame(hourID = 1L,
-                                                        temperature = 68,
-                                                        relHumidity = 50),
+                                 temperature = 68,
+                                 relHumidity = 50),
                                source_type_id = NULL, fuel_type_id = NULL,
                                pollutant_id = c(2, 3), fuel_supply = NULL,
                                barometric_pressure = NULL, gpa_fract = NULL,
                                im_coverage = NULL, keep_regclass = FALSE,
                                keep_components = FALSE, energy_units = "J") {
   ctx <- .movesr_context(database, 2L, year, county_id, month_id, day_id,
-                         meteorology, source_type_id, fuel_type_id,
-                         pollutant_id, 1L, fuel_supply, barometric_pressure,
-                         gpa_fract, im_coverage)
+    meteorology, source_type_id, fuel_type_id,
+    pollutant_id, 1L, fuel_supply, barometric_pressure,
+    gpa_fract, im_coverage)
   tb <- ctx$tb
   somd <- tb("startsopmodedistribution")[dayID == day_id &
-                                           sourceTypeID %in% ctx$source_type_id]
+    sourceTypeID %in% ctx$source_type_id]
   data.table::setorder(somd, sourceTypeID, hourID, ageID, opModeID)
   somd <- somd[, .SD[ageID == ageID[1]], by = .(sourceTypeID, hourID)]
   somd <- unique(somd[, .(sourceTypeID, hourID, opModeID, opModeFraction)],
-                 by = c("sourceTypeID", "hourID", "opModeID"))
+    by = c("sourceTypeID", "hourID", "opModeID"))
   # StartOperatingModeDistributionGenerator step 400: "All Starts" mode 100
   # with fraction 1 (used by rates given only for mode 100, e.g. N2O 602).
   somd <- data.table::rbindlist(list(
     somd, unique(somd[, .(sourceTypeID, hourID)])[, `:=`(opModeID = 100L,
-                                                          opModeFraction = 1)]))
+      opModeFraction = 1)]))
   sta <- tb("starttempadjustment")[polProcessID %in% ctx$pp]
   # Rates are activity-weighted in MOVES; with no starts the rate is 0.
   spd <- tb("startsperdaypervehicle")[dayID == day_id]
@@ -634,46 +634,46 @@ movesr_start_rates <- function(database, year = 2025, county_id = 26161,
     sw <- .movesr_sbweighted(ctx, s)
     if (is.null(sw)) next
     w <- merge(sw$w, ctx$ppmy[, .(polProcessID, modelYearID,
-                                  modelYearGroupID)],
-               by = c("polProcessID", "modelYearID"),
-        allow.cartesian = TRUE)
+      modelYearGroupID)],
+    by = c("polProcessID", "modelYearID"),
+    allow.cartesian = TRUE)
     w <- merge(w, sta[, .(fuelTypeID, polProcessID, modelYearGroupID, opModeID,
-                          staA = tempAdjustTermA, staB = tempAdjustTermB,
-                          staC = tempAdjustTermC,
-                          isLog = startTempEquationType == "LOG")],
-               by = c("fuelTypeID", "polProcessID", "modelYearGroupID",
-                      "opModeID"), all.x = TRUE,
-        allow.cartesian = TRUE)
+      staA = tempAdjustTermA, staB = tempAdjustTermB,
+      staC = tempAdjustTermC,
+      isLog = startTempEquationType == "LOG")],
+    by = c("fuelTypeID", "polProcessID", "modelYearGroupID",
+      "opModeID"), all.x = TRUE,
+    allow.cartesian = TRUE)
     hours <- vector("list", nrow(met))
     for (h in seq_len(nrow(met))) {
       mh <- met[h]
       om <- somd[sourceTypeID == s & hourID == mh$hourID,
-                 .(opModeID, opModeFraction)]
+        .(opModeID, opModeFraction)]
       y <- merge(w, om, by = "opModeID",
         allow.cartesian = TRUE)
       if (!nrow(y)) next
       y[is.na(isLog), isLog := FALSE]
       y[, `:=`(
         ER = .movesr_start_temp(staA, staB, staC, isLog, polProcessID,
-                                mh$temperature, opModeFraction,
-                                MBR * opModeFraction),
+          mh$temperature, opModeFraction,
+          MBR * opModeFraction),
         ERIM = .movesr_start_temp(staA, staB, staC, isLog, polProcessID,
-                                  mh$temperature, opModeFraction,
-                                  MBRIM * opModeFraction))]
+          mh$temperature, opModeFraction,
+          MBRIM * opModeFraction))]
       y <- y[, .(ER = sum(ER), ERIM = sum(ERIM)),
-             by = .(sourceTypeID, polProcessID, modelYearID, fuelTypeID,
-                    ageGroupID, regClassID)]
+        by = .(sourceTypeID, polProcessID, modelYearID, fuelTypeID,
+          ageGroupID, regClassID)]
       y <- .movesr_static_factors(ctx, y, s)
       if (!nrow(y)) next
       y[, `:=`(hourID = mh$hourID, temperature = mh$temperature,
-               relHumidity = mh$relHumidity)]
+        relHumidity = mh$relHumidity)]
       y[, tempFactor := .movesr_temp_factor(processID, pollutantID, fuelTypeID,
-                                           sourceTypeID, rep(1, .N),
-                                           mh$temperature, mh$heatIndex,
-                                           taA, taB)]
+        sourceTypeID, rep(1, .N),
+        mh$temperature, mh$heatIndex,
+        taA, taB)]
       y[, ACFactor := 0]
       y[, base := tempFactor *
-          ((1 - IMAdjustFract) * ER + IMAdjustFract * ERIM) * era / eff]
+        ((1 - IMAdjustFract) * ER + IMAdjustFract * ERIM) * era / eff]
       y[, rate := fuelFactor * base]
       act <- spd[sourceTypeID == s]$startsPerDayPerVehicle *
         shf[sourceTypeID == s & hourID == mh$hourID]$allocationFraction
@@ -683,19 +683,19 @@ movesr_start_rates <- function(database, year = 2025, county_id = 26161,
     z <- data.table::rbindlist(hours)
     if (!nrow(z)) next
     out[[si]] <- merge(z, sw$smfr, by = c("polProcessID", "modelYearID",
-                                          "fuelTypeID", "regClassID"),
-        allow.cartesian = TRUE)
+      "fuelTypeID", "regClassID"),
+    allow.cartesian = TRUE)
   }
   z <- data.table::rbindlist(out)
   if (!nrow(z)) stop("No start rates were generated for the selection")
   z <- .movesr_chain(ctx, z, ctx$plan$requested)
   res <- .movesr_finish(ctx, z, "ratePerStart", keep_regclass, keep_components,
-                        energy_units = energy_units, idcols =
-                        c("yearID", "monthID", "dayID", "hourID",
-                          "sourceTypeID", "fuelTypeID", "modelYearID",
-                          "pollutantID", "processID", "temperature",
-                          "relHumidity"))
+    energy_units = energy_units, idcols =
+      c("yearID", "monthID", "dayID", "hourID",
+        "sourceTypeID", "fuelTypeID", "modelYearID",
+        "pollutantID", "processID", "temperature",
+        "relHumidity"))
   data.table::setkeyv(res, c("hourID", "sourceTypeID", "fuelTypeID",
-                             "modelYearID", "pollutantID"))
+    "modelYearID", "pollutantID"))
   res[]
 }

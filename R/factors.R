@@ -14,9 +14,9 @@
   src <- gsub("'", "''", normalizePath(path, mustWork = TRUE))
   dst <- gsub("'", "''", output)
   sql <- paste0("COPY (SELECT * FROM read_parquet('", src,
-                "')) TO '", dst, "' (HEADER, DELIMITER ',')")
+    "')) TO '", dst, "' (HEADER, DELIMITER ',')")
   status <- system2(duckdb, c("-no-agent", "-csv", "-c", shQuote(sql)),
-                    stdout = TRUE, stderr = TRUE)
+    stdout = TRUE, stderr = TRUE)
   if (!file.exists(output)) {
     stop("DuckDB could not export Parquet: ", paste(status, collapse = "\n"))
   }
@@ -36,7 +36,7 @@
   if ("ratePerStart" %in% names(data)) return("start")
   if ("ratePerVehicle" %in% names(data)) {
     if (grepl("profile", basename(path), ignore.case = TRUE) ||
-        "temperatureProfileID" %in% names(data)) return("profile")
+      "temperatureProfileID" %in% names(data)) return("profile")
     return("vehicle")
   }
   stop("Cannot infer MOVES rate basis for ", path)
@@ -55,11 +55,11 @@
     stop("Unknown basis: ", basis))
   if (!rate_name %in% names(data)) stop(path, " has no ", rate_name)
   required <- intersect(c("MOVESRunID", "yearID", "pollutantID", "processID",
-                          "sourceTypeID", "fuelTypeID", "modelYearID",
-                          "temperature", "relHumidity"), names(data))
+    "sourceTypeID", "fuelTypeID", "modelYearID",
+    "temperature", "relHumidity"), names(data))
   missing <- setdiff(c("pollutantID", "processID", "sourceTypeID",
-                       "fuelTypeID", "modelYearID", "temperature",
-                       "relHumidity"), required)
+    "fuelTypeID", "modelYearID", "temperature",
+    "relHumidity"), required)
   if (length(missing)) {
     stop(path, " is missing: ", paste(missing, collapse = ", "))
   }
@@ -99,7 +99,7 @@ movesr_factors <- function(path, distance_units = c("mile", "km"), basis = NULL)
   distance_units <- match.arg(distance_units)
   if (dir.exists(path)) {
     files <- list.files(path, pattern = "[.](csv|tsv|parquet)$",
-                        full.names = TRUE, ignore.case = TRUE)
+      full.names = TRUE, ignore.case = TRUE)
     files <- files[file.info(files)$size > 0]
     if (!length(files)) stop("No factor files found in ", path)
     tables <- lapply(files, function(file) .movesr_one(file, distance_units = distance_units))
@@ -108,20 +108,20 @@ movesr_factors <- function(path, distance_units = c("mile", "km"), basis = NULL)
     data <- data.table::rbindlist(tables, fill = TRUE)
   } else {
     data <- .movesr_one(path, basis = if (is.null(basis)) NULL else basis,
-                        distance_units = distance_units)
+      distance_units = distance_units)
   }
   key_columns <- c("MOVESRunID", "basis", "pollutantID", "processID",
-                   "sourceTypeID", "fuelTypeID", "modelYearID", "yearID",
-                   "roadTypeID", "avgSpeedBinID", "hourID", "temperature",
-                   "relHumidity", "temperatureProfileID", "linkID")
+    "sourceTypeID", "fuelTypeID", "modelYearID", "yearID",
+    "roadTypeID", "avgSpeedBinID", "hourID", "temperature",
+    "relHumidity", "temperatureProfileID", "linkID")
   key_columns <- intersect(key_columns, names(data))
   if (anyDuplicated(data[, key_columns, with = FALSE])) {
     stop("Duplicate factor keys in the input")
   }
   data.table::setkeyv(data, c("basis", "pollutantID", "processID",
-                              "sourceTypeID", "fuelTypeID", "modelYearID"))
+    "sourceTypeID", "fuelTypeID", "modelYearID"))
   structure(list(data = data, distance_units = distance_units),
-            class = "movesr_factors")
+    class = "movesr_factors")
 }
 
 #' @export

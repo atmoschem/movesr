@@ -5,7 +5,7 @@
   ok <- is.finite(x)
   if (any(ok)) {
     out[ok] <- readBin(writeBin(as.numeric(x[ok]), raw(), size = 4L),
-                       "double", size = 4L, n = sum(ok))
+      "double", size = 4L, n = sum(ok))
   }
   out
 }
@@ -34,7 +34,7 @@ movesr_cold_soak_tank_temperature <- function(temperature) {
   nxt <- c(t[-1], t[1])
   q <- data.table::CJ(hourID = 1:24, timeStepID = 1:4)
   q[, quarterHourTemperature := t[hourID] + (timeStepID - 1) * 0.25 *
-      (nxt[hourID] - t[hourID])]
+    (nxt[hourID] - t[hourID])]
   qt <- .f32(q$quarterHourTemperature)
   first <- qt[1]
   tank <- numeric(nrow(q))

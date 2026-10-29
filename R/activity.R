@@ -44,19 +44,19 @@ movesr_activity <- function(database, year = 2025, county_id = 26161,
   vmt <- tb("hpmsvtypeyear")[yearID == year, .(HPMSVTypeID = HPMSVtypeID, VMT = HPMSBaseYearVMT)]
   rtd <- tb("roadtypedistribution")[, .(sourceTypeID, roadTypeID, roadTypeVMTFraction)]
   av <- merge(x[, .(sourceTypeID, ageID, HPMSVTypeID, travelFraction)], vmt,
-              by = "HPMSVTypeID")
+    by = "HPMSVTypeID")
   av <- merge(av, rtd, by = "sourceTypeID", allow.cartesian = TRUE)
   av[, annualVMT := VMT * roadTypeVMTFraction * travelFraction]
   mvf <- tb("monthvmtfraction")[monthID == month_id, .(sourceTypeID, monthVMTFraction)]
   dvf <- tb("dayvmtfraction")[monthID == month_id & dayID == day_id,
-                              .(sourceTypeID, roadTypeID, dayVMTFraction)]
+    .(sourceTypeID, roadTypeID, dayVMTFraction)]
   hvf <- tb("hourvmtfraction")[dayID == day_id, .(sourceTypeID, roadTypeID, hourID,
-                                                  hourVMTFraction)]
+    hourVMTFraction)]
   days <- tb("monthofanyyear")[monthID == month_id]$noOfDays
   h <- merge(merge(av, mvf, by = "sourceTypeID"), dvf, by = c("sourceTypeID", "roadTypeID"))
   h <- merge(h, hvf, by = c("sourceTypeID", "roadTypeID"), allow.cartesian = TRUE)
   h[, hourVMT := annualVMT * (monthVMTFraction * dayVMTFraction) * hourVMTFraction /
-      (days / 7.0)]
+    (days / 7.0)]
   bins <- tb("avgspeedbin")[, .(avgSpeedBinID, avgBinSpeed)]
   asd <- tb("avgspeeddistribution")[hourDayID %% 10L == day_id]
   asp <- merge(asd, bins, by = "avgSpeedBinID")[
@@ -64,14 +64,14 @@ movesr_activity <- function(database, year = 2025, county_id = 26161,
     by = .(sourceTypeID, roadTypeID, hourID = hourDayID %/% 10L)]
   h <- merge(h, asp, by = c("sourceTypeID", "roadTypeID", "hourID"), all.x = TRUE)
   h[, SHO := data.table::fifelse(!is.na(averageSpeed) & averageSpeed != 0,
-                                 hourVMT / averageSpeed, 0)]
+    hourVMT / averageSpeed, 0)]
   nrd <- tb("dayofanyweek")[dayID == day_id]$noOfRealDays
   shp <- merge(h[hourVMT > 0, .(SHO = sum(SHO)), by = .(sourceTypeID, ageID, hourID)],
-               pop[, .(sourceTypeID, ageID, population)], by = c("sourceTypeID", "ageID"))
+    pop[, .(sourceTypeID, ageID, population)], by = c("sourceTypeID", "ageID"))
   shp[, SHP := population * nrd - SHO]
   zone <- tb("zone")[countyID == county_id]
   zr <- tb("zoneroadtype")[zoneID == zone$zoneID[1], .(SHOAllocFactor = sum(SHOAllocFactor)),
-                            by = roadTypeID]
+    by = roadTypeID]
   sf <- merge(rtd, zr, by = "roadTypeID")[
     , .(sutFraction = sum(roadTypeVMTFraction * SHOAllocFactor) / sum(roadTypeVMTFraction)),
     by = sourceTypeID]
@@ -81,6 +81,6 @@ movesr_activity <- function(database, year = 2025, county_id = 26161,
   pk[, shpPerVehicle := SHP * zone$SHPAllocFactor[1] / (zonePopulation * nrd)]
   pk[, hourDayID := hourID * 10L + day_id]
   list(population = pop, travel_fraction = x[, .(sourceTypeID, ageID, travelFraction)],
-       annual_vmt = av, sho = h, shp_by_age_hour = shp, zone_population = zp,
-       parked = pk[is.finite(shpPerVehicle), .(sourceTypeID, ageID, hourDayID, shpPerVehicle)])
+    annual_vmt = av, sho = h, shp_by_age_hour = shp, zone_population = zp,
+    parked = pk[is.finite(shpPerVehicle), .(sourceTypeID, ageID, hourDayID, shpPerVehicle)])
 }

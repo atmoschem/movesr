@@ -57,14 +57,14 @@ movesr_opmodes <- function(drive_schedule_second, drive_schedule,
   modes <- data.table::as.data.table(data.table::copy(operating_mode))
   assoc <- data.table::as.data.table(data.table::copy(schedule_assoc))
   for (pair in list(
-      list(dss, c("driveScheduleID", "second", "speed"), "drive_schedule_second"),
-      list(source_physics, c("sourceTypeID", "rollingTermA", "rotatingTermB",
-                             "dragTermC", "sourceMass", "fixedMassFactor"),
-           "source_physics"),
-      list(modes, c("opModeID", "VSPLower", "VSPUpper", "speedLower",
-                    "speedUpper"), "operating_mode"),
-      list(assoc, c("sourceTypeID", "roadTypeID", "driveScheduleID"),
-           "schedule_assoc"))) {
+    list(dss, c("driveScheduleID", "second", "speed"), "drive_schedule_second"),
+    list(source_physics, c("sourceTypeID", "rollingTermA", "rotatingTermB",
+      "dragTermC", "sourceMass", "fixedMassFactor"),
+    "source_physics"),
+    list(modes, c("opModeID", "VSPLower", "VSPUpper", "speedLower",
+      "speedUpper"), "operating_mode"),
+    list(assoc, c("sourceTypeID", "roadTypeID", "driveScheduleID"),
+      "schedule_assoc"))) {
     missing <- setdiff(pair[[2]], names(pair[[1]]))
     if (length(missing)) {
       stop(pair[[3]], " is missing: ", paste(missing, collapse = ", "))
@@ -85,13 +85,13 @@ movesr_opmodes <- function(drive_schedule_second, drive_schedule,
   } else {
     fraction <- data.table::as.data.table(data.table::copy(schedule_fraction))
     need <- c("sourceTypeID", "roadTypeID", "avgSpeedBinID",
-              "driveScheduleID", "driveScheduleFraction")
+      "driveScheduleID", "driveScheduleFraction")
     missing <- setdiff(need, names(fraction))
     if (length(missing)) {
       stop("schedule_fraction is missing: ", paste(missing, collapse = ", "))
     }
     fraction <- fraction[sourceTypeID %in% physics$sourceTypeID &
-                           driveScheduleFraction > 0]
+      driveScheduleFraction > 0]
     if (!is.null(road_type_id)) fraction <- fraction[roadTypeID %in% road_type_id]
   }
 
@@ -119,13 +119,13 @@ movesr_opmodes <- function(drive_schedule_second, drive_schedule,
 
   sched <- unique(fraction[, .(sourceTypeID, driveScheduleID)])
   x <- merge(sched, physics[, .(sourceTypeID, physicsID, rollingTermA,
-                                 rotatingTermB, dragTermC, sourceMass,
-                                 fixedMassFactor)],
-             by = "sourceTypeID", allow.cartesian = TRUE)
+    rotatingTermB, dragTermC, sourceMass,
+    fixedMassFactor)],
+  by = "sourceTypeID", allow.cartesian = TRUE)
   x <- merge(x, dss[, .(driveScheduleID, second, speed, v, a, brake, idle)],
-             by = "driveScheduleID", allow.cartesian = TRUE)
+    by = "driveScheduleID", allow.cartesian = TRUE)
   x[, vsp := (rollingTermA * v + rotatingTermB * v^2 + dragTermC * v^3 +
-                sourceMass * v * a) / fixedMassFactor]
+    sourceMass * v * a) / fixedMassFactor]
   m <- rep(NA_integer_, nrow(x))
   m[x$idle] <- 1L
   m[is.na(m) & x$brake] <- 0L
@@ -141,24 +141,24 @@ movesr_opmodes <- function(drive_schedule_second, drive_schedule,
     m[idx] <- b$opModeID
   }
   y <- data.table::data.table(physicsID = x$physicsID,
-                              sourceTypeID = x$sourceTypeID,
-                              driveScheduleID = x$driveScheduleID,
-                              opModeID = m)[!is.na(opModeID)]
+    sourceTypeID = x$sourceTypeID,
+    driveScheduleID = x$driveScheduleID,
+    opModeID = m)[!is.na(opModeID)]
   y <- y[, .N, by = .(physicsID, sourceTypeID, driveScheduleID, opModeID)]
   y[, modeFraction := N / sum(N), by = .(physicsID, driveScheduleID)]
   w <- merge(y, fraction, by = c("sourceTypeID", "driveScheduleID"),
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   res <- w[, .(opModeFraction = sum(modeFraction * driveScheduleFraction)),
-           by = .(physicsID, sourceTypeID, roadTypeID, avgSpeedBinID, opModeID)]
+    by = .(physicsID, sourceTypeID, roadTypeID, avgSpeedBinID, opModeID)]
   res <- res[opModeFraction > 0]
   res <- merge(res, physics[, .(physicsID, regClassID, beginModelYearID,
-                                 endModelYearID)], by = "physicsID")
+    endModelYearID)], by = "physicsID")
   res[, physicsID := NULL]
   cols <- c("sourceTypeID", "regClassID", "beginModelYearID", "endModelYearID",
-            "roadTypeID", "avgSpeedBinID")
+    "roadTypeID", "avgSpeedBinID")
   if (!is.null(opmode_polproc)) {
     pp <- unique(data.table::as.data.table(opmode_polproc)[, .(polProcessID,
-                                                                opModeID)])
+      opModeID)])
     res <- merge(res, pp, by = "opModeID", allow.cartesian = TRUE)
     cols <- c(cols, "polProcessID")
   }

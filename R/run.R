@@ -7,8 +7,8 @@
   if (is.null(rh)) rh <- 50
   n <- max(length(hours), length(temp), length(rh))
   met <- data.table::data.table(hourID = as.integer(rep_len(hours, n)),
-                                temperature = rep_len(temp, n) * 9 / 5 + 32,
-                                relHumidity = rep_len(rh, n))
+    temperature = rep_len(temp, n) * 9 / 5 + 32,
+    relHumidity = rep_len(rh, n))
   if (anyDuplicated(met$hourID)) {
     stop("hour_id values must be unique; pair one temperature/humidity per hour")
   }
@@ -49,7 +49,7 @@ movesr_run <- function(database, scenario = movesr_scenario(),
   if (length(scenario$year) != 1L) stop("year must be one calendar year")
   if (any(!scenario$process_id %in% c(1, 2))) {
     stop("movesr_run supports process_id 1 (running) and 2 (start); ",
-         "evaporative processes are not ported yet")
+      "evaporative processes are not ported yet")
   }
   met <- .movesr_meteorology_from_scenario(scenario)
   out <- list()
@@ -58,12 +58,12 @@ movesr_run <- function(database, scenario = movesr_scenario(),
     road <- road[!is.na(road)]
     if (!length(road)) road <- 2:5
     r <- movesr_running_rates(database, year = scenario$year,
-                              county_id = county_id, month_id = month_id,
-                              meteorology = met,
-                              source_type_id = scenario$source_type_id,
-                              fuel_type_id = scenario$fuel_type_id,
-                              pollutant_id = scenario$pollutant_id,
-                              road_type_id = road, ...)
+      county_id = county_id, month_id = month_id,
+      meteorology = met,
+      source_type_id = scenario$source_type_id,
+      fuel_type_id = scenario$fuel_type_id,
+      pollutant_id = scenario$pollutant_id,
+      road_type_id = road, ...)
     if (!is.null(scenario$speed_bin_id)) {
       r <- r[avgSpeedBinID %in% scenario$speed_bin_id]
     }
@@ -71,16 +71,16 @@ movesr_run <- function(database, scenario = movesr_scenario(),
   }
   if (2 %in% scenario$process_id) {
     out$start <- movesr_start_rates(database, year = scenario$year,
-                                    county_id = county_id, month_id = month_id,
-                                    day_id = day_id, meteorology = met,
-                                    source_type_id = scenario$source_type_id,
-                                    fuel_type_id = scenario$fuel_type_id,
-                                    pollutant_id = scenario$pollutant_id, ...)
+      county_id = county_id, month_id = month_id,
+      day_id = day_id, meteorology = met,
+      source_type_id = scenario$source_type_id,
+      fuel_type_id = scenario$fuel_type_id,
+      pollutant_id = scenario$pollutant_id, ...)
   }
   for (n in names(out)) {
     out[[n]] <- out[[n]][modelYearID %in% scenario$model_year]
   }
   rates <- data.table::rbindlist(out, fill = TRUE)
   list(rates = rates, running = out$running, start = out$start,
-       scenario = scenario)
+    scenario = scenario)
 }

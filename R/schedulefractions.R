@@ -23,10 +23,10 @@ movesr_schedule_fractions <- function(drive_schedule, schedule_assoc,
   assoc <- data.table::as.data.table(data.table::copy(schedule_assoc))
   bins <- data.table::as.data.table(data.table::copy(average_speed_bin))
   for (pair in list(
-      list(ds, c("driveScheduleID", "averageSpeed"), "drive_schedule"),
-      list(assoc, c("sourceTypeID", "roadTypeID", "driveScheduleID"),
-           "schedule_assoc"),
-      list(bins, c("avgSpeedBinID", "avgBinSpeed"), "average_speed_bin"))) {
+    list(ds, c("driveScheduleID", "averageSpeed"), "drive_schedule"),
+    list(assoc, c("sourceTypeID", "roadTypeID", "driveScheduleID"),
+      "schedule_assoc"),
+    list(bins, c("avgSpeedBinID", "avgBinSpeed"), "average_speed_bin"))) {
     missing <- setdiff(pair[[2]], names(pair[[1]]))
     if (length(missing)) {
       stop(pair[[3]], " is missing: ", paste(missing, collapse = ", "))
@@ -60,14 +60,14 @@ movesr_schedule_fractions <- function(drive_schedule, schedule_assoc,
   x[, loFraction := pmin(pmax(loFraction, 0), 1)]
 
   lo <- x[averageSpeed == loSpeed,
-          .(driveScheduleID, weight = loFraction),
-          by = .(sourceTypeID, roadTypeID, avgSpeedBinID)]
+    .(driveScheduleID, weight = loFraction),
+    by = .(sourceTypeID, roadTypeID, avgSpeedBinID)]
   hi <- x[averageSpeed == hiSpeed,
-          .(driveScheduleID, weight = 1 - loFraction),
-          by = .(sourceTypeID, roadTypeID, avgSpeedBinID)]
+    .(driveScheduleID, weight = 1 - loFraction),
+    by = .(sourceTypeID, roadTypeID, avgSpeedBinID)]
   out <- data.table::rbindlist(list(lo, hi))
   out <- out[, .(driveScheduleFraction = sum(weight)), by =
-               .(sourceTypeID, roadTypeID, avgSpeedBinID, driveScheduleID)]
+    .(sourceTypeID, roadTypeID, avgSpeedBinID, driveScheduleID)]
   out <- out[driveScheduleFraction > 0]
   data.table::setkey(out, sourceTypeID, roadTypeID, avgSpeedBinID, driveScheduleID)
   out

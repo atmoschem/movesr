@@ -7,7 +7,7 @@
   if (stddev) {
     # FuelEffectsGenerator.rewriteCmpExpressionToIncludeStdDev()
     e <- gsub("\\(([^()]*?)(fp_([A-Za-z0-9]+))\\.center\\)",
-              "((\\1\\2.center)/\\2.stddev)", e, perl = TRUE)
+      "((\\1\\2.center)/\\2.stddev)", e, perl = TRUE)
   }
   e <- gsub("cmp\\.coeff", "coeff", e)
   e <- gsub("fp_([A-Za-z0-9]+)\\.center", "c_\\L\\1", e, perl = TRUE)
@@ -65,7 +65,7 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
     minAgeID = integer(), maxAgeID = integer(),
     fuelEffectRatio = numeric(), fuelEffectRatioGPA = numeric())
   engines <- list(co = c(201L, 202L), predictHC = c(101L, 102L),
-                  predictNOx = c(301L, 302L))
+    predictNOx = c(301L, 302L))
   cutoffs <- tb("modelyearcutpoints")
   cut <- function(name, default) {
     v <- cutoffs[tolower(cutPointName) == tolower(name)]$modelYearID
@@ -81,7 +81,7 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
   base <- tb("basefuel")
   ffall <- tb("fuelformulation")
   ffall <- merge(ffall, tb("fuelsubtype")[, .(fuelSubtypeID, fuelTypeID)],
-                 by = "fuelSubtypeID")
+    by = "fuelSubtypeID")
   ages <- sort(unique(wt$ageID))
   ages <- ages[year - ages >= year - 40 & year - ages <= year]
   sup <- data.table::as.data.table(supply)[marketShare > 0]
@@ -90,18 +90,18 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
     pps <- intersect(engines[[engine]], pol_process_id)
     if (!length(pps)) next
     models <- fmn[grepl(paste0("|", engine, "|"), calculationEngines,
-                        fixed = TRUE)]$fuelModelID
+      fixed = TRUE)]$fuelModelID
     if (!length(models)) next
     coeff_n <- if (engine == "co") 3L else 1L
     terms <- data.table::copy(cmpn)
     terms[, rexpr := vapply(cmpExpression, .cm_translate, "",
-                            stddev = engine != "co")]
+      stddev = engine != "co")]
     for (pp in pps) {
       cf <- cmp[polProcessID == pp & fuelModelID %in% models]
       if (!nrow(cf)) next
       cf[, coeff := if (coeff_n == 3L) coeff1 + coeff2 + coeff3 else coeff1]
       for (fuel in intersect(unique(mfp[polProcessID == pp]$fuelTypeID),
-                             unique(sup$fuelTypeID))) {
+        unique(sup$fuelTypeID))) {
         targets <- sup[fuelTypeID == fuel]
         groups <- sort(unique(mfp[polProcessID == pp & fuelTypeID == fuel]$modelYearGroupID))
         for (g in groups) {
@@ -112,10 +112,10 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
           hi <- min(hi, year)
           if (lo > hi) next
           bf <- base[calculationEngine == engine & fuelTypeID == fuel &
-                       modelYearGroupID == g]$fuelFormulationID
+            modelYearGroupID == g]$fuelFormulationID
           if (!length(bf)) bf <- base[calculationEngine == engine &
-                                        fuelTypeID == fuel &
-                                        modelYearGroupID == 0L]$fuelFormulationID
+            fuelTypeID == fuel &
+            modelYearGroupID == 0L]$fuelFormulationID
           if (!length(bf)) next
           bff <- ffall[fuelFormulationID == bf[1]]
           tff <- data.table::rbindlist(list(targets, bff), fill = TRUE)
@@ -127,7 +127,7 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
           fb <- .cm_fuel_parameters(fpn, bff)
           m <- mfp[polProcessID == pp & fuelTypeID == fuel & modelYearGroupID == g]
           if (!nrow(m)) m <- mfp[polProcessID == pp & fuelTypeID == fuel &
-                                   modelYearGroupID == 0L]
+            modelYearGroupID == 0L]
           cs <- list()
           for (nm in .cm_name(fpn$fuelParameterName)) {
             cs[[paste0("c_", nm)]] <- 0
@@ -135,7 +135,7 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
           }
           if (nrow(m)) {
             m <- merge(m, fpn[, .(fuelParameterID, fuelParameterName)],
-                       by = "fuelParameterID")
+              by = "fuelParameterID")
             for (i in seq_len(nrow(m))) {
               nm <- .cm_name(m$fuelParameterName[i])
               cv <- m$centeringValue[i]
@@ -165,7 +165,7 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
             if (my < lo || my > hi) next
             w <- wt[modelYearGroupID == g & ageID == age & fuelModelID %in% models]
             if (!nrow(w)) w <- wt[modelYearGroupID == 0L & ageID == age &
-                                    fuelModelID %in% models]
+              fuelModelID %in% models]
             ww <- stats::setNames(rep(0, length(models)), models)
             ww[as.character(w$fuelModelID)] <- w$fuelModelWtFactor
             if (engine == "co") {
@@ -204,12 +204,12 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
   tgt <- data.table::rbindlist(list(sup, ffall), fill = TRUE)
   tgt <- tgt[!duplicated(fuelFormulationID)]
   out <- .movesr_sulfur_model(database, input, tgt = tgt, year = year,
-                              source_type_id = source_type_id, cut = cut)
+    source_type_id = source_type_id, cut = cut)
   if (!nrow(out)) return(empty)
   out[, .(fuelTypeID, fuelFormulationID, polProcessID, sourceTypeID,
-          minModelYearID = modelYearID, maxModelYearID = modelYearID,
-          minAgeID = ageID, maxAgeID = ageID,
-          fuelEffectRatio = ratio, fuelEffectRatioGPA = ratioGPA)]
+    minModelYearID = modelYearID, maxModelYearID = modelYearID,
+    minAgeID = ageID, maxAgeID = ageID,
+    fuelEffectRatio = ratio, fuelEffectRatioGPA = ratioGPA)]
 }
 
 # Port of database/SulfurModel.sql (non rate-of-progress version).
@@ -233,91 +233,91 @@ movesr_complex_ratios <- function(database, supply, year, pol_process_id,
   r <- range_years(sbase$modelYearGroupID)
   sb <- data.table::rbindlist(lapply(seq_len(nrow(sbase)), function(i) {
     data.table::data.table(modelYearID = r$lo[i]:r$hi[i],
-                           sulfurBasis = sbase$sulfurBasis[i],
-                           sulfurGPAMax = sbase$sulfurGPAMax[i],
-                           sulfurBase = sbase$sulfurBase[i])
+      sulfurBasis = sbase$sulfurBasis[i],
+      sulfurGPAMax = sbase$sulfurGPAMax[i],
+      sulfurBase = sbase$sulfurBase[i])
   }))
   smc <- merge(smc, smn, by.x = c("M6emitterID", "sulfurFunctionID"),
-               by.y = c("M6EmitterID", "sulfurFunctionID"))
+    by.y = c("M6EmitterID", "sulfurFunctionID"))
   r <- range_years(smc$fuelMYGroupID)
   sc <- data.table::rbindlist(lapply(seq_len(nrow(smc)), function(i) {
     data.table::data.table(modelYearID = r$lo[i]:r$hi[i],
-                           processID = smc$processID[i],
-                           pollutantID = smc$pollutantID[i],
-                           m6emitterID = smc$M6emitterID[i],
-                           sourceTypeID = smc$sourceTypeID[i],
-                           sulfurCoeff = smc$sulfurCoeff[i],
-                           sulfurFunctionName = smc$sulfurFunctionName[i],
-                           lowSulfurCoeff = smc$lowSulfurCoeff[i])
+      processID = smc$processID[i],
+      pollutantID = smc$pollutantID[i],
+      m6emitterID = smc$M6emitterID[i],
+      sourceTypeID = smc$sourceTypeID[i],
+      sulfurCoeff = smc$sulfurCoeff[i],
+      sulfurFunctionName = smc$sulfurFunctionName[i],
+      lowSulfurCoeff = smc$lowSulfurCoeff[i])
   }))
   x <- merge(input, sc, by = c("processID", "pollutantID", "modelYearID"),
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   x <- merge(x, sb, by = "modelYearID")
   x <- merge(x, .movesr_fuel_nulls(tgt)[, .(fuelFormulationID, sulfurLevel)],
-             by = "fuelFormulationID")
+    by = "fuelFormulationID")
   x <- x[year - modelYearID == ageID]
   x <- x[fuelTypeID %in% cap$fuelTypeID]
   if (!nrow(x)) return(data.table::data.table())
   loglog <- x$sulfurFunctionName == "log-log"
   x[, sulfShortTarget := ifelse(loglog,
-                                ifelse(sulfurLevel > 0, exp(sulfurCoeff * log(pmax(sulfurLevel, 1e-300))), 0),
-                                exp(sulfurCoeff * sulfurLevel))]
+    ifelse(sulfurLevel > 0, exp(sulfurCoeff * log(pmax(sulfurLevel, 1e-300))), 0),
+    exp(sulfurCoeff * sulfurLevel))]
   x[, sulfShort30 := ifelse(loglog, exp(sulfurCoeff * log(sulfurBasis)),
-                            exp(sulfurCoeff * sulfurBasis))]
+    exp(sulfurCoeff * sulfurBasis))]
   m6r <- m6[x, on = .(pollutantID, minModelYearID <= modelYearID,
-                      maxModelYearID >= modelYearID),
-            .(sulfurLongCoeff = x.sulfurLongCoeff,
-              sulfurIRFactor = x.sulfurIRFactor,
-              maxIRFactorSulfur = x.maxIRFactorSulfur), mult = "first"]
+    maxModelYearID >= modelYearID),
+  .(sulfurLongCoeff = x.sulfurLongCoeff,
+    sulfurIRFactor = x.sulfurIRFactor,
+    maxIRFactorSulfur = x.maxIRFactorSulfur), mult = "first"]
   x[, `:=`(longRaw = m6r$sulfurLongCoeff, irRaw = m6r$sulfurIRFactor,
-           maxIR = m6r$maxIRFactorSulfur)]
+    maxIR = m6r$maxIRFactorSulfur)]
   x[, sulfurIRFactor := ifelse(is.na(irRaw), 0,
-                               ifelse(!is.na(maxIR) & sulfurLevel <= maxIR, irRaw, 0))]
+    ifelse(!is.na(maxIR) & sulfurLevel <= maxIR, irRaw, 0))]
   x[, sulfAdj2 := ((sulfShortTarget - sulfShort30) / sulfShort30) *
-      ifelse(is.na(longRaw), 1, longRaw)]
+    ifelse(is.na(longRaw), 1, longRaw)]
   x[, SulfIRR := ifelse(is.na(maxIR) | maxIR <= 0, 0,
-                        ifelse(sulfurLevel <= maxIR, exp(sulfurCoeff * log(pmax(maxIR, 1e-300))),
-                               ifelse(sulfurLevel > 0,
-                                      exp(sulfurCoeff * log(pmax(sulfurLevel, 1e-300))), 0)))]
+    ifelse(sulfurLevel <= maxIR, exp(sulfurCoeff * log(pmax(maxIR, 1e-300))),
+      ifelse(sulfurLevel > 0,
+        exp(sulfurCoeff * log(pmax(sulfurLevel, 1e-300))), 0)))]
   x[, sulfurLongCoeff := ifelse(is.na(longRaw), 1, longRaw)]
   x[, minSulfAdjust := ifelse(sulfurBase <= 30, 0.85, 0.50)]
   x[, v := 1 + (sulfurIRFactor * ((SulfIRR - sulfShort30) / sulfShort30) +
-                  (1 - sulfurIRFactor) * sulfAdj2)]
+    (1 - sulfurIRFactor) * sulfAdj2)]
   x[, sulfAdj3 := ifelse(v <= minSulfAdjust, minSulfAdjust, v)]
   gpa <- x$modelYearID >= gpa_start & x$modelYearID <= gpa_end & x$sulfurLevel >= 0
   x[, GPASulfadj := ifelse(gpa,
-                           1 + (sulfurIRFactor * (((exp(sulfurCoeff * log(sulfurGPAMax)) -
-                                                      sulfShort30) / sulfShort30) *
-                                                    sulfurLongCoeff) +
-                                  (1 - sulfurIRFactor) * sulfAdj2),
-                           sulfAdj3)]
+    1 + (sulfurIRFactor * (((exp(sulfurCoeff * log(sulfurGPAMax)) -
+      sulfShort30) / sulfShort30) *
+      sulfurLongCoeff) +
+      (1 - sulfurIRFactor) * sulfAdj2),
+    sulfAdj3)]
   k <- c("fuelFormulationID", "polProcessID", "modelYearID", "ageID", "sourceTypeID")
   hi <- x[m6emitterID == 2L]
   no <- x[m6emitterID == 1L]
   y <- merge(hi[, c(k, "fuelTypeID", "pollutantID", "processID",
-                    "baseFuelFormulationID", "ratioNoSulfur", "sulfAdj3",
-                    "GPASulfadj"), with = FALSE],
-             no[, c(k, "sulfAdj3", "GPASulfadj", "minSulfAdjust",
-                    "lowSulfurCoeff", "sulfurLevel", "sulfurBasis"), with = FALSE],
-             by = k, suffixes = c(".h", ".n"))
+    "baseFuelFormulationID", "ratioNoSulfur", "sulfAdj3",
+    "GPASulfadj"), with = FALSE],
+  no[, c(k, "sulfAdj3", "GPASulfadj", "minSulfAdjust",
+    "lowSulfurCoeff", "sulfurLevel", "sulfurBasis"), with = FALSE],
+  by = k, suffixes = c(".h", ".n"))
   y[, sulfAdj3 := 0.5 * sulfAdj3.n + 0.5 * sulfAdj3.h]
   y[, GPAsulfAdj3 := 0.5 * GPASulfadj.n + 0.5 * GPASulfadj.h]
   b <- y[, .(baseFuelFormulationID = fuelFormulationID, polProcessID,
-             modelYearID, ageID, sourceTypeID, baseAdj3 = sulfAdj3)]
+    modelYearID, ageID, sourceTypeID, baseAdj3 = sulfAdj3)]
   z <- merge(y, b, by = c("baseFuelFormulationID", "polProcessID",
-                          "modelYearID", "ageID", "sourceTypeID"))
+    "modelYearID", "ageID", "sourceTypeID"))
   rel <- pmax(z$sulfAdj3 / z$baseAdj3, z$minSulfAdjust)
   low <- !is.na(z$lowSulfurCoeff) & z$sulfurLevel <= 30 & z$sulfurBasis == 30
   inner <- (z$modelYearID >= thc_nox_start & z$modelYearID <= thc_nox_end &
-              z$pollutantID %in% c(1L, 3L)) |
+    z$pollutantID %in% c(1L, 3L)) |
     (z$modelYearID >= co_start & z$pollutantID == 2L)
   later <- z$modelYearID > thc_nox_end & z$pollutantID %in% c(1L, 3L)
   ratio <- ifelse(low, pmax(1 - z$lowSulfurCoeff * (30 - z$sulfurLevel), 0) * z$ratioNoSulfur,
-                  ifelse(inner, rel * z$ratioNoSulfur, ifelse(later, rel, 1)))
+    ifelse(inner, rel * z$ratioNoSulfur, ifelse(later, rel, 1)))
   g <- z$GPAsulfAdj3 / z$baseAdj3
   gfac <- ifelse(z$modelYearID >= gpa_start & z$modelYearID <= gpa_end & g > 1,
-                 pmax(g, z$minSulfAdjust), 1)
+    pmax(g, z$minSulfAdjust), 1)
   z[, `:=`(ratio = ratio, ratioGPA = ratio * gfac)]
   z[, .(fuelTypeID, fuelFormulationID, polProcessID, pollutantID, processID,
-        sourceTypeID, modelYearID, ageID, ratio, ratioGPA, ratioNoSulfur)]
+    sourceTypeID, modelYearID, ageID, ratio, ratioGPA, ratioNoSulfur)]
 }

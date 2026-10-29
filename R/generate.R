@@ -59,7 +59,7 @@ movesr_generate <- function(scenario, factors,
   if (!is.null(speed_kmh)) {
     if (!distance) stop("speed_kmh is only valid for distance factors")
     if (!is.numeric(speed_kmh) || length(speed_kmh) != 1L ||
-        !is.finite(speed_kmh) || speed_kmh <= 0) {
+      !is.finite(speed_kmh) || speed_kmh <= 0) {
       stop("speed_kmh must be one positive finite value")
     }
     mph <- speed_kmh / 1.609344

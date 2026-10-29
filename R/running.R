@@ -41,17 +41,17 @@ movesr_running <- function(emission_rate_by_age, source_bin,
   bins <- data.table::as.data.table(data.table::copy(average_speed_bin))
 
   for (pair in list(
-      list(er, c("sourceBinID", "polProcessID", "opModeID", "ageGroupID",
-                 "meanBaseRate"), "emission_rate_by_age"),
-      list(sb, c("sourceBinID", "fuelTypeID", "regClassID"), "source_bin"),
-      list(sbd, c("sourceTypeModelYearID", "polProcessID", "sourceBinID",
-                  "sourceBinActivityFraction"), "source_bin_distribution"),
-      list(stmy, c("sourceTypeModelYearID", "sourceTypeID", "modelYearID"),
-           "source_type_model_year"),
-      list(om, c("sourceTypeID", "roadTypeID", "avgSpeedBinID",
-                 "polProcessID", "opModeID", "opModeFraction"),
-           "operating_mode_fraction"),
-      list(bins, c("avgSpeedBinID", "avgBinSpeed"), "average_speed_bin"))) {
+    list(er, c("sourceBinID", "polProcessID", "opModeID", "ageGroupID",
+      "meanBaseRate"), "emission_rate_by_age"),
+    list(sb, c("sourceBinID", "fuelTypeID", "regClassID"), "source_bin"),
+    list(sbd, c("sourceTypeModelYearID", "polProcessID", "sourceBinID",
+      "sourceBinActivityFraction"), "source_bin_distribution"),
+    list(stmy, c("sourceTypeModelYearID", "sourceTypeID", "modelYearID"),
+      "source_type_model_year"),
+    list(om, c("sourceTypeID", "roadTypeID", "avgSpeedBinID",
+      "polProcessID", "opModeID", "opModeFraction"),
+    "operating_mode_fraction"),
+    list(bins, c("avgSpeedBinID", "avgBinSpeed"), "average_speed_bin"))) {
     missing <- setdiff(pair[[2]], names(pair[[1]]))
     if (length(missing)) {
       stop(pair[[3]], " is missing: ", paste(missing, collapse = ", "))
@@ -70,23 +70,23 @@ movesr_running <- function(emission_rate_by_age, source_bin,
   x <- merge(x, stmy, by = "sourceTypeModelYearID")
   x[, weighted := sourceBinActivityFraction * meanBaseRate]
   x <- x[, .(weighted = sum(weighted, na.rm = TRUE),
-             fraction = sum(sourceBinActivityFraction, na.rm = TRUE)),
-         by = .(sourceTypeID, fuelTypeID, regClassID, modelYearID,
-                polProcessID, opModeID, ageGroupID)]
+    fraction = sum(sourceBinActivityFraction, na.rm = TRUE)),
+  by = .(sourceTypeID, fuelTypeID, regClassID, modelYearID,
+    polProcessID, opModeID, ageGroupID)]
   x <- x[fraction > 0]
   x[, mean_base_rate := weighted / fraction]
 
   y <- merge(x, om, by = c("sourceTypeID", "polProcessID", "opModeID"),
-             allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   y <- merge(y, bins, by = "avgSpeedBinID")
   y[, adjusted := mean_base_rate * opModeFraction]
   out <- y[, .(emission_rate = sum(adjusted, na.rm = TRUE) / avgBinSpeed[1]),
-           by = .(sourceTypeID, fuelTypeID, regClassID, modelYearID,
-                  ageGroupID, roadTypeID, avgSpeedBinID, polProcessID,
-                  pollutantID = polProcessID %/% 100L)]
+    by = .(sourceTypeID, fuelTypeID, regClassID, modelYearID,
+      ageGroupID, roadTypeID, avgSpeedBinID, polProcessID,
+      pollutantID = polProcessID %/% 100L)]
   out[, processID := process_id]
   out[, units := "g/mile"]
   data.table::setkey(out, sourceTypeID, fuelTypeID, modelYearID, ageGroupID,
-                     roadTypeID, avgSpeedBinID, polProcessID)
+    roadTypeID, avgSpeedBinID, polProcessID)
   out
 }

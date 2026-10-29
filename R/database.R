@@ -23,7 +23,7 @@ movesr_database <- function(path) {
   missing <- catalog$table[!file.exists(file.path(path, paste0(catalog$table, ".parquet")))]
   if (length(missing)) stop("Missing Parquet tables: ", paste(missing, collapse = ", "))
   structure(list(path = path, catalog = catalog),
-            class = "movesr_database")
+    class = "movesr_database")
 }
 
 #' @export

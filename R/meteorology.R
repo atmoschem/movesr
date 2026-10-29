@@ -34,14 +34,14 @@ movesr_meteorology <- function(temperature, rel_humidity,
   hi <- ifelse(
     t < 78, t,
     pmin(-42.379 + 2.04901523 * t + 10.14333127 * rh -
-           0.22475541 * t * rh - 0.00683783 * t * t -
-           0.05481717 * rh * rh + 0.00122874 * t * t * rh +
-           0.00085282 * t * rh * rh - 0.00000199 * t * t * rh * rh, 120))
+      0.22475541 * t * rh - 0.00683783 * t * t -
+      0.05481717 * rh * rh + 0.00122874 * t * t * rh +
+      0.00085282 * t * rh * rh - 0.00000199 * t * t * rh * rh, 120))
   tk <- (5 / 9) * (t - 32) + 273.15
   ph2o <- 10^(10.79574 * (1 - 273.15 / tk) - 5.028 * log10(tk / 273.15) +
-                1.50475e-4 * (1 - 10^(-8.2969 * (tk / 273.15 - 1))) +
-                0.42873e-3 * (10^(4.76955 * (1 - 273.15 / tk)) - 1) -
-                0.2138602)
+    1.50475e-4 * (1 - 10^(-8.2969 * (tk / 273.15 - 1))) +
+    0.42873e-3 * (10^(4.76955 * (1 - 273.15 / tk)) - 1) -
+    0.2138602)
   pv <- rh / 100 * ph2o
   data.table::data.table(
     temperature = t, relHumidity = rh, heatIndex = hi,
@@ -75,8 +75,8 @@ movesr_nox_humidity <- function(fuel_type_id, specific_humidity,
   cfr1065 <- !is.na(eq) & eq == "CFR 1065"
   k[cfr86] <- 1 - a[cfr86] * (pmin(pmax(sh[cfr86], lo[cfr86]), up[cfr86]) - 10.71)
   k[cfr1065] <- 1 / (a[cfr1065] *
-                       pmin(pmax(mw[cfr1065], lo[cfr1065]), up[cfr1065]) +
-                       b[cfr1065])
+    pmin(pmax(mw[cfr1065], lo[cfr1065]), up[cfr1065]) +
+    b[cfr1065])
   k
 }
 
@@ -103,22 +103,22 @@ movesr_ac_factor <- function(heat_index, month_group_hour,
   hi <- data.table::as.data.table(heat_index)
   mgh <- data.table::as.data.table(month_group_hour)[monthGroupID == month_group_id]
   on <- merge(hi[, .(hourID, heatIndex)],
-              mgh[, .(hourID, ACActivityTermA, ACActivityTermB, ACActivityTermC)],
-              by = "hourID")
+    mgh[, .(hourID, ACActivityTermA, ACActivityTermB, ACActivityTermC)],
+    by = "hourID")
   on[, ACOnFraction := pmin(pmax(ACActivityTermA + heatIndex *
-                                   (ACActivityTermB + ACActivityTermC * heatIndex),
-                                 0), 1)]
+    (ACActivityTermB + ACActivityTermC * heatIndex),
+  0), 1)]
   stmy <- data.table::as.data.table(source_type_model_year)
   sta <- data.table::as.data.table(source_type_age)
   stmy <- stmy[modelYearID <= year & modelYearID >= year - 40]
   stmy[, ageID := year - modelYearID]
   pen <- merge(stmy[, .(sourceTypeID, modelYearID, ageID, ACPenetrationFraction)],
-               sta[, .(sourceTypeID, ageID, functioningACFraction)],
-               by = c("sourceTypeID", "ageID"))
+    sta[, .(sourceTypeID, ageID, functioningACFraction)],
+    by = c("sourceTypeID", "ageID"))
   pen[, k := 1L]
   on[, k := 1L]
   out <- merge(on[, .(k, hourID, ACOnFraction)], pen, by = "k",
-               allow.cartesian = TRUE)
+    allow.cartesian = TRUE)
   out[, ACFactor := ACOnFraction * ACPenetrationFraction * functioningACFraction]
   out[, .(hourID, sourceTypeID, modelYearID, ACFactor)]
 }

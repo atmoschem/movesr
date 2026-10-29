@@ -25,19 +25,19 @@ movesr_scenario <- function(year = 2025, source_type_id = 21,
                             temperature_c = 20, rel_humidity = 50,
                             hour_id = 1) {
   required <- list(year = year, source_type_id = source_type_id,
-                   fuel_type_id = fuel_type_id, model_year = model_year,
-                   pollutant_id = pollutant_id, process_id = process_id)
+    fuel_type_id = fuel_type_id, model_year = model_year,
+    pollutant_id = pollutant_id, process_id = process_id)
   for (name in names(required)) {
     value <- required[[name]]
     if (!is.numeric(value) || !length(value) || anyNA(value) ||
-        any(!is.finite(value))) {
+      any(!is.finite(value))) {
       stop(name, " must be a non-empty finite numeric vector")
     }
   }
   optional <- list(road_type_id = road_type_id,
-                   speed_bin_id = speed_bin_id,
-                   temperature_c = temperature_c,
-                   rel_humidity = rel_humidity, hour_id = hour_id)
+    speed_bin_id = speed_bin_id,
+    temperature_c = temperature_c,
+    rel_humidity = rel_humidity, hour_id = hour_id)
   for (name in names(optional)) {
     value <- optional[[name]]
     if (is.null(value)) next

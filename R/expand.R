@@ -13,6 +13,6 @@ movesr_expand_scenario <- function(scenario) {
   fields <- lapply(scenario, function(x) unique(x))
   fields <- fields[!vapply(fields, is.null, logical(1))]
   out <- expand.grid(fields, KEEP.OUT.ATTRS = FALSE,
-                     stringsAsFactors = FALSE)
+    stringsAsFactors = FALSE)
   out
 }

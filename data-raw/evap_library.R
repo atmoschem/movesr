@@ -19,20 +19,20 @@ nrange <- if (length(args) > 1) as.integer(args[2]) else 5L
 db <- movesr_database(Sys.getenv("MOVESR_DB"))
 zmh <- movesr_table(db, "zonemonthhour")
 s <- zmh[, .(tmean = mean(temperature), trange = max(temperature) - min(temperature), n = .N),
-         by = .(zoneID, monthID)][n == 24L]
+  by = .(zoneID, monthID)][n == 24L]
 s[, mbin := cut(tmean, quantile(tmean, seq(0, 1, length.out = nmean + 1L)),
-                include.lowest = TRUE, labels = FALSE)]
+  include.lowest = TRUE, labels = FALSE)]
 s[, rbin := cut(trange, unique(quantile(trange, seq(0, 1, length.out = nrange + 1L))),
-                include.lowest = TRUE, labels = FALSE), by = mbin]
+  include.lowest = TRUE, labels = FALSE), by = mbin]
 pick <- s[, .SD[which.min(abs(tmean - median(tmean)) + abs(trange - median(trange)))],
-          by = .(mbin, rbin)]
+  by = .(mbin, rbin)]
 # Climate tails (stratum medians leave them uncovered): profiles at extreme
 # daily-mean quantiles.
 q <- quantile(s$tmean, c(0, 0.001, 0.003, 0.006, 0.01, 0.015, 0.02, 0.03, 0.97,
-                         0.98, 0.99, 0.997, 1))
+  0.98, 0.99, 0.997, 1))
 tails <- rbindlist(lapply(q, function(v) s[which.min(abs(tmean - v))]))
 pick <- unique(rbind(pick[, .(zoneID, monthID, tmean, trange)],
-                     tails[, .(zoneID, monthID, tmean, trange)]))
+  tails[, .(zoneID, monthID, tmean, trange)]))
 setorder(pick, tmean)
 cache <- Sys.getenv("MOVESR_LIBRARY_CACHE", "data-raw/evap_library_cache")
 dir.create(cache, showWarnings = FALSE)
@@ -43,7 +43,7 @@ for (d in c(5L, 2L)) for (i in seq_len(nrow(pick))) {
     t <- zmh[zoneID == pick$zoneID[i] & monthID == pick$monthID[i]][order(hourID)]$temperature
     x <- movesr_tank_temperature(db, t, day_id = d)
     saveRDS(x[c("temperature", "cold_soak", "average_tank_temperature",
-                "soak_activity_fraction", "cold_soak_initial_hour_fraction")], f)
+      "soak_activity_fraction", "cold_soak_initial_hour_fraction")], f)
   }
   entries[[length(entries) + 1L]] <- movesr:::.tank_library_entry(readRDS(f), d, length(entries) + 1L)
 }

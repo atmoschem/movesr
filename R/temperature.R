@@ -32,31 +32,31 @@
 #' with the table bounds enforced.
 #' @export
 movesr_temperature_adjustment <- function(rates, temperature_adjustment,
-                                           temperature, fuel_type_id,
-                                           pollutant_id = 3, process_id = 1,
-                                           rate_column = "emission_rate",
-                                           humidity_adjustment = NULL,
-                                           specific_humidity = NULL,
-                                           mol_water_fraction = NULL) {
+                                          temperature, fuel_type_id,
+                                          pollutant_id = 3, process_id = 1,
+                                          rate_column = "emission_rate",
+                                          humidity_adjustment = NULL,
+                                          specific_humidity = NULL,
+                                          mol_water_fraction = NULL) {
   x <- data.table::as.data.table(data.table::copy(rates))
   ta <- data.table::as.data.table(data.table::copy(temperature_adjustment))
   need <- c("polProcessID", "fuelTypeID", "regClassID", "minModelYearID",
-            "maxModelYearID", "tempAdjustTermA", "tempAdjustTermB")
+    "maxModelYearID", "tempAdjustTermA", "tempAdjustTermB")
   missing <- setdiff(need, names(ta))
   if (length(missing)) stop("temperature_adjustment is missing: ",
-                            paste(missing, collapse = ", "))
+    paste(missing, collapse = ", "))
   for (name in c("pollutantID", "processID", "fuelTypeID", "regClassID",
-                 "modelYearID", "polProcessID")) {
+    "modelYearID", "polProcessID")) {
     if (!name %in% names(x)) stop("rates has no ", name)
   }
   if (!rate_column %in% names(x)) stop("rates has no ", rate_column)
   if (!is.numeric(temperature) || length(temperature) != 1L ||
-      !is.finite(temperature)) stop("temperature must be one finite value")
+    !is.finite(temperature)) stop("temperature must be one finite value")
   if (!is.numeric(fuel_type_id) || length(fuel_type_id) != 1L) {
     stop("fuel_type_id must be one numeric value")
   }
   if (!is.numeric(pollutant_id) || length(pollutant_id) != 1L ||
-      !is.numeric(process_id) || length(process_id) != 1L) {
+    !is.numeric(process_id) || length(process_id) != 1L) {
     stop("pollutant_id and process_id must be scalars")
   }
 
@@ -65,13 +65,13 @@ movesr_temperature_adjustment <- function(rates, temperature_adjustment,
   if (!nrow(x)) stop("No rates match pollutant/process/fuel")
   unchanged <- data.table::copy(x)
   x <- merge(x, ta[, .(polProcessID, fuelTypeID, regClassID, minModelYearID,
-                       maxModelYearID, tempAdjustTermA, tempAdjustTermB)],
-             by = c("polProcessID", "fuelTypeID", "regClassID"),
-             allow.cartesian = TRUE)
+    maxModelYearID, tempAdjustTermA, tempAdjustTermB)],
+  by = c("polProcessID", "fuelTypeID", "regClassID"),
+  allow.cartesian = TRUE)
   x <- x[modelYearID >= minModelYearID & modelYearID <= maxModelYearID]
   if (!nrow(x)) {
     unchanged[, `:=`(temp_factor = 1, humidity_factor = 1,
-                     temperature_factor = 1)]
+      temperature_factor = 1)]
     return(unchanged)
   }
 
@@ -79,22 +79,22 @@ movesr_temperature_adjustment <- function(rates, temperature_adjustment,
     x[, temp_factor := data.table::fifelse(
       fuelTypeID == 2L,
       data.table::fifelse(temperature > 77, 1,
-                          1 + (77 - temperature) * tempAdjustTermA),
+        1 + (77 - temperature) * tempAdjustTermA),
       1 + (temperature - 75) * (tempAdjustTermA +
-                                  (temperature - 75) * tempAdjustTermB))]
+        (temperature - 75) * tempAdjustTermB))]
   } else {
     x[, temp_factor := 1 + (temperature - 75) *
-        (tempAdjustTermA + (temperature - 75) * tempAdjustTermB)]
+      (tempAdjustTermA + (temperature - 75) * tempAdjustTermB)]
   }
 
   x[, humidity_factor := 1]
   if (!is.null(humidity_adjustment) && pollutant_id == 3L) {
     nha <- data.table::as.data.table(data.table::copy(humidity_adjustment))
     nneed <- c("fuelTypeID", "humidityNOxEq", "humidityTermA",
-               "humidityTermB", "humidityLowBound", "humidityUpBound")
+      "humidityTermB", "humidityLowBound", "humidityUpBound")
     nmiss <- setdiff(nneed, names(nha))
     if (length(nmiss)) stop("humidity_adjustment is missing: ",
-                            paste(nmiss, collapse = ", "))
+      paste(nmiss, collapse = ", "))
     if (is.null(specific_humidity) && is.null(mol_water_fraction)) {
       stop("Supply specific_humidity or mol_water_fraction for NOx humidity")
     }

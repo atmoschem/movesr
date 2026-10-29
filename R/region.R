@@ -1,23 +1,23 @@
 .movesr_regions <- list(
   dmv = data.frame(
     countyID = c(11001L, 24009L, 24017L, 24021L, 24031L, 24033L, 51013L,
-                 51059L, 51107L, 51153L, 51510L, 51600L, 51610L, 51683L,
-                 51685L),
+      51059L, 51107L, 51153L, 51510L, 51600L, 51610L, 51683L,
+      51685L),
     name = c("District of Columbia", "Calvert County, MD", "Charles County, MD",
-             "Frederick County, MD", "Montgomery County, MD",
-             "Prince George's County, MD", "Arlington County, VA",
-             "Fairfax County, VA", "Loudoun County, VA",
-             "Prince William County, VA", "Alexandria city, VA",
-             "Fairfax city, VA", "Falls Church city, VA", "Manassas city, VA",
-             "Manassas Park city, VA"),
+      "Frederick County, MD", "Montgomery County, MD",
+      "Prince George's County, MD", "Arlington County, VA",
+      "Fairfax County, VA", "Loudoun County, VA",
+      "Prince William County, VA", "Alexandria city, VA",
+      "Fairfax city, VA", "Falls Church city, VA", "Manassas city, VA",
+      "Manassas Park city, VA"),
     stringsAsFactors = FALSE),
   dmv_core = data.frame(
     countyID = c(11001L, 24031L, 24033L, 51013L, 51059L, 51510L, 51600L,
-                 51610L),
+      51610L),
     name = c("District of Columbia", "Montgomery County, MD",
-             "Prince George's County, MD", "Arlington County, VA",
-             "Fairfax County, VA", "Alexandria city, VA", "Fairfax city, VA",
-             "Falls Church city, VA"),
+      "Prince George's County, MD", "Arlington County, VA",
+      "Fairfax County, VA", "Alexandria city, VA", "Fairfax city, VA",
+      "Falls Church city, VA"),
     stringsAsFactors = FALSE)
 )
 
@@ -42,7 +42,7 @@
 movesr_region <- function(region = "dmv", database = NULL) {
   if (is.numeric(region)) {
     out <- data.table::data.table(countyID = as.integer(region),
-                                  name = NA_character_)
+      name = NA_character_)
   } else {
     if (!region %in% names(.movesr_regions)) {
       stop("Unknown region. Available: ", paste(names(.movesr_regions), collapse = ", "))
@@ -51,7 +51,7 @@ movesr_region <- function(region = "dmv", database = NULL) {
   }
   if (!is.null(database)) {
     cty <- movesr_table(database, "county")[, .(countyID, countyName, stateID,
-                                                barometricPressure, GPAFract)]
+      barometricPressure, GPAFract)]
     missing <- setdiff(out$countyID, cty$countyID)
     if (length(missing)) stop("Unknown county ID: ", paste(missing, collapse = ", "))
     out <- merge(out, cty, by = "countyID", sort = FALSE)
@@ -74,8 +74,8 @@ movesr_default_meteorology <- function(database, county_id, month_id = 7,
   zone <- movesr_table(database, "zone")[countyID == county_id]$zoneID
   if (!length(zone)) stop("No zone for county ", county_id)
   z <- movesr_table(database, "zonemonthhour")[zoneID == zone[1] &
-                                                 monthID == month_id &
-                                                 hourID %in% hour_id]
+    monthID == month_id &
+    hourID %in% hour_id]
   if (!nrow(z)) stop("No default meteorology for county ", county_id)
   as.data.frame(z[order(hourID), .(hourID, temperature, relHumidity)])
 }
@@ -114,7 +114,7 @@ movesr_region_rates <- function(database, region = "dmv",
                                 meteorology = NULL, ...) {
   if (is.character(database)) database <- movesr_database(database)
   process <- match.arg(process, c("running", "start", "brake", "tire", "evap"),
-                       several.ok = TRUE)
+    several.ok = TRUE)
   counties <- movesr_region(region, database)$countyID
   dots <- list(...)
   call <- function(fun, args) {
@@ -122,7 +122,7 @@ movesr_region_rates <- function(database, region = "dmv",
     do.call(fun, args)
   }
   out <- list(running = list(), start = list(), brake = list(), tire = list(),
-              evap = list())
+    evap = list())
   for (cty in counties) {
     met <- if (is.null(meteorology)) {
       movesr_default_meteorology(database, cty, month_id, hour_id)
@@ -134,14 +134,14 @@ movesr_region_rates <- function(database, region = "dmv",
     if (is.null(met)) stop("No meteorology for county ", cty)
     if ("running" %in% process) {
       r <- call(movesr_running_rates, list(database = database, county_id = cty,
-                                           month_id = month_id, meteorology = met))
+        month_id = month_id, meteorology = met))
       out$running[[length(out$running) + 1L]] <- r[, countyID := cty]
     }
     for (bt in intersect(process, c("brake", "tire"))) {
       pid <- if (bt == "brake") 9L else 10L
       pol <- if (bt == "brake") c(116L, 106L) else c(117L, 107L)
       args <- list(database = database, county_id = cty, month_id = month_id,
-                   meteorology = met, process_id = pid)
+        meteorology = met, process_id = pid)
       d <- dots[names(dots) %in% names(formals(movesr_running_rates))]
       sel <- intersect(d$pollutant_id, pol)
       d$pollutant_id <- if (length(sel)) sel else pol
@@ -150,19 +150,21 @@ movesr_region_rates <- function(database, region = "dmv",
     }
     if ("evap" %in% process) {
       d <- dots[names(dots) %in% c(names(formals(movesr_evap)),
-                                   names(formals(movesr_evap_rates)))]
+        names(formals(movesr_evap_rates)))]
       sel <- intersect(d$pollutant_id, c(1L, 5L, 79L, 80L, 86L, 87L))
       d$pollutant_id <- if (length(sel)) sel else 1L
-      d$database <- NULL; d$county_id <- NULL; d$month_id <- NULL
+      d$database <- NULL
+      d$county_id <- NULL
+      d$month_id <- NULL
       evmet <- if (!is.null(met) && nrow(met) == 24L) met else NULL
       e <- do.call(movesr_evap, c(list(database = database, county_id = cty,
-                                       month_id = month_id, hour_id = hour_id,
-                                       meteorology = evmet), d))
+        month_id = month_id, hour_id = hour_id,
+        meteorology = evmet), d))
       out$evap[[length(out$evap) + 1L]] <- e[, countyID := cty]
     }
     if ("start" %in% process) {
       s <- call(movesr_start_rates, list(database = database, county_id = cty,
-                                         month_id = month_id, meteorology = met))
+        month_id = month_id, meteorology = met))
       out$start[[length(out$start) + 1L]] <- s[, countyID := cty]
     }
   }

@@ -17,7 +17,7 @@ test_that("source bins follow the MOVES ID formula and distributions sum", {
   out <- movesr_sourcebins(sample, ppmy, groups, year = 2025, process_id = 1)
   expect_equal(nrow(out$source_bin), 2)
   expect_equal(out$source_bin$sourceBinID,
-               c("1010101030000000000", "1020202030000000000"))
+    c("1010101030000000000", "1020202030000000000"))
   expect_equal(sum(out$distribution$sourceBinActivityFraction), 2)
   expect_equal(out$distribution$sourceBinActivityFraction, c(0.6, 0.4, 1))
 })
