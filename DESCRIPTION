@@ -1,0 +1,22 @@
+Package: movesr
+Type: Package
+Title: Portable MOVES Emission Factor Engine
+Version: 0.0.1
+Authors@R: c(
+    person(given = "Sergio", family = "Ibarra-Espinosa",
+           role = c("aut", "cre"), email = "zergioibarra@gmail.com"))
+Description: A standalone R port of the USEPA MOVES on-road emission-rate
+    engine: running and start exhaust, brake and tire wear, evaporative
+    permeation, vapor venting and fuel leaks, and chained pollutants. The
+    MOVES default database is read from Parquet through the DuckDB
+    command-line tool; no Java, MariaDB or MOVES installation is needed.
+    Factors can be exported for inventory models such as vein.
+License: GPL (>= 2)
+URL: https://github.com/atmoschem/movesr
+BugReports: https://github.com/atmoschem/movesr/issues
+Encoding: UTF-8
+LazyData: false
+Depends: R (>= 3.5.0)
+Imports: data.table
+Suggests: testthat, xml2
+RoxygenNote: 7.1.1
