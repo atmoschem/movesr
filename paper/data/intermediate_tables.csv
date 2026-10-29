@@ -1,0 +1,10 @@
+table,n,missing,extra,max_abs,unit
+"AverageTankTemperature, mode 150",384,0,0,0.000497131347657387,F
+"AverageTankTemperature, mode 151",384,0,0,4.90478515615678e-05,F
+"AverageTankTemperature, mode 300",384,0,0,0.000499755859380002,F
+ColdSoakTankTemperature,24,0,0,4.90478515615678e-05,F
+SoakActivityFraction,624,0,572,5.04430005876522e-07,fraction
+ColdSoakInitialHourFraction,2863,0,0,3.87343812979779e-06,fraction
+SourceTypeAgePopulation,530,0,0,4.48738136293869e-06,relative
+SHOByAgeRoadwayHour,50880,0,0,3.44673860119826e-07,relative
+SHPByAgeHour,12720,0,0,4.60985010719561e-07,relative

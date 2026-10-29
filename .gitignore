@@ -4,3 +4,6 @@
 *.Rcheck/
 *.tar.gz
 data-raw/evap_library_cache/
+paper/*.spl
+paper/*.log
+paper/data/timing_logs/*.csv

@@ -34,7 +34,9 @@ RUNSPEC, OUT, DB, HOURS = {
     'evap24': ('dmv_evap24.mrs', 'exports-dmv-evap24', 'movesr_dmv_evap24_output',
                ','.join(str(h) for h in range(1, 25))),
 }[MODE]
-OUT = ROOT / OUT
+# MOVES_OUT_DIR writes a repeat run elsewhere (e.g. to time MOVES or check
+# that a second run gives identical files).
+OUT = ROOT / os.environ.get('MOVES_OUT_DIR', OUT)
 CLIENT = [str(MARIA / 'bin/mariadb'), '--no-defaults', '--socket=' + SOCKET,
           '--user=root', '--batch', '--raw']
 ENV = dict(os.environ, GOMAXPROCS='1', GOMEMLIMIT='512MiB',
@@ -117,8 +119,13 @@ def main():
         ]
         # MOVES execution intermediates (tank temperatures, soak fractions,
         # activity) for stage-by-stage validation of the evap port.
+        # Not every run creates every table (no tank temperatures without
+        # parked evaporative processes); skip the ones that are absent.
         for t in EXEC_TABLES:
-            files.append(export('SELECT * FROM movesexecution.' + t, 'exec_' + t))
+            try:
+                files.append(export('SELECT * FROM movesexecution.' + t, 'exec_' + t))
+            except RuntimeError:
+                print('skipped', 'exec_' + t, flush=True)
         manifest = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
         (OUT / 'SHA256.json').write_text(json.dumps(manifest, indent=2) + '\n')
         print('DMV export complete:', OUT, flush=True)

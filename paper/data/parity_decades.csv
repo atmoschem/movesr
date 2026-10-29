@@ -1,0 +1,64 @@
+set,part,decade,N
+DC 24 h,evap parked,-11,8
+DC 24 h,evap parked,-10,41
+DC 24 h,evap parked,-9,394
+DC 24 h,evap parked,-8,3927
+DC 24 h,evap parked,-7,38082
+DC 24 h,evap parked,-6,140756
+DC 24 h,evap parked,-5,6879
+DC 24 h,evap parked,-4,353
+DMV,brake/tire,-Inf,42162
+DMV,brake/tire,-16,18006
+DMV,brake/tire,-11,24
+DMV,brake/tire,-10,120
+DMV,brake/tire,-9,2112
+DMV,brake/tire,-8,29846
+DMV,brake/tire,-7,241016
+DMV,brake/tire,-6,196250
+DMV,evap driving,-Inf,26773
+DMV,evap driving,-16,28025
+DMV,evap driving,-10,433
+DMV,evap driving,-9,504
+DMV,evap driving,-8,8521
+DMV,evap driving,-7,113346
+DMV,evap driving,-6,506096
+DMV,evap driving,-5,78062
+DMV,evap parked,-10,7
+DMV,evap parked,-9,97
+DMV,evap parked,-8,1109
+DMV,evap parked,-7,9871
+DMV,evap parked,-6,35720
+DMV,evap parked,-5,806
+DMV,running,-Inf,240616
+DMV,running,-16,13407
+DMV,running,-13,2
+DMV,running,-12,2
+DMV,running,-11,124
+DMV,running,-10,1610
+DMV,running,-9,14393
+DMV,running,-8,140368
+DMV,running,-7,1166233
+DMV,running,-6,945873
+DMV,running,-5,156
+DMV,start,-Inf,35160
+DMV,start,-16,918
+DMV,start,-11,4
+DMV,start,-10,44
+DMV,start,-9,617
+DMV,start,-8,6599
+DMV,start,-7,59080
+DMV,start,-6,52690
+Washtenaw,running,-Inf,5664
+Washtenaw,running,-11,5
+Washtenaw,running,-10,45
+Washtenaw,running,-9,476
+Washtenaw,running,-8,5244
+Washtenaw,running,-7,43097
+Washtenaw,running,-6,31773
+Washtenaw,start,-Inf,1374
+Washtenaw,start,-11,22
+Washtenaw,start,-10,3
+Washtenaw,start,-9,21
+Washtenaw,start,-8,241
+Washtenaw,start,-7,1775
+Washtenaw,start,-6,1958

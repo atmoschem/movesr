@@ -69,9 +69,9 @@ hours 16-17; default inputs):
 
 | Table | Rows | Matched | Max relative difference |
 |---|---:|---:|---:|
-| `rateperdistance` running, 21 pollutants | 2,548,512 | all | 8.1e-6 |
+| `rateperdistance` running, 21 pollutants | 2,522,784 | all | 8.1e-6 (energy, J: 1.6e-5) |
 | `rateperdistance` brake/tire PM2.5, PM10 | 529,536 | all | 7.8e-6 |
-| `rateperstart`, 21 pollutants | 155,190 | all | 6.6e-6 |
+| `rateperstart`, 21 pollutants | 155,112 | all | 6.6e-6 |
 
 Evaporative golden sets (off-network `RatePerVehicle`/`RatePerProfile`, and
 `RatePerDistance` on urban unrestricted roads), THC, NMHC, NMOG, TOG, VOC:
@@ -82,6 +82,13 @@ Evaporative golden sets (off-network `RatePerVehicle`/`RatePerProfile`, and
 | 3 zones, hours 16-17, processes 11/13 per vehicle | 6,348 | all | 2.0e-5 |
 | 3 zones, hours 16-17, process 12 per profile (`tvv_hours = 16:17`) | 3,174 | all | 1.3e-5 |
 | 3 zones, hours 16-17, 11/12/13 per distance, 16 speed bins | 761,760 | all (2,880 NULL in MOVES) | 3.6e-5 |
+
+Weekend evaporative rates (Washtenaw events run in `vein/inst/extdata/moves`,
+January, hours 1-3, model years 2000-2025): all 3,186 THC rates within 2.9e-5
+with `e85_tank_properties = "e10"`.
+
+A second MOVES run of the same RunSpecs is not bit-identical: 15,022 of
+4,361,724 rates changed, by up to 1.0e-5.
 
 Venting compounds hourly differences of cumulative single-precision values;
 tank temperatures known only to MOVES' printed precision (feeding MOVES' own
@@ -375,10 +382,14 @@ daily totals +0.0004 % (11), +0.87 % (12), +0.09 % (13); median row error
 - `stmyTVVEquations.leakFraction` is `leakFraction * regClassFraction`, and the
   vented vapor is again multiplied by the regulatory-class fraction; ported
   as is.
-- The E85 tank fuel uses the raw E85 formulation in evap-only and start+evap
-  runs, but the E10-substituted properties left by `FuelEffectsGenerator` in
-  the running+evap run (formulations cloned per fuel-supply usage). Option
-  `e85_tank_properties = "raw"` (default) or `"e10"`; 0.4 % on E85 venting.
+- The E85 tank fuel is not the same in every run. `FuelEffectsGenerator`
+  replaces E85 properties with E10 values (cloning formulations per
+  fuel-supply usage) and `TankFuelGenerator` reads the same table. The DMV
+  events and DC 24-hour runs match the E85 formulation as supplied; the DMV
+  running and Washtenaw events runs match the E10-substituted one. What
+  decides this is not known (the two events runs have the same processes).
+  Option `e85_tank_properties = "raw"` (default) or `"e10"`; 0.4 % (DMV
+  running) to 1.7 % (Washtenaw, 86 F) on E85 venting.
 - Rates for ages without population are NULL in `RatePerDistance` and absent
   from `RatePerVehicle`; movesr omits them.
 

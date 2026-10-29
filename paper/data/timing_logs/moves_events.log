@@ -1,0 +1,2532 @@
+Executing MOVES6 DMV RunSpec...
+Picked up JAVA_TOOL_OPTIONS: -XX:ActiveProcessorCount=1 -Djava.awt.headless=true
+10/29/26, 12:02 PM INFO: Loading system configuration...
+10/29/26, 12:02 PM INFO: System configuration setting up the instance counter...
+10/29/26, 12:02 PM INFO: System configuration clearing prior IDs...
+10/29/26, 12:02 PM INFO: System configuration reading computer ID...
+10/29/26, 12:02 PM INFO: Using master configuration file: MOVESConfiguration.txt
+10/29/26, 12:02 PM INFO: System configuration loading configuration files...
+10/29/26, 12:02 PM INFO: System configuration setting up temporary files...
+10/29/26, 12:02 PM INFO: Folder for temporary files: /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/MOVESTemporary
+10/29/26, 12:02 PM INFO: System configuration acquiring distributed master ID...
+10/29/26, 12:02 PM INFO: Done loading system configuration.
+10/29/26, 12:02 PM INFO: Initializing default database connections...
+10/29/26, 12:02 PM INFO: Reading default database table definitions...
+10/29/26, 12:02 PM INFO: Done initializing database connections.
+10/29/26, 12:02 PM INFO: ***Starting MOVES run***
+10/29/26, 12:02 PM INFO: Master Release: MOVES6.0.0
+10/29/26, 12:02 PM INFO: Master Computer ID: amanan
+10/29/26, 12:02 PM INFO: Master ID: 6090982796216141064
+10/29/26, 12:02 PM INFO: RunSpec: /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/dmv_events.mrs
+10/29/26, 12:02 PM INFO: Initializing output database connections...
+10/29/26, 12:02 PM INFO: Done initializing database connections.
+10/29/26, 12:02 PM INFO: Thread starting for class gov.epa.otaq.moves.master.framework.HeartbeatDetectionThread.
+10/29/26, 12:02 PM INFO: Initializing default database connections...
+10/29/26, 12:02 PM INFO: Database connections already established.
+10/29/26, 12:02 PM INFO: Initializing MOVESExecution connections...
+10/29/26, 12:02 PM INFO: Creating the execution database...
+10/29/26, 12:02 PM INFO: HeartbeatDetectionThread !hasWorkerOnThisComputer
+10/29/26, 12:02 PM INFO: Removing tables from the execution database...
+10/29/26, 12:02 PM INFO: Creating empty tables in the execution database...
+10/29/26, 12:02 PM INFO: Finalizing the execution database...
+10/29/26, 12:02 PM INFO: Reading execution database table definitions...
+10/29/26, 12:02 PM INFO: Done initializing database connections.
+10/29/26, 12:02 PM INFO: Initializing output database connections...
+10/29/26, 12:02 PM INFO: Database connections already established.
+10/29/26, 12:02 PM INFO: Thread starting for class gov.epa.otaq.moves.master.framework.MasterLoop.
+10/29/26, 12:02 PM INFO: Thread starting for class gov.epa.otaq.moves.master.framework.EmissionCalculatorInboundUnbundler.
+10/29/26, 12:02 PM INFO: InputDataManager transferred all default tables.
+10/29/26, 12:02 PM DEBUG: Starting WorkerCommandLine...
+10/29/26, 12:02 PM INFO: testConnection = com.mysql.jdbc.JDBC4Connection@245b6035
+10/29/26, 12:02 PM INFO: WorkerConfiguration loaded. distributedWorkerId = 2025709327810579660
+10/29/26, 12:02 PM INFO: Worker Release: MOVES6.0.0
+10/29/26, 12:02 PM INFO: Worker Computer ID: amanan
+10/29/26, 12:02 PM INFO: Worker ID: 2025709327810579660
+10/29/26, 12:02 PM INFO: Thread starting for class gov.epa.otaq.moves.worker.framework.WorkerHeartbeatThread.
+10/29/26, 12:02 PM INFO: Thread starting for class gov.epa.otaq.moves.worker.framework.RemoteEmissionsCalculator.
+10/29/26, 12:02 PM INFO: Setting worker flag for 2025709327810579660 on port 13132
+10/29/26, 12:02 PM INFO: InputDataManager transferred all default tables.
+10/29/26, 12:02 PM INFO: InputDataManager transferred all NonRoad tables.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.ActivityCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.BaseRateCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.CO2AERunningStartExtendedIdleCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.DistanceCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.EvaporativeEmissionsOperatingModeDistributionGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.EvaporativePermeationCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.FuelEffectsGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.HCSpeciationCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.LiquidLeakingCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.PM10EmissionCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.RatesOperatingModeDistributionGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.SO2Calculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.StartOperatingModeDistributionGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.SulfatePMCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.TankFuelGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.TankTemperatureGenerator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.TankVaporVentingCalculator has been instantiated.
+10/29/26, 12:03 PM INFO: Class gov.epa.otaq.moves.master.implementation.ghg.TotalActivityGenerator has been instantiated.
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Running Exhaust at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Extended Idle Exhaust at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Start Exhaust at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Auxiliary Power Exhaust at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Tirewear at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.general.MeteorologyGenerator subscribed to Brakewear at PROCESS/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.ActivityCalculator subscribed to Start Exhaust at YEAR/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.ActivityCalculator subscribed to Evap Permeation at YEAR/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.ActivityCalculator subscribed to Evap Fuel Vapor Venting at YEAR/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.ActivityCalculator subscribed to Evap Fuel Leaks at YEAR/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateCalculator subscribed to Start Exhaust at MONTH/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Running Exhaust at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Start Exhaust at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Extended Idle Exhaust at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Auxiliary Power Exhaust at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Brakewear at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.BaseRateGenerator subscribed to Tirewear at YEAR/98
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.EvaporativeEmissionsOperatingModeDistributionGenerator subscribed to Evap Permeation at MONTH/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.EvaporativeEmissionsOperatingModeDistributionGenerator subscribed to Evap Fuel Vapor Venting at MONTH/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.EvaporativeEmissionsOperatingModeDistributionGenerator subscribed to Evap Fuel Leaks at MONTH/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.EvaporativePermeationCalculator subscribed to Evap Permeation at MONTH/11
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.FuelEffectsGenerator subscribed to Start Exhaust at PROCESS/99
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.FuelEffectsGenerator subscribed to Evap Permeation at PROCESS/99
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.FuelEffectsGenerator subscribed to Evap Fuel Vapor Venting at PROCESS/99
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.FuelEffectsGenerator subscribed to Evap Fuel Leaks at PROCESS/99
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.LiquidLeakingCalculator subscribed to Evap Fuel Leaks at MONTH/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.RatesOperatingModeDistributionGenerator subscribed to Running Exhaust at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.RatesOperatingModeDistributionGenerator subscribed to Extended Idle Exhaust at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.RatesOperatingModeDistributionGenerator subscribed to Auxiliary Power Exhaust at YEAR/100
+10/29/26, 12:03 PM INFO: SO2Calculator chained to gov.epa.otaq.moves.master.implementation.ghg.BaseRateCalculator@5be34e75
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Running Exhaust at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Start Exhaust at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Extended Idle Exhaust at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Auxiliary Power Exhaust at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Evap Permeation at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Evap Fuel Vapor Venting at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Evap Fuel Leaks at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Brakewear at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.SourceBinDistributionGenerator subscribed to Tirewear at YEAR/101
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.StartOperatingModeDistributionGenerator subscribed to Start Exhaust at PROCESS/100
+10/29/26, 12:03 PM INFO: SulfatePMCalculator chained to gov.epa.otaq.moves.master.implementation.ghg.BaseRateCalculator@5be34e75
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankFuelGenerator subscribed to Evap Fuel Vapor Venting at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankFuelGenerator subscribed to Evap Fuel Leaks at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankTemperatureGenerator subscribed to Evap Permeation at ZONE/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankTemperatureGenerator subscribed to Evap Fuel Vapor Venting at ZONE/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankTemperatureGenerator subscribed to Evap Fuel Leaks at ZONE/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TankVaporVentingCalculator subscribed to Evap Fuel Vapor Venting at MONTH/10
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TotalActivityGenerator subscribed to Start Exhaust at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TotalActivityGenerator subscribed to Evap Permeation at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TotalActivityGenerator subscribed to Evap Fuel Vapor Venting at YEAR/100
+10/29/26, 12:03 PM DEBUG: gov.epa.otaq.moves.master.implementation.ghg.TotalActivityGenerator subscribed to Evap Fuel Leaks at YEAR/100
+10/29/26, 12:03 PM INFO: 24 bundles will be used.
+10/29/26, 12:03 PM INFO: Thread starting for class gov.epa.otaq.moves.master.framework.MasterLoopableThread.
+10/29/26, 12:03 PM INFO: MetGen setupTime=19 bundleTime=0
+10/29/26, 12:03 PM INFO: StartOperatingModeDistributionGenerator setupTime=34219 totalTime=219
+10/29/26, 12:03 PM INFO: doGeneralFuelRatio
+10/29/26, 12:03 PM INFO: FuelTypeID 1 has 2 formulations
+10/29/26, 12:03 PM INFO: FuelTypeID 2 has 1 formulations
+10/29/26, 12:03 PM INFO: FuelTypeID 5 has 2 formulations
+10/29/26, 12:03 PM INFO: doAirToxicsCalculations
+10/29/26, 12:03 PM INFO: 19502000 (1985 to 2000)
+10/29/26, 12:03 PM INFO: 20012050 (2001 to 2025)
+10/29/26, 12:03 PM INFO: FuelTypeID 1 has 2 formulations
+10/29/26, 12:03 PM INFO: Dropping ATRatio indexes
+10/29/26, 12:03 PM INFO: doCOCalculations
+10/29/26, 12:03 PM INFO: 19502000 (1985 to 2000)
+10/29/26, 12:03 PM INFO: 20012050 (2001 to 2025)
+10/29/26, 12:03 PM INFO: FuelTypeID 1 has 2 formulations
+10/29/26, 12:03 PM INFO: Dropping criteriaRatio indexes
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempCOA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempCOA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: doPredictiveCalculations: predictHC, 101,102 / 1000101,1000102
+10/29/26, 12:03 PM INFO: 19502000 (1985 to 2000)
+10/29/26, 12:03 PM INFO: 20012050 (2001 to 2025)
+10/29/26, 12:03 PM INFO: FuelTypeID 1 has 2 formulations
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempHCA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempHCA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: doPredictiveCalculations: predictNOx, 301,302 / 
+10/29/26, 12:03 PM INFO: 19502000 (1985 to 2000)
+10/29/26, 12:03 PM INFO: 20012050 (2001 to 2025)
+10/29/26, 12:03 PM INFO: FuelTypeID 1 has 2 formulations
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempNOxA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: Checked sulfur model input table tempNOxA
+10/29/26, 12:03 PM INFO: Checked sulfur model output table criteriaRatio
+10/29/26, 12:03 PM INFO: doMTBECalculations
+10/29/26, 12:03 PM INFO: doEvapBenzeneCalculations
+10/29/26, 12:03 PM INFO: Creating ATRatio indexes
+10/29/26, 12:03 PM INFO: Creating criteriaRatio indexes
+10/29/26, 12:03 PM INFO: Removed potential overlaps between ATRatioNonGas and ATRatio
+10/29/26, 12:03 PM INFO: FuelEffectsGenerator totalTime=12228
+10/29/26, 12:03 PM DEBUG: newSBD Generator called for process: Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Ammonia (NH3) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Atmospheric CO2 - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Atmospheric CO2 - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: CO2 Equivalent - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process CO2 Equivalent - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Carbon Monoxide (CO) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Composite - NonECPM - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Elemental Carbon - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: H2O (aerosol) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process H2O (aerosol) - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Methane (CH4) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Methane (CH4) - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Nitrous Oxide (N2O) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Non-Methane Hydrocarbons - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Hydrocarbons - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Non-Methane Organic Gases - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Organic Gases - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Organic Carbon - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Organic Carbon - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Oxides of Nitrogen (NOx) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Primary Exhaust PM10  - Total - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Primary Exhaust PM10  - Total - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Primary Exhaust PM2.5 - Total - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Primary Exhaust PM2.5 - Total - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Sulfate Particulate - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Sulfate Particulate - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Sulfur Dioxide (SO2) - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Total Energy Consumption - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Total Gaseous Hydrocarbons - Start Exhaust
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Total Organic Gases - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Total Organic Gases - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM DEBUG: Processing pollutant-process: Volatile Organic Compounds - Start Exhaust
+10/29/26, 12:03 PM DEBUG: No SourceBinDistribution for pollutant-process Volatile Organic Compounds - Start Exhaust because there is no SourceTypePolProcess information for it.
+10/29/26, 12:03 PM INFO: newSBDG setupTime=1 bundleTime=2523
+10/29/26, 12:03 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:03 PM INFO: TAG AverageSpeed ms=173
+10/29/26, 12:03 PM INFO: TAG SHOByAgeRoadwayHour ms=490
+10/29/26, 12:03 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:03 PM INFO: TAG StartsPerSampleVehicle ms=191
+10/29/26, 12:03 PM INFO: TAG SourceTypesInStartsPerVehicle ms=2
+10/29/26, 12:03 PM INFO: TAG StartsPerVehicle ms=882
+10/29/26, 12:03 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:03 PM INFO: TAG SHPByAgeHour ms=290
+10/29/26, 12:03 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=2243 focusTime=0
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes: alter table avgSpeedBin add key speed1 (avgSpeedBinID, avgBinSpeed)
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes ms=3
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes: alter table avgSpeedBin add key speed2 (avgBinSpeed, avgSpeedBinID)
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes ms=2
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes: analyze table avgSpeedBin
+10/29/26, 12:03 PM DEBUG: BaseRateGenerator.addIndexes ms=0
+10/29/26, 12:03 PM DEBUG: Base Rate Generator called for process: Start Exhaust
+10/29/26, 12:03 PM DEBUG: Normalizing sourcebin-weighted emission rates
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 1 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 2 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 3 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 4 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 5 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 6 of 6
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 1 of 2
+10/29/26, 12:03 PM INFO: Running Statement: #SBWEIGHTEDDISTANCERATE: 1 of 1
+10/29/26, 12:03 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 1
+10/29/26, 12:03 PM INFO: Running Statement: #CORE: 2 of 2
+10/29/26, 12:03 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 1
+10/29/26, 12:03 PM INFO: BRG SBW running concurrent statements...
+10/29/26, 12:03 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 3
+10/29/26, 12:03 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 3 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 3 of 3
+10/29/26, 12:04 PM INFO: BRG SBW done running concurrent statements.
+10/29/26, 12:04 PM INFO: Statements done: 17
+10/29/26, 12:04 PM INFO: Avg. Concurrent Statements: 1.5294117647058822
+10/29/26, 12:04 PM INFO: Max. Concurrent Statements: 3
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator.generateSBWeightedEmissionRates ms=6089
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator: processID=2, applyAvgSpeedDistribution=false, useAvgSpeedBin=false, applySourceBinDistribution=true, keepOpModeID=true, avgSpeedFraction="", sumSBD="*sumSBD"
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator processID=2, roadTypeID=0, yearID=2025 has 104 iterations
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing concurrent SQL...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 1 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 1 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 2 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 3 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 4 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 5 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 6 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 7 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 8 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 9 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 10 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 11 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 12 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 13 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 14 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 15 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 16 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 17 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 18 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 19 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 20 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 21 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 22 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 23 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 24 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 25 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 26 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 27 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 28 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 29 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 30 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 31 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 32 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 33 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 34 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 35 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 36 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 37 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 38 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 39 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 40 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 41 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 42 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 43 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 44 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 45 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 46 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 47 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 48 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 49 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 50 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 51 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 52 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 53 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 54 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 55 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 56 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 57 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 58 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 59 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 60 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 61 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 62 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 63 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 64 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 65 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 66 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 67 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 68 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 69 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 70 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 71 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 72 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 73 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 74 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 75 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 76 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 77 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 78 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 79 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 80 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 81 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 82 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 83 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 84 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 85 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 86 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 87 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 88 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 89 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 90 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 91 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 92 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 93 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 94 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 95 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 96 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 97 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 98 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 99 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 100 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 101 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 102 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 103 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 104 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 105 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 106 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 107 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 108 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 109 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 110 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 111 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 112 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 113 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 114 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 115 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 116 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 117 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 118 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 119 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 120 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 121 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 122 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 123 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 124 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 125 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 126 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 127 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 128 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 129 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 130 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 131 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 132 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 133 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 134 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 135 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 136 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 137 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 138 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 139 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 140 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 141 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 142 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 143 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 144 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 145 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 146 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 147 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 148 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 149 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 150 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 151 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 152 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 153 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 154 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 155 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 156 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 157 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 158 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 159 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 2 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 160 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 161 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 162 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 163 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 164 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 165 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 166 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 167 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 3 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 4 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 168 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 169 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 170 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 171 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 5 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 172 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 173 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 174 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 175 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 6 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 7 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 176 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 177 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 178 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 179 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 180 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 181 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 182 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 183 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 8 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 184 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 185 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 186 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 187 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 188 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 189 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 190 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 191 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 9 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 192 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 193 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 194 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 195 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 196 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 197 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 198 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 10 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 199 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 11 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 200 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 201 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 202 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 203 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 204 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 205 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 206 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 207 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 208 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 12 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 13 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 14 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 15 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 16 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 17 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 18 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 19 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 20 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 21 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 22 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 23 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 24 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 25 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 26 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 27 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 28 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 29 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 30 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 31 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 32 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 33 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 34 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 35 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 36 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 37 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 38 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 39 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 40 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 41 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 42 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 43 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 44 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 45 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 46 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 47 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 48 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 49 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 50 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 51 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 52 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 53 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 54 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 55 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 56 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 57 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 58 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 59 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 60 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 61 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 62 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 63 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 64 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 65 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 66 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 67 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 68 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 69 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 70 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 71 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 72 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 73 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 74 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 75 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 76 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 77 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 78 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 79 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 80 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 81 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 82 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 83 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 84 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 85 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 86 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 87 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 88 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 89 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 90 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 91 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 92 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 93 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 94 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 95 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 96 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 97 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 98 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 99 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 100 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 101 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 102 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 103 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 104 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator concurrent SQL done.
+10/29/26, 12:04 PM INFO: Statements done: 312
+10/29/26, 12:04 PM INFO: Avg. Concurrent Statements: 1.6987179487179487
+10/29/26, 12:04 PM INFO: Max. Concurrent Statements: 2
+10/29/26, 12:04 PM DEBUG: Done with BaseRateGenerator processID=2, roadTypeID=0, yearID=2025
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator.generateBaseRates ms=11292
+10/29/26, 12:04 PM INFO: BRG setupTime=9 bundleTime=17381
+10/29/26, 12:04 PM INFO: Created bundle 1 for workers to process
+10/29/26, 12:04 PM DEBUG: Worker found 1 TODO files.
+10/29/26, 12:04 PM INFO: Found work file: 6090982796216141064_1_TODO
+10/29/26, 12:04 PM INFO: Worker Processing 6090982796216141064_1_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:04 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:04 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:04 PM INFO: SO2 Calculator doExecute method IS successful
+10/29/26, 12:04 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:04 PM INFO: Extracted 4137 rows from MOVESWorkerActivityOutput
+10/29/26, 12:04 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:04 PM INFO: Worker finished processing: 6090982796216141064_1_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: Worker is idle
+10/29/26, 12:04 PM INFO: Received bundle from worker
+10/29/26, 12:04 PM INFO: Bundle 1 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:04 PM INFO: Created bundle 2 for workers to process
+10/29/26, 12:04 PM INFO: newSBDG setupTime=1 bundleTime=438
+10/29/26, 12:04 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:04 PM INFO: TAG AverageSpeed ms=186
+10/29/26, 12:04 PM INFO: TAG SHOByAgeRoadwayHour ms=522
+10/29/26, 12:04 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:04 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:04 PM INFO: TAG SHPByAgeHour ms=288
+10/29/26, 12:04 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=3442 focusTime=0
+10/29/26, 12:04 PM DEBUG: Normalizing sourcebin-weighted emission rates
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 1 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 2 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 3 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 4 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 5 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 6 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 1 of 2
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDDISTANCERATE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 2 of 2
+10/29/26, 12:04 PM INFO: BRG SBW running concurrent statements...
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 3 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 3 of 3
+10/29/26, 12:04 PM INFO: BRG SBW done running concurrent statements.
+10/29/26, 12:04 PM INFO: Statements done: 17
+10/29/26, 12:04 PM INFO: Avg. Concurrent Statements: 1.5294117647058822
+10/29/26, 12:04 PM INFO: Max. Concurrent Statements: 3
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator.generateSBWeightedEmissionRates ms=5631
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator: processID=2, applyAvgSpeedDistribution=false, useAvgSpeedBin=false, applySourceBinDistribution=true, keepOpModeID=true, avgSpeedFraction="", sumSBD="*sumSBD"
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator processID=2, roadTypeID=0, yearID=2025 has 104 iterations
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing concurrent SQL...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 1 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 1 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 2 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 3 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 4 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 5 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 6 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 7 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 8 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 9 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 10 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 11 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 12 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 13 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 14 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 15 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 16 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 17 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 18 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 19 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 20 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 21 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 22 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 23 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 24 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 25 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 26 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 27 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 28 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 29 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 30 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 31 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 32 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 33 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 34 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 35 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 36 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 37 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 38 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 39 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 40 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 41 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 42 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 43 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 44 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 45 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 46 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 47 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 48 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 2 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 49 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 50 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 51 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 52 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 53 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 54 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 55 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 56 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 57 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 58 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 59 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 60 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 61 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 62 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 63 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 64 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 65 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 66 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 67 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 68 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 69 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 70 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 71 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 72 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 73 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 74 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 75 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 76 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 77 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 78 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 79 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 80 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 81 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 82 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 83 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 84 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 85 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 86 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 87 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 88 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 89 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 90 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 3 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 91 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 92 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 93 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 94 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 95 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 96 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 97 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 98 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 99 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 100 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 101 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 102 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 103 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 104 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 105 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 106 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 107 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 108 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 109 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 110 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 111 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 112 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 113 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 114 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 115 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 116 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 117 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 118 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 119 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 120 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 121 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 122 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 123 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 124 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 125 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 126 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 127 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 128 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 129 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 130 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 131 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 132 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 4 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 133 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 134 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 135 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 136 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 137 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 138 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 139 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 140 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 141 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 142 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 143 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 144 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 145 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 146 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 147 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 148 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 149 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 150 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 151 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 152 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 153 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 154 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 155 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 156 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 157 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 158 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 159 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 5 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 160 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 161 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 162 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 163 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 6 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 164 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 165 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 166 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 167 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 7 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 168 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 169 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 170 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 171 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 172 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 173 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 8 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 174 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 175 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 176 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 177 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 178 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 179 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 9 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 180 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 181 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 182 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 183 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 10 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 184 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 185 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 186 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 187 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 188 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 189 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 190 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 11 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 191 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 192 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 193 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 12 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 194 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 195 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 196 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 197 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 13 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 198 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 199 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 200 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 201 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 202 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 203 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 204 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 205 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 206 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 207 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 208 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 14 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 15 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 16 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 17 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 18 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 19 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 20 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 21 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 22 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 23 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 24 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 25 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 26 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 27 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 28 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 29 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 30 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 31 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 32 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 33 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 34 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 35 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 36 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 37 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 38 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 39 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 40 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 41 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 42 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 43 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 44 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 45 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 46 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 47 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 48 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 49 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 50 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 51 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 52 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 53 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 54 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 55 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 56 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 57 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 58 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 59 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 60 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 61 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 62 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: Worker found 1 TODO files.
+10/29/26, 12:04 PM INFO: Found work file: 6090982796216141064_2_TODO
+10/29/26, 12:04 PM INFO: Worker Processing 6090982796216141064_2_InProgress_2025709327810579660
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 63 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 64 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:04 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:04 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 65 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:04 PM DEBUG: Command line = 
+10/29/26, 12:04 PM DEBUG: -isproject=0
+10/29/26, 12:04 PM DEBUG: 
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 66 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 67 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 68 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 69 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 70 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 71 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 72 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 73 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 74 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 75 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 76 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 77 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 78 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 79 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 80 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 81 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 82 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 83 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 84 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 85 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 86 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 87 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 88 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 89 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 90 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 91 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 92 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 93 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 94 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 95 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 96 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 97 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 98 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 99 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 100 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 101 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 102 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 103 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 104 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator concurrent SQL done.
+10/29/26, 12:04 PM INFO: Statements done: 312
+10/29/26, 12:04 PM INFO: Avg. Concurrent Statements: 1.6987179487179487
+10/29/26, 12:04 PM INFO: Max. Concurrent Statements: 2
+10/29/26, 12:04 PM DEBUG: Done with BaseRateGenerator processID=2, roadTypeID=0, yearID=2025
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator.generateBaseRates ms=9877
+10/29/26, 12:04 PM INFO: BRG setupTime=9 bundleTime=32889
+10/29/26, 12:04 PM INFO: Created bundle 3 for workers to process
+10/29/26, 12:04 PM INFO: Time spent on running the external calculator (sec): 2.7060000896453857
+10/29/26, 12:04 PM INFO: Time spent on absorbing external calculator results (sec): 0.7020000219345093
+10/29/26, 12:04 PM INFO: SO2 Calculator doExecute method IS successful
+10/29/26, 12:04 PM INFO: Created bundle 4 for workers to process
+10/29/26, 12:04 PM INFO: newSBDG setupTime=1 bundleTime=441
+10/29/26, 12:04 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:04 PM INFO: TAG AverageSpeed ms=191
+10/29/26, 12:04 PM INFO: TAG SHOByAgeRoadwayHour ms=525
+10/29/26, 12:04 PM INFO: Extracted 51704 rows from MOVESWorkerOutput
+10/29/26, 12:04 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:04 PM INFO: TAG IdleHoursByAgeHour ms=31
+10/29/26, 12:04 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:04 PM INFO: Extracted 51704 rows from BaseRateOutput
+10/29/26, 12:04 PM INFO: TAG SHPByAgeHour ms=290
+10/29/26, 12:04 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=4665 focusTime=0
+10/29/26, 12:04 PM DEBUG: Normalizing sourcebin-weighted emission rates
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 1 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 2 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 3 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 4 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 5 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 6 of 6
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 1 of 2
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDDISTANCERATE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 1
+10/29/26, 12:04 PM INFO: Running Statement: #CORE: 2 of 2
+10/29/26, 12:04 PM INFO: BRG SBW running concurrent statements...
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 1 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 1 of 3
+10/29/26, 12:04 PM INFO: Worker finished processing: 6090982796216141064_2_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: Worker is idle
+10/29/26, 12:04 PM DEBUG: Worker found 2 TODO files.
+10/29/26, 12:04 PM INFO: Found work file: 6090982796216141064_3_TODO
+10/29/26, 12:04 PM INFO: Worker Processing 6090982796216141064_3_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:04 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:04 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:04 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:04 PM INFO: Extracted 4137 rows from MOVESWorkerActivityOutput
+10/29/26, 12:04 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:04 PM INFO: Worker finished processing: 6090982796216141064_3_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: Worker is idle
+10/29/26, 12:04 PM INFO: Found work file: 6090982796216141064_4_TODO
+10/29/26, 12:04 PM INFO: Worker Processing 6090982796216141064_4_InProgress_2025709327810579660
+10/29/26, 12:04 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:04 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:04 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:04 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:04 PM DEBUG: Command line = 
+10/29/26, 12:04 PM DEBUG: -isproject=0
+10/29/26, 12:04 PM DEBUG: 
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATE: 3 of 3
+10/29/26, 12:04 PM INFO: Received bundle from worker
+10/29/26, 12:04 PM INFO: Bundle 2 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:04 PM INFO: Time spent on running the external calculator (sec): 2.374000072479248
+10/29/26, 12:04 PM INFO: Received bundle from worker
+10/29/26, 12:04 PM INFO: Bundle 3 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:04 PM INFO: Time spent on absorbing external calculator results (sec): 0.703000009059906
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 2 of 3
+10/29/26, 12:04 PM INFO: Running Statement: #SBWEIGHTEDEMISSIONRATEBYAGE: 3 of 3
+10/29/26, 12:04 PM INFO: BRG SBW done running concurrent statements.
+10/29/26, 12:04 PM INFO: Statements done: 17
+10/29/26, 12:04 PM INFO: Avg. Concurrent Statements: 1.7058823529411764
+10/29/26, 12:04 PM INFO: Max. Concurrent Statements: 4
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator.generateSBWeightedEmissionRates ms=5710
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator: processID=2, applyAvgSpeedDistribution=false, useAvgSpeedBin=false, applySourceBinDistribution=true, keepOpModeID=true, avgSpeedFraction="", sumSBD="*sumSBD"
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator processID=2, roadTypeID=0, yearID=2025 has 104 iterations
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing concurrent SQL...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 1 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 1 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 2 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 3 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 4 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 5 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 6 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 7 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 8 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 9 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 10 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 11 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 12 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 13 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 14 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 15 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 16 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 17 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 18 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 19 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 20 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 21 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 22 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 23 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 24 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 25 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 26 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 27 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 28 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 29 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 30 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 31 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 32 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 33 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 34 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 35 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 36 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 37 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 38 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 39 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 40 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 41 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 42 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 43 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 44 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 45 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 46 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 47 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 48 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 49 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 50 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 51 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 52 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 53 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 54 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 55 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 2 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 56 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 57 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 58 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 59 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 60 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 61 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 62 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 63 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 64 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 65 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 66 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 67 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 68 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 69 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 70 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 71 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 72 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 73 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 74 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 75 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 76 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 77 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 78 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 79 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 80 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 81 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 82 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 83 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 84 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 85 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 86 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 87 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 88 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 89 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 90 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 91 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 92 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 93 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 94 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 95 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 96 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 97 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 98 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 99 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 100 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 101 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 102 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 103 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 104 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 105 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 106 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 107 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 108 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 109 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 3 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 110 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 111 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 112 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 113 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 114 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 115 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 116 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 117 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 118 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 119 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 120 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 121 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 122 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 123 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 124 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 125 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 126 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 127 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 128 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 129 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 130 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 131 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 132 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 133 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 134 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 135 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 136 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 137 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 138 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 139 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 140 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 141 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 142 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 143 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 144 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 145 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 146 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 147 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 148 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 149 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 4 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 150 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 151 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 152 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 153 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 154 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 155 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 156 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 157 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 158 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 159 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 160 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 5 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 161 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 162 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 163 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 6 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 164 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 165 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 166 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 167 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 7 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 168 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 169 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 170 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 171 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 8 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 172 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 173 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 174 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 175 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 176 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 177 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 178 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 179 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 9 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 180 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 181 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 182 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 183 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 10 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 184 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 185 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 186 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 187 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 11 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 188 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 189 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 190 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 191 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 12 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 192 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 193 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 194 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 195 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 13 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 196 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 197 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 198 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 199 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 200 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 201 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 202 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 203 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 14 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 204 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 205 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 206 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 207 of 208
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATE: 208 of 208
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 15 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 16 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 17 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 18 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 19 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 20 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 21 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 22 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 23 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 24 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 25 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 26 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 27 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 28 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 29 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 30 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 31 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 32 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 33 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 34 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:04 PM INFO: Running Statement: #BASERATEBYAGE: 35 of 104
+10/29/26, 12:04 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 36 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 37 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 38 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 39 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 40 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 41 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 42 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 43 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 44 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 45 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 46 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 47 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 48 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 49 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM INFO: Extracted 51704 rows from MOVESWorkerOutput
+10/29/26, 12:05 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 50 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM INFO: Extracted 51704 rows from BaseRateOutput
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 51 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 52 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM INFO: Worker finished processing: 6090982796216141064_4_InProgress_2025709327810579660
+10/29/26, 12:05 PM INFO: Worker is idle
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 53 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM INFO: Received bundle from worker
+10/29/26, 12:05 PM INFO: Bundle 4 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 54 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 55 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 56 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 57 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 58 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 59 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 60 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 61 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 62 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 63 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 64 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 65 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 66 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 67 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 68 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 69 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 70 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 71 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 72 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 73 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 74 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 75 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 76 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 77 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 78 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 79 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 80 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 81 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 82 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 83 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 84 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 85 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 86 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 87 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 88 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 89 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 90 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 91 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 92 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 93 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 94 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 95 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 96 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 97 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 98 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 99 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 100 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 101 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 102 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 103 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM INFO: Running Statement: #BASERATEBYAGE: 104 of 104
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper...
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator executing BaseRateByAgeHelper Done
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator concurrent SQL done.
+10/29/26, 12:05 PM INFO: Statements done: 312
+10/29/26, 12:05 PM INFO: Avg. Concurrent Statements: 1.7083333333333333
+10/29/26, 12:05 PM INFO: Max. Concurrent Statements: 2
+10/29/26, 12:05 PM DEBUG: Done with BaseRateGenerator processID=2, roadTypeID=0, yearID=2025
+10/29/26, 12:05 PM DEBUG: BaseRateGenerator.generateBaseRates ms=9627
+10/29/26, 12:05 PM INFO: BRG setupTime=9 bundleTime=48226
+10/29/26, 12:05 PM INFO: Created bundle 5 for workers to process
+10/29/26, 12:05 PM INFO: SO2 Calculator doExecute method IS successful
+10/29/26, 12:05 PM INFO: Created bundle 6 for workers to process
+10/29/26, 12:05 PM DEBUG: Worker found 2 TODO files.
+10/29/26, 12:05 PM INFO: Found work file: 6090982796216141064_5_TODO
+10/29/26, 12:05 PM INFO: Worker Processing 6090982796216141064_5_InProgress_2025709327810579660
+10/29/26, 12:05 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:05 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:05 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:05 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:05 PM INFO: Extracted 4137 rows from MOVESWorkerActivityOutput
+10/29/26, 12:05 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:05 PM INFO: Worker finished processing: 6090982796216141064_5_InProgress_2025709327810579660
+10/29/26, 12:05 PM INFO: Worker is idle
+10/29/26, 12:05 PM INFO: Found work file: 6090982796216141064_6_TODO
+10/29/26, 12:05 PM INFO: Worker Processing 6090982796216141064_6_InProgress_2025709327810579660
+10/29/26, 12:05 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:05 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:05 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:05 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:05 PM DEBUG: Command line = 
+10/29/26, 12:05 PM DEBUG: -isproject=0
+10/29/26, 12:05 PM DEBUG: 
+10/29/26, 12:05 PM INFO: Received bundle from worker
+10/29/26, 12:05 PM INFO: Bundle 5 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:05 PM INFO: Time spent on running the external calculator (sec): 2.5739998817443848
+10/29/26, 12:05 PM INFO: Time spent on absorbing external calculator results (sec): 0.7080000042915344
+10/29/26, 12:05 PM INFO: Extracted 51704 rows from MOVESWorkerOutput
+10/29/26, 12:05 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:05 PM INFO: Extracted 51704 rows from BaseRateOutput
+10/29/26, 12:05 PM INFO: Worker finished processing: 6090982796216141064_6_InProgress_2025709327810579660
+10/29/26, 12:05 PM INFO: Worker is idle
+10/29/26, 12:05 PM INFO: Received bundle from worker
+10/29/26, 12:05 PM INFO: Bundle 6 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:06 PM INFO: TTG-4a
+10/29/26, 12:06 PM INFO: TTG-4a loopCount=5000
+10/29/26, 12:06 PM INFO: TTG-4a loopCount=10000
+10/29/26, 12:06 PM INFO: TTG-4a loopCount=15000
+10/29/26, 12:06 PM INFO: TTG-4a loopCount=20000
+10/29/26, 12:06 PM INFO: TTG-4a loopCount=25000
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=30000
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=35000
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=40000
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=45000
+10/29/26, 12:07 PM INFO: TTG-4a final loopCount=48905
+10/29/26, 12:07 PM INFO: TTG-4a Done
+10/29/26, 12:07 PM INFO: EOF svth cursor#1, rows=33397
+10/29/26, 12:07 PM INFO: EOF hotSoak cursor#1, rows=769199
+10/29/26, 12:07 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=154846
+10/29/26, 12:07 PM DEBUG: newSBD Generator called for process: Evap Permeation
+10/29/26, 12:07 PM DEBUG: Processing pollutant-process: Non-Methane Hydrocarbons - Evap Permeation
+10/29/26, 12:07 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Hydrocarbons - Evap Permeation because there is no SourceTypePolProcess information for it.
+10/29/26, 12:07 PM DEBUG: Processing pollutant-process: Non-Methane Organic Gases - Evap Permeation
+10/29/26, 12:07 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Organic Gases - Evap Permeation because there is no SourceTypePolProcess information for it.
+10/29/26, 12:07 PM DEBUG: Processing pollutant-process: Total Gaseous Hydrocarbons - Evap Permeation
+10/29/26, 12:07 PM DEBUG: Processing pollutant-process: Total Organic Gases - Evap Permeation
+10/29/26, 12:07 PM DEBUG: No SourceBinDistribution for pollutant-process Total Organic Gases - Evap Permeation because there is no SourceTypePolProcess information for it.
+10/29/26, 12:07 PM DEBUG: Processing pollutant-process: Volatile Organic Compounds - Evap Permeation
+10/29/26, 12:07 PM DEBUG: No SourceBinDistribution for pollutant-process Volatile Organic Compounds - Evap Permeation because there is no SourceTypePolProcess information for it.
+10/29/26, 12:07 PM INFO: newSBDG setupTime=1 bundleTime=292
+10/29/26, 12:07 PM INFO: TAG SourceTypeHour2 ms=4
+10/29/26, 12:07 PM INFO: TAG AverageSpeed ms=209
+10/29/26, 12:07 PM INFO: TAG SHOByAgeRoadwayHour ms=545
+10/29/26, 12:07 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:07 PM INFO: TAG StartsByAgeHour ms=40
+10/29/26, 12:07 PM INFO: TAG SHPByAgeHour ms=298
+10/29/26, 12:07 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=5870 focusTime=0
+10/29/26, 12:07 PM INFO: Created bundle 7 for workers to process
+10/29/26, 12:07 PM INFO: EEOMDG setupTime=0 totalTime=24
+10/29/26, 12:07 PM INFO: Created bundle 8 for workers to process
+10/29/26, 12:07 PM INFO: TTG-4a
+10/29/26, 12:07 PM DEBUG: Worker found 2 TODO files.
+10/29/26, 12:07 PM INFO: Found work file: 6090982796216141064_7_TODO
+10/29/26, 12:07 PM INFO: Worker Processing 6090982796216141064_7_InProgress_2025709327810579660
+10/29/26, 12:07 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:07 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:07 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:07 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:07 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:07 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:07 PM INFO: Worker finished processing: 6090982796216141064_7_InProgress_2025709327810579660
+10/29/26, 12:07 PM INFO: Worker is idle
+10/29/26, 12:07 PM INFO: Found work file: 6090982796216141064_8_TODO
+10/29/26, 12:07 PM INFO: Worker Processing 6090982796216141064_8_InProgress_2025709327810579660
+10/29/26, 12:07 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:07 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:07 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:07 PM INFO: Received bundle from worker
+10/29/26, 12:07 PM INFO: Bundle 7 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=5000
+10/29/26, 12:07 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:07 PM DEBUG: Command line = 
+10/29/26, 12:07 PM DEBUG: -isproject=0
+10/29/26, 12:07 PM DEBUG: 
+10/29/26, 12:07 PM INFO: Time spent on running the external calculator (sec): 0.3630000054836273
+10/29/26, 12:07 PM INFO: Time spent on absorbing external calculator results (sec): 0.003000000026077032
+10/29/26, 12:07 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:07 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:07 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:07 PM INFO: Worker finished processing: 6090982796216141064_8_InProgress_2025709327810579660
+10/29/26, 12:07 PM INFO: Worker is idle
+10/29/26, 12:07 PM INFO: TTG-4a loopCount=10000
+10/29/26, 12:08 PM INFO: Received bundle from worker
+10/29/26, 12:08 PM INFO: Bundle 8 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=15000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=20000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=25000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=30000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=35000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=40000
+10/29/26, 12:08 PM INFO: TTG-4a loopCount=45000
+10/29/26, 12:08 PM INFO: TTG-4a final loopCount=48905
+10/29/26, 12:09 PM INFO: TTG-4a Done
+10/29/26, 12:09 PM INFO: EOF svth cursor#1, rows=33397
+10/29/26, 12:09 PM INFO: EOF hotSoak cursor#1, rows=757803
+10/29/26, 12:09 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=239348
+10/29/26, 12:09 PM INFO: newSBDG setupTime=1 bundleTime=90
+10/29/26, 12:09 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:09 PM INFO: TAG AverageSpeed ms=192
+10/29/26, 12:09 PM INFO: TAG SHOByAgeRoadwayHour ms=539
+10/29/26, 12:09 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:09 PM INFO: TAG StartsByAgeHour ms=40
+10/29/26, 12:09 PM INFO: TAG SHPByAgeHour ms=293
+10/29/26, 12:09 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=7033 focusTime=0
+10/29/26, 12:09 PM INFO: Created bundle 9 for workers to process
+10/29/26, 12:09 PM INFO: EEOMDG setupTime=0 totalTime=42
+10/29/26, 12:09 PM DEBUG: Worker found 1 TODO files.
+10/29/26, 12:09 PM INFO: Found work file: 6090982796216141064_9_TODO
+10/29/26, 12:09 PM INFO: Created bundle 10 for workers to process
+10/29/26, 12:09 PM INFO: Worker Processing 6090982796216141064_9_InProgress_2025709327810579660
+10/29/26, 12:09 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:09 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:09 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:09 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:09 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:09 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:09 PM INFO: Worker finished processing: 6090982796216141064_9_InProgress_2025709327810579660
+10/29/26, 12:09 PM INFO: Worker is idle
+10/29/26, 12:09 PM DEBUG: Worker found 1 TODO files.
+10/29/26, 12:09 PM INFO: Found work file: 6090982796216141064_10_TODO
+10/29/26, 12:09 PM INFO: TTG-4a
+10/29/26, 12:09 PM INFO: Worker Processing 6090982796216141064_10_InProgress_2025709327810579660
+10/29/26, 12:09 PM INFO: Received bundle from worker
+10/29/26, 12:09 PM INFO: Bundle 9 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:09 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:09 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:09 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=5000
+10/29/26, 12:09 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:09 PM DEBUG: Command line = 
+10/29/26, 12:09 PM DEBUG: -isproject=0
+10/29/26, 12:09 PM DEBUG: 
+10/29/26, 12:09 PM INFO: Time spent on running the external calculator (sec): 0.421999990940094
+10/29/26, 12:09 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:09 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:09 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:09 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:09 PM INFO: Worker finished processing: 6090982796216141064_10_InProgress_2025709327810579660
+10/29/26, 12:09 PM INFO: Worker is idle
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=10000
+10/29/26, 12:09 PM INFO: Received bundle from worker
+10/29/26, 12:09 PM INFO: Bundle 10 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=15000
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=20000
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=25000
+10/29/26, 12:09 PM INFO: TTG-4a loopCount=30000
+10/29/26, 12:10 PM INFO: TTG-4a loopCount=35000
+10/29/26, 12:10 PM INFO: TTG-4a loopCount=40000
+10/29/26, 12:10 PM INFO: TTG-4a loopCount=45000
+10/29/26, 12:10 PM INFO: TTG-4a final loopCount=48905
+10/29/26, 12:10 PM INFO: TTG-4a Done
+10/29/26, 12:10 PM INFO: EOF svth cursor#1, rows=33397
+10/29/26, 12:10 PM INFO: EOF hotSoak cursor#1, rows=756447
+10/29/26, 12:10 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322352
+10/29/26, 12:10 PM INFO: newSBDG setupTime=1 bundleTime=93
+10/29/26, 12:10 PM INFO: TAG SourceTypeHour2 ms=6
+10/29/26, 12:10 PM INFO: TAG AverageSpeed ms=196
+10/29/26, 12:10 PM INFO: TAG SHOByAgeRoadwayHour ms=594
+10/29/26, 12:10 PM INFO: TAG IdleHoursByAgeHour ms=34
+10/29/26, 12:10 PM INFO: TAG StartsByAgeHour ms=43
+10/29/26, 12:10 PM INFO: TAG SHPByAgeHour ms=309
+10/29/26, 12:10 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=8281 focusTime=0
+10/29/26, 12:10 PM INFO: Created bundle 11 for workers to process
+10/29/26, 12:10 PM INFO: EEOMDG setupTime=0 totalTime=59
+10/29/26, 12:10 PM INFO: Created bundle 12 for workers to process
+10/29/26, 12:10 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322353
+10/29/26, 12:10 PM DEBUG: newSBD Generator called for process: Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: Processing pollutant-process: Non-Methane Hydrocarbons - Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Hydrocarbons - Evap Fuel Vapor Venting because there is no SourceTypePolProcess information for it.
+10/29/26, 12:10 PM DEBUG: Processing pollutant-process: Non-Methane Organic Gases - Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Organic Gases - Evap Fuel Vapor Venting because there is no SourceTypePolProcess information for it.
+10/29/26, 12:10 PM DEBUG: Processing pollutant-process: Total Gaseous Hydrocarbons - Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: Processing pollutant-process: Total Organic Gases - Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: No SourceBinDistribution for pollutant-process Total Organic Gases - Evap Fuel Vapor Venting because there is no SourceTypePolProcess information for it.
+10/29/26, 12:10 PM DEBUG: Processing pollutant-process: Volatile Organic Compounds - Evap Fuel Vapor Venting
+10/29/26, 12:10 PM DEBUG: No SourceBinDistribution for pollutant-process Volatile Organic Compounds - Evap Fuel Vapor Venting because there is no SourceTypePolProcess information for it.
+10/29/26, 12:10 PM INFO: newSBDG setupTime=1 bundleTime=400
+10/29/26, 12:10 PM INFO: TankFuelGenerator setupTime=0 totalTime=25
+10/29/26, 12:10 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:10 PM INFO: TAG AverageSpeed ms=196
+10/29/26, 12:10 PM DEBUG: Worker found 2 TODO files.
+10/29/26, 12:10 PM INFO: Found work file: 6090982796216141064_11_TODO
+10/29/26, 12:10 PM INFO: Worker Processing 6090982796216141064_11_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:10 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:10 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:10 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:10 PM INFO: Worker finished processing: 6090982796216141064_11_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: Worker is idle
+10/29/26, 12:10 PM INFO: Found work file: 6090982796216141064_12_TODO
+10/29/26, 12:10 PM INFO: Worker Processing 6090982796216141064_12_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: TAG SHOByAgeRoadwayHour ms=581
+10/29/26, 12:10 PM INFO: TAG IdleHoursByAgeHour ms=34
+10/29/26, 12:10 PM INFO: Received bundle from worker
+10/29/26, 12:10 PM INFO: Bundle 11 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:10 PM INFO: TAG StartsByAgeHour ms=41
+10/29/26, 12:10 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:10 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:10 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:10 PM INFO: TAG SHPByAgeHour ms=376
+10/29/26, 12:10 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=9519 focusTime=0
+10/29/26, 12:10 PM INFO: Created bundle 13 for workers to process
+10/29/26, 12:10 PM INFO: EEOMDG setupTime=0 totalTime=77
+10/29/26, 12:10 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:10 PM DEBUG: Command line = 
+10/29/26, 12:10 PM DEBUG: -isproject=0
+10/29/26, 12:10 PM DEBUG: 
+10/29/26, 12:10 PM INFO: Time spent on running the external calculator (sec): 0.3799999952316284
+10/29/26, 12:10 PM INFO: Time spent on absorbing external calculator results (sec): 0.003000000026077032
+10/29/26, 12:10 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:10 PM INFO: Worker finished processing: 6090982796216141064_12_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: Worker is idle
+10/29/26, 12:10 PM DEBUG: Worker found 1 TODO files.
+10/29/26, 12:10 PM INFO: Found work file: 6090982796216141064_13_TODO
+10/29/26, 12:10 PM INFO: Worker Processing 6090982796216141064_13_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:10 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:10 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:10 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:10 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:10 PM INFO: Worker finished processing: 6090982796216141064_13_InProgress_2025709327810579660
+10/29/26, 12:10 PM INFO: Worker is idle
+10/29/26, 12:10 PM INFO: Received bundle from worker
+10/29/26, 12:10 PM INFO: Bundle 12 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:10 PM INFO: Received bundle from worker
+10/29/26, 12:10 PM INFO: Bundle 13 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:10 PM INFO: Created bundle 14 for workers to process
+10/29/26, 12:10 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322354
+10/29/26, 12:10 PM INFO: newSBDG setupTime=1 bundleTime=115
+10/29/26, 12:10 PM INFO: TankFuelGenerator setupTime=0 totalTime=48
+10/29/26, 12:10 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:10 PM INFO: TAG AverageSpeed ms=197
+10/29/26, 12:10 PM INFO: TAG SHOByAgeRoadwayHour ms=548
+10/29/26, 12:10 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:10 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:11 PM INFO: TAG SHPByAgeHour ms=307
+10/29/26, 12:11 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=10649 focusTime=0
+10/29/26, 12:11 PM INFO: Created bundle 15 for workers to process
+10/29/26, 12:11 PM INFO: EEOMDG setupTime=0 totalTime=95
+10/29/26, 12:11 PM INFO: Created bundle 16 for workers to process
+10/29/26, 12:11 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322355
+10/29/26, 12:11 PM INFO: newSBDG setupTime=1 bundleTime=115
+10/29/26, 12:11 PM INFO: TankFuelGenerator setupTime=0 totalTime=69
+10/29/26, 12:11 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:11 PM INFO: TAG AverageSpeed ms=194
+10/29/26, 12:11 PM INFO: TAG SHOByAgeRoadwayHour ms=549
+10/29/26, 12:11 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:11 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:11 PM INFO: TAG SHPByAgeHour ms=298
+10/29/26, 12:11 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=11770 focusTime=0
+10/29/26, 12:11 PM INFO: Created bundle 17 for workers to process
+10/29/26, 12:11 PM INFO: EEOMDG setupTime=0 totalTime=112
+10/29/26, 12:11 PM INFO: Created bundle 18 for workers to process
+10/29/26, 12:11 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322356
+10/29/26, 12:11 PM DEBUG: newSBD Generator called for process: Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: Processing pollutant-process: Non-Methane Hydrocarbons - Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Hydrocarbons - Evap Fuel Leaks because there is no SourceTypePolProcess information for it.
+10/29/26, 12:11 PM DEBUG: Processing pollutant-process: Non-Methane Organic Gases - Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: No SourceBinDistribution for pollutant-process Non-Methane Organic Gases - Evap Fuel Leaks because there is no SourceTypePolProcess information for it.
+10/29/26, 12:11 PM DEBUG: Processing pollutant-process: Total Gaseous Hydrocarbons - Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: Processing pollutant-process: Total Organic Gases - Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: No SourceBinDistribution for pollutant-process Total Organic Gases - Evap Fuel Leaks because there is no SourceTypePolProcess information for it.
+10/29/26, 12:11 PM DEBUG: Processing pollutant-process: Volatile Organic Compounds - Evap Fuel Leaks
+10/29/26, 12:11 PM DEBUG: No SourceBinDistribution for pollutant-process Volatile Organic Compounds - Evap Fuel Leaks because there is no SourceTypePolProcess information for it.
+10/29/26, 12:11 PM INFO: newSBDG setupTime=1 bundleTime=373
+10/29/26, 12:11 PM INFO: TankFuelGenerator setupTime=0 totalTime=91
+10/29/26, 12:11 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:11 PM INFO: TAG AverageSpeed ms=192
+10/29/26, 12:11 PM INFO: TAG SHOByAgeRoadwayHour ms=550
+10/29/26, 12:11 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:11 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:11 PM INFO: TAG SHPByAgeHour ms=294
+10/29/26, 12:11 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=12883 focusTime=0
+10/29/26, 12:11 PM INFO: Created bundle 19 for workers to process
+10/29/26, 12:11 PM INFO: EEOMDG setupTime=0 totalTime=129
+10/29/26, 12:11 PM INFO: Created bundle 20 for workers to process
+10/29/26, 12:11 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322357
+10/29/26, 12:11 PM INFO: newSBDG setupTime=1 bundleTime=115
+10/29/26, 12:11 PM INFO: TankFuelGenerator setupTime=0 totalTime=113
+10/29/26, 12:11 PM INFO: TAG SourceTypeHour2 ms=5
+10/29/26, 12:11 PM INFO: TAG AverageSpeed ms=192
+10/29/26, 12:11 PM INFO: TAG SHOByAgeRoadwayHour ms=544
+10/29/26, 12:11 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:11 PM INFO: TAG StartsByAgeHour ms=39
+10/29/26, 12:11 PM INFO: TAG SHPByAgeHour ms=295
+10/29/26, 12:11 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=13992 focusTime=0
+10/29/26, 12:11 PM INFO: Created bundle 21 for workers to process
+10/29/26, 12:11 PM INFO: EEOMDG setupTime=0 totalTime=147
+10/29/26, 12:11 PM INFO: Created bundle 22 for workers to process
+10/29/26, 12:11 PM INFO: TankTemperatureGenerator setupTime=0 totalTime=322358
+10/29/26, 12:11 PM INFO: newSBDG setupTime=1 bundleTime=114
+10/29/26, 12:11 PM INFO: TankFuelGenerator setupTime=0 totalTime=134
+10/29/26, 12:11 PM INFO: TAG SourceTypeHour2 ms=4
+10/29/26, 12:11 PM INFO: TAG AverageSpeed ms=193
+10/29/26, 12:11 PM INFO: TAG SHOByAgeRoadwayHour ms=555
+10/29/26, 12:11 PM INFO: TAG IdleHoursByAgeHour ms=32
+10/29/26, 12:11 PM INFO: TAG StartsByAgeHour ms=40
+10/29/26, 12:11 PM INFO: TAG SHPByAgeHour ms=298
+10/29/26, 12:11 PM INFO: TAG setupTime=29 growthTime=1214 bundleTime=15117 focusTime=0
+10/29/26, 12:11 PM INFO: Created bundle 23 for workers to process
+10/29/26, 12:11 PM INFO: EEOMDG setupTime=0 totalTime=165
+10/29/26, 12:11 PM INFO: Created bundle 24 for workers to process
+10/29/26, 12:11 PM INFO: Thread shutdown starting for class gov.epa.otaq.moves.master.framework.MasterLoop.
+10/29/26, 12:11 PM INFO: Thread shutdown starting for class gov.epa.otaq.moves.master.framework.MasterLoopableThread.
+10/29/26, 12:11 PM INFO: Thread shutdown complete for class gov.epa.otaq.moves.master.framework.MasterLoopableThread.
+10/29/26, 12:11 PM INFO: Thread shutdown complete for class gov.epa.otaq.moves.master.framework.MasterLoop.
+10/29/26, 12:11 PM DEBUG: Worker found 11 TODO files.
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_14_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_14_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 0.36399999260902405
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_14_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_15_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_15_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_15_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_16_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_16_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 14 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 15 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 0.4000000059604645
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_16_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_17_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_17_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_17_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_18_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_18_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 16 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 17 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 0.35199999809265137
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_18_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_19_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_19_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_19_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_20_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_20_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 18 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 19 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 3.8239998817443848
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.003000000026077032
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_20_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_21_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_21_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_21_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_22_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_22_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 20 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Bundle 21 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 0.36800000071525574
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_22_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_23_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_23_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_23_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Found work file: 6090982796216141064_24_TODO
+10/29/26, 12:11 PM INFO: Worker Processing 6090982796216141064_24_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: WorkerVersion=MOVES6.0.0
+10/29/26, 12:11 PM INFO: WorkerComputerID=amanan
+10/29/26, 12:11 PM INFO: WorkerID=2025709327810579660
+10/29/26, 12:11 PM DEBUG: Run /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/calc/externalcalculatorgo in /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/model/WorkerFolder/WorkerTemp
+10/29/26, 12:11 PM DEBUG: Command line = 
+10/29/26, 12:11 PM DEBUG: -isproject=0
+10/29/26, 12:11 PM DEBUG: 
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 22 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Time spent on running the external calculator (sec): 0.3720000088214874
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 23 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Time spent on absorbing external calculator results (sec): 0.004000000189989805
+10/29/26, 12:11 PM INFO: Extracted 5290 rows from MOVESWorkerOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from MOVESWorkerActivityOutput
+10/29/26, 12:11 PM INFO: Extracted 0 rows from BaseRateOutput
+10/29/26, 12:11 PM INFO: Worker finished processing: 6090982796216141064_24_InProgress_2025709327810579660
+10/29/26, 12:11 PM INFO: Worker is idle
+10/29/26, 12:11 PM INFO: Received bundle from worker
+10/29/26, 12:11 PM INFO: Bundle 24 is from worker: 'amanan'/'MOVES6.0.0'/'2025709327810579660'
+10/29/26, 12:11 PM INFO: Final aggregation is being done because the runspec includes Start Exhaust Total Organic Gases
+10/29/26, 12:11 PM INFO: Final Aggregation starting...
+10/29/26, 12:11 PM INFO: Final Aggregation complete.
+10/29/26, 12:11 PM INFO: Unit conversions starting...
+10/29/26, 12:11 PM INFO: Time Measurement System = Hours
+10/29/26, 12:11 PM INFO: Output Time Step = Hour
+10/29/26, 12:11 PM INFO: Output Time Step average hours = 1.0
+10/29/26, 12:11 PM INFO: Unit conversions done.
+10/29/26, 12:11 PM INFO: Final Post processing starting...
+10/29/26, 12:11 PM INFO: Analyzing mesoscale output tables
+10/29/26, 12:11 PM INFO: Zeroing null values in rate output tables
+10/29/26, 12:11 PM INFO: Done building rate output tables
+10/29/26, 12:11 PM INFO: Final Post processing done.
+10/29/26, 12:11 PM INFO: Removing data from BaseRateOutput per Advanced Performance Features setting...
+10/29/26, 12:11 PM INFO: Truncating empty BaseRateOutput per Advanced Performance Features setting.
+10/29/26, 12:11 PM INFO: Removed data from BaseRateOutput per Advanced Performance Features setting.
+10/29/26, 12:11 PM INFO: Removing data from BaseRateUnits per Advanced Performance Features setting...
+10/29/26, 12:11 PM INFO: Truncating empty BaseRateUnits per Advanced Performance Features setting.
+10/29/26, 12:11 PM INFO: Removed data from BaseRateUnits per Advanced Performance Features setting.
+10/29/26, 12:11 PM INFO: Unbundler has detected completion conditions. Exiting.
+10/29/26, 12:11 PM INFO: Generated bundles = 24 Retrieved bundles = 24
+10/29/26, 12:11 PM INFO: Thread shutdown starting for class gov.epa.otaq.moves.master.framework.EmissionCalculatorInboundUnbundler.
+10/29/26, 12:11 PM INFO: Thread shutdown complete for class gov.epa.otaq.moves.master.framework.EmissionCalculatorInboundUnbundler.
+10/29/26, 12:11 PM INFO: Thread shutdown starting for class gov.epa.otaq.moves.master.framework.HeartbeatDetectionThread.
+10/29/26, 12:11 PM INFO: Thread shutdown complete for class gov.epa.otaq.moves.master.framework.HeartbeatDetectionThread.
+MOVESCommandLine after runApplication
+10/29/26, 12:11 PM INFO: Thread shutdown starting for class gov.epa.otaq.moves.worker.framework.WorkerHeartbeatThread.
+10/29/26, 12:11 PM INFO: Thread shutdown complete for class gov.epa.otaq.moves.worker.framework.WorkerHeartbeatThread.
+MOVES finished in 9.3 min
+rateperdistance 0 rows
+rateperstart 155112 rows
+ratepervehicle 186852 rows
+rateperprofile 15870 rows
+movesrun 1 rows
+movesoutput 202722 rows
+movesactivityoutput 12411 rows
+zonemonthhour 6 rows
+exec_averagetanktemperature 3456 rows
+exec_coldsoakinitialhourfraction 8601 rows
+exec_coldsoaktanktemperature 72 rows
+exec_quarterhourtanktemperature 96 rows
+exec_fractionofoperating 26 rows
+exec_opmodedistributiontemp 78 rows
+exec_soakactivityfraction 156 rows
+exec_hotsoakopmodecount 312 rows
+exec_ttgeminutes 26 rows
+exec_ttgominutes 312 rows
+exec_tempvehandttg 13629 rows
+exec_samplevehicletrip 26958 rows
+exec_samplevehicletripbyhour 33397 rows
+exec_hotsoakeventbyhour 74914 rows
+exec_operatingtemperature 48905 rows
+exec_sourcehours 3180 rows
+exec_shp 3180 rows
+exec_shpbyagehour 12720 rows
+exec_shobyageroadwayhour 51168 rows
+exec_sourcetypeagepopulation 533 rows
+exec_stmytvvequations2025 2761 rows
+exec_tankvaporgencoeffs 4 rows
+exec_regclasssourcetypefraction 2761 rows
+exec_sourcetypemodelyeargroup 481 rows
+exec_temperatureprofileid 3 rows
+exec_zonemonthhour 72 rows
+exec_link 3 rows
+exec_zone 3 rows
+exec_averagetankgasoline 0 rows
+exec_samplevehiclesoaking 1872 rows
+DMV export complete: /home/sibarra/.hermes/profiles/aire/home/hermes_vein/moves_work/exports-dmv-events-timing

@@ -22,7 +22,7 @@
   PM2.5/PM10.
 - `movesr_region()`, `movesr_region_rates()`, `movesr_default_meteorology()`;
   DMV (DC-MD-VA) region.
-- DMV golden set generated with MOVES6 (`data-raw/dmv`): 3,233,238 factors
+- DMV golden set generated with MOVES6 (`data-raw/dmv`): 3,207,432 factors
   reproduced (running, start, brake, tire) within 8e-6.
 - Activity-weighting rule (zero-population ages give 0) and energy units.
 

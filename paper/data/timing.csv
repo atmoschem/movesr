@@ -1,0 +1,16 @@
+tool,workload,rep,wall_s,java_s,max_rss_mb
+moves,evap24,1,354.82,324,587.359375
+moves,events,1,593.22,558,686.3984375
+moves,running,1,3474.85,3324,798.7265625
+movesr,dc_evap24,1,54.22,,724.7890625
+movesr,dc_evap24,2,53.19,,728.546875
+movesr,dc_evap24,3,52.55,,722.63671875
+movesr,dc_evap24_simple,1,38.36,,688.02734375
+movesr,dc_evap24_simple,2,37.92,,686.5078125
+movesr,dc_evap24_simple,3,37.93,,688.6328125
+movesr,dmv_events,1,161.2,,751.39453125
+movesr,dmv_events,2,158.15,,817.96484375
+movesr,dmv_events,3,162.33,,818.0859375
+movesr,dmv_running,1,378.2,,2463.265625
+movesr,dmv_running,2,378.92,,2366.58984375
+movesr,dmv_running,3,374.92,,2426.4921875

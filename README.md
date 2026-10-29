@@ -20,15 +20,16 @@ emission inventory
 
 | Process | Function | Validation against MOVES6 |
 |---|---|---|
-| 1 Running exhaust | `movesr_running_rates()` | Washtenaw MI: 86,304 factors; DMV: 2,548,512 |
-| 2 Start exhaust | `movesr_start_rates()` | Washtenaw MI: 5,394; DMV: 155,190 |
+| 1 Running exhaust | `movesr_running_rates()` | Washtenaw MI: 86,304 factors; DMV: 2,522,784 |
+| 2 Start exhaust | `movesr_start_rates()` | Washtenaw MI: 5,394; DMV: 155,112 |
 | 9 Brakewear, 10 Tirewear | `movesr_running_rates(process_id = 9/10)` | DMV: 529,536 |
 | 11/12/13 Evaporative (parked) | `movesr_evap()` | DC 24 h: 190,440; DMV 16-17 h: 9,522 |
 | 11/12/13 Evaporative (driving) | `movesr_evap_running_rates()` | DMV: 761,760 |
 | 90/91 idle/APU, refueling, air toxics | not yet ported | — |
 
 Every MOVES factor in the golden sets is reproduced. Exhaust, brake and tire
-agree within 8e-6, the 6-significant-digit precision of MOVES output; evap
+agree within 8e-6, the 6-significant-digit precision of MOVES output (energy,
+written in joules, within 1.6e-5); evap
 within 7e-5, except 70 E85 vapor-venting rates (up to 9e-4) that are sensitive
 to single-precision tank temperatures.
 

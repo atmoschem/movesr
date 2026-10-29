@@ -1,0 +1,7 @@
+set,table,rows_first,rows_repeat,unmatched,identical_values,both_null,max_abs_rel
+exports-dmv,rateperdistance,3816960,3816960,0,3799062,2880,9.97824742066111e-06
+exports-dmv-events,rateperstart,155112,155112,0,155112,0,0
+exports-dmv-events,ratepervehicle,186852,186852,0,186218,630,7.31011709764751e-06
+exports-dmv-events,rateperprofile,15870,15870,0,15870,0,0
+exports-dmv-evap24,ratepervehicle,126960,126960,0,126960,0,0
+exports-dmv-evap24,rateperprofile,63480,63480,0,63480,0,0
